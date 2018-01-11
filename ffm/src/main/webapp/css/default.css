@@ -1,0 +1,29 @@
+.carousel-inner>.item>img{
+	width:100%;
+	height:480px;
+}
+.default-img{
+	width:inherit;
+	height:50px;
+}
+.carousel-caption{
+	top:10%;
+	text-align:left;
+}
+.carousel-img{
+	
+}
+body{
+	position:relative;
+}
+.affix{
+	top:20px;
+	width:100%;
+	z-index:9999!important;
+}
+.page-header{
+	
+}
+.none{
+    display:none;
+}
