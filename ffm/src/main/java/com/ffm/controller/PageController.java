@@ -11,6 +11,7 @@ public class PageController {
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("hello", "Welcome to FFM");
+		mv.addObject("title","FindForMe");
 		return mv;
 	}
 }

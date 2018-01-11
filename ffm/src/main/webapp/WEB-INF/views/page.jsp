@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>FindForMe</title>
+<title>${title}</title>
 </head>
 <body>
 	${contextRoot} says - ${hello}
