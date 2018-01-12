@@ -16,16 +16,16 @@ public class PageController {
 		return mv;
 	}
 	@RequestMapping(value = "/test")
-	public ModelAndView test(@RequestParam("hello")String hello) {
+	public ModelAndView test(@RequestParam(value = "hello", required = false)String hello) {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("hello", hello);
 		mv.addObject("title","FindForMe");
 		return mv;
 	}
 	@RequestMapping(value = "/login")
-	public ModelAndView login(@RequestParam("hello")String hello) {
-		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("hello", hello);
+	public ModelAndView login() {
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("hello", "index page");
 		mv.addObject("title","FindForMe");
 		return mv;
 	}
