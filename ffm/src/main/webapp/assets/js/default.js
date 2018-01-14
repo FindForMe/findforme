@@ -1,6 +1,27 @@
 $('document').ready(function(){
-	var signin = $('#default-signin-modal').html();
-	$('.default-signin').html(signin);
+	//solving active menu problem...
+	console.log('menu is '+menu);
+	switch(menu){
+	case 'About Us':
+		$('#about').addClass('active');
+		break;
+	case 'Hire Freelancer':
+		$('#hire').addClass('active');
+		break;
+	case 'Find Work':
+		$('#find').addClass('active');
+		break;
+	case 'Contact Us':
+		$('#contact').addClass('active');
+		break;
+	case 'FindForMe':
+		$('#home').addClass('active');
+		break;
+			
+	}
+	
+	//var signin = $('#default-signin-modal').html();
+	//$('.default-signin').html(signin);
 	//$('#default-signin .default-pass').remove('.glyphicon-eye-close');
 	
 	$('.default-eye').click(function(){
@@ -25,6 +46,6 @@ $('document').ready(function(){
             $('#search_table tr td').filter(function(){
                 $(this).toggle($(this).text().toLowerCase().indexOf(txt)>-1)
             });
-            
         });
+     
 }); 

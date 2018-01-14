@@ -9,10 +9,11 @@
 		</div>
 		<div class="collapse navbar-collapse" id="mynavbar">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="#">home</a></li>
-				<li><a href="#">hire freelancer</a></li>
-				<li><a href="#">find work</a></li>
-				<li><a href="#">how it works</a></li>
+				<li id="home"><a href="${contextRoot}/home">home</a></li>
+				<li id="hire"><a href="${contextRoot}/hire">hire freelancer</a></li>
+				<li id="find"><a href="${contextRoot}/find">find work</a></li>
+				<li id="about"><a href="${contextRoot}/about">how it works</a></li>
+				<li id="contact"><a href="${contextRoot}/contact">Contact Us</a></li>
 				<!--</ul>
                         <ul class="nav navbar-nav navbar-right">-->
 				
@@ -38,16 +39,16 @@
 			<div class="modal-body" id="default-signin-modal">
 				<form action="#">
 					<div class="form-group">
-						<label for="uname">Username</label> <input type="text" id="uname"
+						<label for="uname_modal">Username</label> <input type="text" id="uname_modal"
 							class="form-control" placeholder="Enter Username">
 					</div>
 					<div class="form-group">
-						<label for="upass">Password <span
+						<label for="upass_modal">Password <span
 							class="glyphicon glyphicon-eye-close default-eye"></span></label> <input
-							type="password" id="upass" class="default-pass form-control"
+							type="password" id="upass_modal" class="default-pass form-control"
 							placeholder="Enter Password">
 					</div>
-					<button type="button" class="btn btn-default" id="b_signin">sign
+					<button type="button" class="btn btn-default" id="b_signin_modal">sign
 						in</button>
 				</form>
 			</div>

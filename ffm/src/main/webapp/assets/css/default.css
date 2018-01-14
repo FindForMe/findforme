@@ -13,8 +13,13 @@
 .carousel-img{
 	
 }
+html{
+	height:100%;
+}
+
 body{
-	position:relative;
+	padding-top:70px;
+	height:100%;
 }
 .affix{
 	top:20px;
@@ -26,4 +31,16 @@ body{
 }
 .none{
     display:none;
+}
+.wrapper{
+	position:relative;
+	min-height:100%;
+}
+.content{
+	padding-bottom:60px;
+}
+.footer{
+	position:absolute;
+	bottom:10px;
+	height:60px;
 }
