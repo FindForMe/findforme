@@ -5,13 +5,14 @@
 				data-target="#mynavbar">
 				<span class="glyphicon glyphicon-list"></span>
 			</button>
-			<a><img src="${img}/logo.PNG" class="img-responsive default-img"></a>
+			<a class="navbar-brand" href="${contextRoot}/home"><img src="${img}/logo.PNG" class="img-responsive default-img"></a>
 		</div>
 		<div class="collapse navbar-collapse" id="mynavbar">
 			<ul class="nav navbar-nav navbar-right">
-				<li id="home"><a href="${contextRoot}/home">home</a></li>
-				<li id="hire"><a href="${contextRoot}/hire">hire freelancer</a></li>
-				<li id="find"><a href="${contextRoot}/find">find work</a></li>
+				<li id="home"><a href="${contextRoot}/home">Home</a></li>
+				<li id="listProducts">
+                      <a href="${contextRoot}/show/all/products">View Products</a>
+                 </li>				
 				<li id="about"><a href="${contextRoot}/about">how it works</a></li>
 				<li id="contact"><a href="${contextRoot}/contact">Contact Us</a></li>
 				<!--</ul>

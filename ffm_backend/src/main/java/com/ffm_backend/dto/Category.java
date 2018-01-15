@@ -1,4 +1,4 @@
-package com.ffm_backend.dao;
+package com.ffm_backend.dto;
 
 public class Category {
 
