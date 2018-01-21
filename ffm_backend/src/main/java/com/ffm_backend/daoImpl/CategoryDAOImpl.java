@@ -3,15 +3,23 @@ package com.ffm_backend.daoImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ffm_backend.dao.CategoryDAO;
 import com.ffm_backend.dto.Category;
 
-@Repository("catgoryDAO")
+@Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
 
+	@Autowired
+	SessionFactory factory;
+	
 	public static List<Category> list = new ArrayList<>();
+	public static List<Category> categories = new ArrayList<>();
+
 	
 	static {
 		Category category = new Category();
@@ -44,8 +52,29 @@ public class CategoryDAOImpl implements CategoryDAO {
 	
 	@Override
 	public List<Category> list() {
-		// TODO Auto-generated method stub
-		return list;
+		
+		Category category = new Category();
+		category.setName("Laptop");
+		category.setDescription("this is description for Laptop");
+		category.setImgageUrl("img");
+		
+		
+		
+		return categories;
+	}
+	
+	@Override
+	@Transactional
+	public boolean add(Category category) {
+		
+		try {
+			factory.getCurrentSession().persist(category);
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
 	}
 	
 	

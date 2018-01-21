@@ -13,9 +13,45 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.version>4.3.13.RELEASE</spring.version>
+    <mysql.version>6.0.6</mysql.version>
   </properties>
 
   <dependencies>
+  
+  <!-- mysql  -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>${mysql.version}</version>
+</dependency>
+  
+  
+  
+  <!-- Hibernate core -->
+  <dependency>
+  	<groupId>org.hibernate</groupId>
+  	<artifactId>hibernate-core</artifactId>
+  	<version>5.2.7.Final</version>
+  
+  </dependency>
+  
+ 
+  
+  <!-- Apache commons dbcp2 -->
+  <dependency>
+  	<groupId>org.apache.commons</groupId>
+  	<artifactId>commons-dbcp2</artifactId>
+  	<version>2.1.1</version>
+  
+  </dependency>
+
+	<!-- spring orm -->
+	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-orm</artifactId>
+  		<version>${spring.version}</version>
+  
+  </dependency>
 	
 	<!-- SPRING CONTEXT -->
 	
@@ -29,7 +65,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
