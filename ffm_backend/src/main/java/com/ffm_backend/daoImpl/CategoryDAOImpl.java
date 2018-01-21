@@ -15,7 +15,7 @@ import com.ffm_backend.dto.Category;
 public class CategoryDAOImpl implements CategoryDAO {
 
 	@Autowired
-	SessionFactory factory;
+	SessionFactory sessionFactory;
 	
 	public static List<Category> list = new ArrayList<>();
 	public static List<Category> categories = new ArrayList<>();
@@ -47,19 +47,29 @@ public class CategoryDAOImpl implements CategoryDAO {
 	
 	@Override
 	public Category get(int id) {
-		return this.list().get(id);
+		
+		Category category = new Category();
+		/*try {
+			category = sessionFactory.getCurrentSession()
+					.createQuery("from Category where id=:n")
+					.getResultList()
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}*/
+		
+		return category;
 	}
 	
 	@Override
 	public List<Category> list() {
-		
-		Category category = new Category();
-		category.setName("Laptop");
-		category.setDescription("this is description for Laptop");
-		category.setImgageUrl("img");
-		
-		
-		
+		try {
+		categories = sessionFactory.getCurrentSession()
+					.createQuery("from Category")
+						.getResultList();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		return categories;
 	}
 	
@@ -68,7 +78,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	public boolean add(Category category) {
 		
 		try {
-			factory.getCurrentSession().persist(category);
+			sessionFactory.getCurrentSession().persist(category);
 			return true;
 		}catch(Exception e) {
 			e.printStackTrace();

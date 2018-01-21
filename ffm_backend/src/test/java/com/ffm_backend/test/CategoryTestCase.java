@@ -10,7 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.ffm_backend.dao.CategoryDAO;
 import com.ffm_backend.dto.Category;
 
-public class CategoryDaoTest {
+public class CategoryTestCase {
 
 	
 	private static CategoryDAO categoryDAO;
