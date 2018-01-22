@@ -12,6 +12,7 @@ import com.ffm_backend.dao.CategoryDAO;
 import com.ffm_backend.dto.Category;
 
 @Repository("categoryDAO")
+@Transactional
 public class CategoryDAOImpl implements CategoryDAO {
 
 	@Autowired
@@ -48,7 +49,10 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public Category get(int id) {
 		
-		Category category = new Category();
+		//Category category = new Category();
+		
+			return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));
+		
 		/*try {
 			category = sessionFactory.getCurrentSession()
 					.createQuery("from Category where id=:n")
@@ -58,14 +62,14 @@ public class CategoryDAOImpl implements CategoryDAO {
 			e.printStackTrace();
 		}*/
 		
-		return category;
+		
 	}
 	
 	@Override
 	public List<Category> list() {
 		try {
 		categories = sessionFactory.getCurrentSession()
-					.createQuery("from Category")
+					.createQuery("from category",Category.class)
 						.getResultList();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -74,7 +78,6 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 	
 	@Override
-	@Transactional
 	public boolean add(Category category) {
 		
 		try {
@@ -86,6 +89,35 @@ public class CategoryDAOImpl implements CategoryDAO {
 		}
 		
 	}
+
+	@Override
+	public boolean update(Category category) {
+		
+		try {
+			sessionFactory.getCurrentSession()
+			.update(category);
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+
+	@Override
+	public boolean delete(Category category) {
+		
+		try {
+			sessionFactory.getCurrentSession().delete(category);
+			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+
+	
 	
 	
 	

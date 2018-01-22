@@ -20,11 +20,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class HibernateConfiguration {
 
 	//change below on the basis of DBMS you choose
-	private static final String DATABASE_URL = "jdbc:mysql://localhost/ffm";
+	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/mak_temp?zeroDateTimeBehavior=convertToNull";
 	private static final String DATABASE_DRIVER ="com.mysql.jdbc.Driver";
 	private static final String DATABASE_DIALECT = "org.hibernate.dialect.MySQL5Dialect";
 	private static final String DATABASE_USERNAME = "root";
-	private static final String DATABASE_PASSWORD = "mak123";
+	private static final String DATABASE_PASSWORD = "abcd1234";
 	
 	//dataSource bean will be available
 	@Bean("dataSource")
