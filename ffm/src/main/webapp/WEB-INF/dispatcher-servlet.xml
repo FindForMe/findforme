@@ -15,7 +15,7 @@
     http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd        
     ">
 
- <context:component-scan base-package="com.ffm.controller"></context:component-scan>                          
+ <context:component-scan base-package="com.ffm"></context:component-scan>                          
  <context:component-scan base-package="com.ffm_backend"></context:component-scan>   
   	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
   		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
