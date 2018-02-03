@@ -68,13 +68,14 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public List<Category> list() {
 		try {
-		categories = sessionFactory.getCurrentSession()
+		return sessionFactory.getCurrentSession()
 					.createQuery("from category",Category.class)
 						.getResultList();
 		}catch(Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-		return categories;
+		
 	}
 	
 	@Override

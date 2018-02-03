@@ -1,0 +1,117 @@
+package com.ffm_backend.dto;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity(name = "post")
+public class Post {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	private String title;
+	private String descriptioin;
+	
+	@Column(name = "user_id")
+	private int userId;
+	
+	@Column(name = "category_id")
+	private int categoryId;
+	
+	@Column(name = "image_url")
+	private String imgURl;
+	private boolean active = true;
+	
+	private Date created = new Date();
+	
+	private Date modified;
+	
+	private String rowId;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescriptioin() {
+		return descriptioin;
+	}
+
+	public void setDescriptioin(String descriptioin) {
+		this.descriptioin = descriptioin;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getImgURl() {
+		return imgURl;
+	}
+
+	public void setImgURl(String imgURl) {
+		this.imgURl = imgURl;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public Date getCreated() {
+		return created;
+	}
+
+	public void setCreated(Date created) {
+		this.created = created;
+	}
+
+	public Date getModified() {
+		return modified;
+	}
+
+	public void setModified(Date modified) {
+		this.modified = modified;
+	}
+
+	public String getRowId() {
+		return rowId;
+	}
+
+	public void setRowId(String rowId) {
+		this.rowId = rowId;
+	}
+	
+}

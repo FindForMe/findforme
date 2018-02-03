@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class HibernateConfiguration {
 
 	//change below on the basis of DBMS you choose
-	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/mak_temp?zeroDateTimeBehavior=convertToNull";
+	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/ffm?zeroDateTimeBehavior=convertToNull";
 	private static final String DATABASE_DRIVER ="com.mysql.jdbc.Driver";
 	private static final String DATABASE_DIALECT = "org.hibernate.dialect.MySQL5Dialect";
 	private static final String DATABASE_USERNAME = "root";
@@ -60,7 +60,7 @@ public class HibernateConfiguration {
 		properties.put("hibernate.dialect", DATABASE_DIALECT);
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
-		//properties.put("hibernate.hbm2ddl.auto", "create");
+		properties.put("hibernate.hbm2ddl.auto", "create");
 		
 		return properties;
 	}
