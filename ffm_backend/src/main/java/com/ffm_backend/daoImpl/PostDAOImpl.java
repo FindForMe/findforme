@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ffm_backend.dao.PostDAO;
 import com.ffm_backend.dto.Post;
 
+@Repository("postDAO")
 @Transactional
 public class PostDAOImpl implements PostDAO {
 
@@ -42,7 +44,11 @@ public class PostDAOImpl implements PostDAO {
 	public List<Post> list() {
 		
 		try {
-			return sessionFactory.getCurrentSession().createQuery("FROM Post",Post.class).getResultList();
+			
+			return sessionFactory.getCurrentSession()
+					.createQuery("FROM post",Post.class)
+					.getResultList();
+			
 		}catch(Exception ex) {
 			ex.printStackTrace();
 			return null;

@@ -47,5 +47,13 @@ $('document').ready(function(){
                 $(this).toggle($(this).text().toLowerCase().indexOf(txt)>-1)
             });
         });
-     
+     $('#dataTable').dataTable({
+    	 data:data,
+    	 columns:{
+    		 data:"image1",
+    		 data:"title1",
+    		 data:"cat1",
+    		 data:"user1",
+    	 }
+     });
 }); 

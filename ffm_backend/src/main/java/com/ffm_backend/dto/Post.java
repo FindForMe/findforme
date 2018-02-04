@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.ffm_backend.util.ffmUtil;
+
 @Entity(name = "post")
 public class Post {
 
@@ -16,6 +18,7 @@ public class Post {
 	private int id;
 	
 	private String title;
+	//private String shortDescription;//todo later
 	private String descriptioin;
 	
 	@Column(name = "user_id")
@@ -28,9 +31,9 @@ public class Post {
 	private String imgURl;
 	private boolean active = true;
 	
-	private Date created = new Date();
+	private String created = ffmUtil.genCurrDateTime();
 	
-	private Date modified;
+	private String modified;
 	
 	private String rowId;
 
@@ -90,19 +93,19 @@ public class Post {
 		this.active = active;
 	}
 
-	public Date getCreated() {
+	public String getCreated() {
 		return created;
 	}
 
-	public void setCreated(Date created) {
+	public void setCreated(String created) {
 		this.created = created;
 	}
 
-	public Date getModified() {
+	public String getModified() {
 		return modified;
 	}
 
-	public void setModified(Date modified) {
+	public void setModified(String modified) {
 		this.modified = modified;
 	}
 

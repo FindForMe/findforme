@@ -12,11 +12,36 @@
 					<ol class="breadcrumb">
 						<li><a href="${contextRoot}/index">Home</a></li>
 						<li>All Products</li>
-					
 					</ol>
 				</div>
-			
 			</div>
+			<hr>
+			<table class="table table-striped table-responsive" id="dataTable">
+				<thead>
+					<tr>
+						<th>Image</th>
+						<th>Title</th>
+						<th>Category</th>
+						<th>Posted By</th>
+						<th>View</th>
+						<th>Apply</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+					
+				<tfoot>
+					<tr>
+						<th>Image</th>
+						<th>Title</th>
+						<th>Category</th>
+						<th>Posted By</th>
+						<th>View</th>
+						<th>Apply</th>
+					</tr>
+				</tfoot>
+			</table>
+			
 		</div>
 	</div>
 

@@ -87,9 +87,12 @@
 			<!-- BootStrap core JavaScript-->
 			<script type="text/javascript" src="${js}/bootstrap.js"></script>
 	
+			<!-- jQueryData Table -->
+			<script type="text/javascript" src="${js}/datatables.js"></script>
 			<!-- Default JavaScript -->
 			<script type="text/javascript" src="${js}/default.js"></script>
-	
+			
+			
 		</div>
 	
 	</body>

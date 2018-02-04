@@ -61,7 +61,7 @@ public class PageController {
 		mv.addObject("userClickContact",true);
 		return mv;
 	}
-	@RequestMapping(value = "/show/all/products")
+	@RequestMapping(value = "/show/all/Post")
 	public ModelAndView showAllProducts() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title","All Products");
@@ -69,7 +69,7 @@ public class PageController {
 		mv.addObject("userClickAllProducts",true);
 		return mv;
 	}
-	@RequestMapping(value = "/show/category/{id}/products")
+	@RequestMapping(value = "/show/category/{id}/post")
 	public ModelAndView showCategoryProducts(@PathVariable int id) {
 		ModelAndView mv = new ModelAndView("page");
 		Category category = null;
