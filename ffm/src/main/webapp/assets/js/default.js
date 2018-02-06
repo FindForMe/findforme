@@ -47,8 +47,11 @@ $('document').ready(function(){
                 $(this).toggle($(this).text().toLowerCase().indexOf(txt)>-1)
             });
         });
+        
+        var data = "{title:'title1',description:'description of title 1',category:'1'}"
+        
      $('#dataTable').dataTable({
-    	 data:data,
+    	 //data:data,
     	 columns:{
     		 data:"image1",
     		 data:"title1",
