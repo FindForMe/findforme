@@ -13,13 +13,10 @@
 						<li><a href="${contextRoot}/index">Home</a></li>
 						<li><a href="${contextRoot}/show/all/products">All Products</a></li>
 						<li>${category.name}</li>
-					
 					</ol>
 				</div>
-			
 			</div>
 		</div>
 	</div>
-
 </div>
 

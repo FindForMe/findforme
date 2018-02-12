@@ -25,17 +25,24 @@ public class CategoryTestCase {
 		context.refresh();
 		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
 	}
-	/*@Test
+	@Test
 	public void categoryAddTest() {
 		
 		Category category = new Category();
-		category.setName("Mobile");
-		category.setDescription("this is Description for Mobile");
-		category.setImgageUrl("cat_1.jpg");
+		category.setName("Laptop");
+		category.setDescription("this is Description for Laptop");
+		category.setImgageUrl("cat_2.jpg");
 		//category.setId(1);
 		
 		assertEquals("category list has been added",true, categoryDAO.add(category));
-	}*/
+		category = new Category();
+		category.setName("TV");
+		category.setDescription("this is Description for TV");
+		category.setImgageUrl("cat_3.jpg");
+		//category.setId(1);
+		
+		assertEquals("category list has been added",true, categoryDAO.add(category));
+	}
 	
 	/*@Test
 	public void categoryGetTest() {
@@ -44,11 +51,11 @@ public class CategoryTestCase {
 		assertEquals("fetching result by id","Mobile",category.getName());
 		
 	}*/
-	@Test
+	/*@Test
 	public void categoryListGet() {
 		
 		assertEquals("fetching the result list ",2, categoryDAO.list().size());
-	}
+	}*/
 	/*
 	@Test
 	public void categoryUpdate() {

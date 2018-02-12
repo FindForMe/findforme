@@ -48,15 +48,36 @@ $('document').ready(function(){
             });
         });
         
-        var data = "{title:'title1',description:'description of title 1',category:'1'}"
+        var datat = "{image:'image',title:'title1',description:'description of title 1',category:'1'}"
         
-     $('#dataTable').dataTable({
-    	 //data:data,
-    	 columns:{
-    		 data:"image1",
-    		 data:"title1",
-    		 data:"cat1",
-    		 data:"user1",
-    	 }
-     });
+        	$table = $('#dataTable');
+        if($table.length){
+        	console.log('inside table length');
+        	$table.dataTable({
+           	 data:datat,
+           	 columns:[
+           		 {data:'image'},
+           		 {data:'title'},
+           		 {data:'description'},
+           		 {data:'category'},
+           		 {data:'test',
+       			 mRender:function(data,type,row){
+       				 return "date";
+       			 }},
+           		{data:'view',
+       			mRender:function(data,type,row){
+       				var str = '';
+       				str+='<button class="btn btn-default">View</button>';
+       				return str;
+       			}},
+           		{data:'apply',
+   				mRender:function(data,type,row){
+   					var str = '';
+   					str+='<button class="btn btn-default">Apply<button>'
+   					return str;
+   				}}
+           	 ]
+            });
+        }
+     
 }); 

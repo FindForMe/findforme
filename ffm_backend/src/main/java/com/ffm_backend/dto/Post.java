@@ -1,13 +1,12 @@
 package com.ffm_backend.dto;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ffm_backend.util.ffmUtil;
 
 @Entity(name = "post")
@@ -22,19 +21,21 @@ public class Post {
 	private String descriptioin;
 	
 	@Column(name = "user_id")
+	@JsonIgnore
 	private int userId;
 	
 	@Column(name = "category_id")
+	@JsonIgnore
 	private int categoryId;
 	
 	@Column(name = "image_url")
 	private String imgURl;
 	private boolean active = true;
-	
+	@JsonIgnore
 	private String created = ffmUtil.genCurrDateTime();
-	
+	@JsonIgnore
 	private String modified;
-	
+	@JsonIgnore
 	private String rowId;
 
 	public int getId() {
