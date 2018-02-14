@@ -66,7 +66,7 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title","All Products");
 		mv.addObject("categories",categoryDAO.list());
-		mv.addObject("userClickAllProducts",true);
+		mv.addObject("userClickAllPost",true);
 		return mv;
 	}
 	@RequestMapping(value = "/show/category/{id}/post")
@@ -77,7 +77,7 @@ public class PageController {
 		mv.addObject("title",category.getName());
 		mv.addObject("category",category);
 
-		mv.addObject("userClickShowProduct",true);
+		mv.addObject("userClickShowPost",true);
 		return mv;
 	}
 	

@@ -18,7 +18,7 @@ public class Post {
 	
 	private String title;
 	//private String shortDescription;//todo later
-	private String descriptioin;
+	private String description;
 	
 	@Column(name = "user_id")
 	@JsonIgnore
@@ -55,11 +55,11 @@ public class Post {
 	}
 
 	public String getDescriptioin() {
-		return descriptioin;
+		return description;
 	}
 
 	public void setDescriptioin(String descriptioin) {
-		this.descriptioin = descriptioin;
+		this.description = descriptioin;
 	}
 
 	public int getUserId() {

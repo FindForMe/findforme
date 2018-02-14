@@ -48,29 +48,37 @@ $('document').ready(function(){
             });
         });
         
-        var datat = "{image:'image',title:'title1',description:'description of title 1',category:'1'}"
+        //var tableData = "[{image:'image',title:'title1',description:'description of title 1',category:'1',test:'test',view:'view',apply:'apply'}]";
+        /*
+         * [{"id":1,"title":"Hello Title","descriptioin":"this is description of hello title","imgURl":"imgage.jpg","active":true},
+         * {"id":2,"title":"title2","descriptioin":"this is description of title1","imgURl":"imgage1.jpg","active":true}]
+         */
         
         	$table = $('#dataTable');
+        	var jsonurl = 'http://localhost:8080/ffm/json/data/all/post';
         if($table.length){
         	console.log('inside table length');
         	$table.dataTable({
-           	 data:datat,
+           	 ajax : {
+           		 url :jsonurl,
+           		 dataSrc : ''
+           	 },
            	 columns:[
-           		 {data:'image'},
+           		 {data:'imgURl'},
            		 {data:'title'},
-           		 {data:'description'},
-           		 {data:'category'},
-           		 {data:'test',
+           		 {data:'descriptioin'},
+           		 {data:'active'},
+           		 {data:'id',
        			 mRender:function(data,type,row){
        				 return "date";
        			 }},
-           		{data:'view',
+           		{data:'id',
        			mRender:function(data,type,row){
        				var str = '';
        				str+='<button class="btn btn-default">View</button>';
        				return str;
        			}},
-           		{data:'apply',
+           		{data:'id',
    				mRender:function(data,type,row){
    					var str = '';
    					str+='<button class="btn btn-default">Apply<button>'

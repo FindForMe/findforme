@@ -15,7 +15,7 @@
 						<th>Posted By</th>
 						<th>Date</th>
 						<th>View</th>
-						<th>Apply</th>
+						<th>Apply</th>'
 					</tr>
 				</thead>
 				<tbody>

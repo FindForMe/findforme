@@ -29,6 +29,8 @@
 		<!-- bootstrap readable theme -->
 		<link rel="stylesheet" href="${css}/bootstrap-readable-theme.css">
 		
+		<!-- datatable css -->
+		<link rel="stylesheet" href="${css}/dataTables.bootstrap.css">
 		<!-- default -->
 		<link rel="stylesheet" href="${css}/default.css">
 	
@@ -76,6 +78,14 @@
 				<!-- Loading Category Product -->
 				<c:if test="${userClickShowProduct == true}">
 					<%@include file="./singleProduct.jsp" %>
+				</c:if>
+				
+				<c:if test="${userClickShowAllPost == ture}">
+					<%@include file="./post.jsp" %>
+				</c:if>
+				
+				<c:if test="${userClickCategoryPost == ture}">
+					<%@include file="./singlePost.jsp" %>
 				</c:if>
 			</div>
 			<!-- Footer -->
