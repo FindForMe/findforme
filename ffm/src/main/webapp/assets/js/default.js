@@ -64,20 +64,29 @@ $('document').ready(function(){
            		 dataSrc : ''
            	 },
            	 columns:[
-           		 {data:'imgURl'},
+           		 {data:'imgURl',
+           			 bSortable : false,
+           			 mRender : function(data, type , row){
+           				 str = '';
+           				 str += '<img src="'+window.contextRoot+'/resources/img/'+data+'.PNG" class="imgDataTable">';
+           				 return str;
+           			 }
+           		 },
            		 {data:'title'},
            		 {data:'descriptioin'},
            		 {data:'active'},
            		 {data:'id',
-       			 mRender:function(data,type,row){
+       			  mRender:function(data,type,row){
        				 return "date";
-       			 }},
+       			 }
+           		 },
            		{data:'id',
-       			mRender:function(data,type,row){
+       				 mRender:function(data,type,row){
        				var str = '';
        				str+='<button class="btn btn-default">View</button>';
        				return str;
-       			}},
+       			}
+           		},
            		{data:'id',
    				mRender:function(data,type,row){
    					var str = '';

@@ -16,7 +16,7 @@
 		<script>
 			window.menu = '${title}';
 			window.contextRoot = "${contextRoot}";
-		
+			//window.imgRoot = "${img}";
 		</script>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -101,7 +101,6 @@
 			<script type="text/javascript" src="${js}/datatables.js"></script>
 			<!-- Default JavaScript -->
 			<script type="text/javascript" src="${js}/default.js"></script>
-			
 			
 		</div>
 	
