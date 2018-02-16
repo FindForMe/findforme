@@ -81,6 +81,7 @@ $('document').ready(function(){
        			 }
            		 },
            		{data:'id',
+           			 bSortabe : false,
        				 mRender:function(data,type,row){
        				var str = '';
        				str+='<button class="btn btn-default">View</button>';
@@ -88,7 +89,8 @@ $('document').ready(function(){
        			}
            		},
            		{data:'id',
-   				mRender:function(data,type,row){
+           			bSortable : false,
+           			mRender:function(data,type,row){
    					var str = '';
    					str+='<button class="btn btn-default">Apply<button>'
    					return str;

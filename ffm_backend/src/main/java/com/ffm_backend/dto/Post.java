@@ -20,6 +20,8 @@ public class Post {
 	//private String shortDescription;//todo later
 	private String description;
 	
+	//private String code
+	
 	@Column(name = "user_id")
 	@JsonIgnore
 	private int userId;
@@ -29,14 +31,22 @@ public class Post {
 	private int categoryId;
 	
 	@Column(name = "image_url")
-	private String imgURl;
+	private String code;
 	private boolean active = true;
 	@JsonIgnore
 	private String created = ffmUtil.genCurrDateTime();
 	@JsonIgnore
-	private String modified;
+	@Column(name = "expire_date")
+	private String expireDate;
 	@JsonIgnore
 	private String rowId;
+
+	private int view;
+	private int apply;
+	
+	public Post() {
+		this.code = ffmUtil.genImageCode("post");
+	}
 
 	public int getId() {
 		return id;
@@ -54,12 +64,12 @@ public class Post {
 		this.title = title;
 	}
 
-	public String getDescriptioin() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDescriptioin(String descriptioin) {
-		this.description = descriptioin;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public int getUserId() {
@@ -78,12 +88,12 @@ public class Post {
 		this.categoryId = categoryId;
 	}
 
-	public String getImgURl() {
-		return imgURl;
+	public String getCode() {
+		return code;
 	}
 
-	public void setImgURl(String imgURl) {
-		this.imgURl = imgURl;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public boolean isActive() {
@@ -102,12 +112,12 @@ public class Post {
 		this.created = created;
 	}
 
-	public String getModified() {
-		return modified;
+	public String getExpireDate() {
+		return expireDate;
 	}
 
-	public void setModified(String modified) {
-		this.modified = modified;
+	public void setExpireDate(String expireDate) {
+		this.expireDate = expireDate;
 	}
 
 	public String getRowId() {
@@ -117,5 +127,21 @@ public class Post {
 	public void setRowId(String rowId) {
 		this.rowId = rowId;
 	}
+
+	public int getView() {
+		return view;
+	}
+
+	public void setView(int view) {
+		this.view = view;
+	}
+
+	public int getApply() {
+		return apply;
+	}
+
+	public void setApply(int apply) {
+		this.apply = apply;
+	}
 	
-}
+	}

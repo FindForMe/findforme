@@ -25,10 +25,26 @@ public class ffmUtil {
 	public static String genRowID() {
 		return UUID.randomUUID()
 				.toString()
-				.replace("-","")
+				.replace("-","") 
 				.substring(0,32);
 	}
 	
+	public static String genImageCode(String caller) {
+		String code;
+		
+		switch(caller.toLowerCase()) {
+		case "post" :
+			code = "PST" + UUID.randomUUID().toString().substring(26).toUpperCase();
+			break;
+		case "user" :
+			code = "USR" + UUID.randomUUID().toString().substring(26).toUpperCase();
+			break;
+		default :
+			code = "DFT" + UUID.randomUUID().toString().substring(26).toUpperCase();
+		}
+		return code;
+		
+	}
 	public static String genCurrDateTime() {
 		
 		/*Date date = new Date();

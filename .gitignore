@@ -24,3 +24,6 @@ hs_err_pid*
 /ffm/target/
 /ffm_backend/target/
 /ffm/.settings
+/ffm_backend/.settings
+/ffm_backend/.classPath
+/nbproject/private/
