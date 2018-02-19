@@ -80,12 +80,16 @@
 					<%@include file="./singleProduct.jsp" %>
 				</c:if>
 				
-				<c:if test="${userClickShowAllPost == ture}">
+				<c:if test="${userClickAllPost == true}">
 					<%@include file="./post.jsp" %>
 				</c:if>
 				
-				<c:if test="${userClickCategoryPost == ture}">
+				<c:if test="${userClickCategoryPost == true}">
 					<%@include file="./singlePost.jsp" %>
+				</c:if>
+				
+				<c:if test="${userClickManagePost == true}">
+					<%@include file="./managePost.jsp" %>
 				</c:if>
 			</div>
 			<!-- Footer -->

@@ -64,7 +64,7 @@ public class PageController {
 	@RequestMapping(value = "/show/all/post")
 	public ModelAndView showAllProducts() {
 		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("title","All Products");
+		mv.addObject("title","All Post");
 		mv.addObject("categories",categoryDAO.list());
 		mv.addObject("userClickAllPost",true);
 		return mv;

@@ -9,39 +9,84 @@
 					<h4>Update Post</h4>
 				</div>
 				<div class="panel-body">
-					<sf:form action="${contextRoot}/manage/post" method="post" modelAttribute = "post">
+					<sf:form action="${contextRoot}/manage/post" method="post" modelAttribute = "post" enctype="multipart/form-data">
 						<div class="form-group">
 							<label for="title">Title</label>
-							<sf:input path="title" id="title" class="form-control"/>
+							<sf:input type="text" path="title" id="title" class="form-control"/>
 						</div>
 						<div class="form-group">
 							<label for="description">Description</label>
-							<sf:input path="description" class="form-control"/>
+							<sf:textarea path="description" class="form-control"/>
 						</div>
 						<div class="form-grpup">
 							<label for="expireDate">Post Expire Date</label> 
-							<sf:input path="expireDate" id="expireDate" class="form-control"/>
+							<sf:input type="text" path="expireDate" id="expireDate" class="form-control"/>
 						</div> 
 						<div class="form-group">
-							<label for="categoryId">Select Category</label>
-							<sf:select path="categoryId" items="${categories}" itemLable="name" itemValue="id" class="form-control"/> 
+							<label for="file">Select File</label>
+							<sf:input type="file" id="file" path="file" class="form-control"/>
 						</div>
-						<sf:hidden path="active"/>
-						<sf:hidden path="created"/>
-						<sf:hidden path="rowId"/>
-						<sf:hidden path="view"/>
-						<sf:hidden path="apply"/>
-						
+						<div class="form-group">
+							<label for="categoryId">Select Category</label>
+							<sf:select path="categoryId" items="${categories}" itemLabel="name" itemValue="id" class="form-control"/> 
+						</div>
+						<div class="text-right">
+							<sf:hidden path="id"/>
+							<sf:hidden path="code"/>
+							<sf:hidden path="active"/>
+							<sf:hidden path="created"/>
+							<sf:hidden path="rowId"/>
+							<sf:hidden path="view"/>
+							<sf:hidden path="apply"/>
+						</div>
+						<button type="button" class="btn btn-primary" data-target="#categoryModal" data-toggle="modal">Add New Category</button>
 						<sf:button class="btn btn-defualt" type="submit">Submit</sf:button>
 					</sf:form>
 				</div>
-			
 			</div>
-			
-			<sf:form modelAttribute = "postManage" >
+		</div>
+	</div>
+</div>
+
+<!-- Category Modal -->
+<div class="modal fade" id="categoryModal" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" type="button" data-dismiss="modal">&times;</button>
+				<h3 class="modal-title">Add New Category</h3>
+			</div>
+			<div class="modal-body">
+					
+			<sf:form id="categoryForm" class="form-horizontal" modelAttribute="category" action="${contextRoot}/manage/category" method="POST">
+	        	
+       			<div class="form-group">
+					<label class="control-label col-md-4">Name</label>
+					<div class="col-md-8 validate">
+						<sf:input type="text" path="name" class="form-control"
+							placeholder="Category Name" /> 
+					</div>
+				</div>
+       			
+       			<div class="form-group">				
+					<label class="control-label col-md-4">Description</label>
+					<div class="col-md-8 validate">
+						<sf:textarea path="description" class="form-control"
+							placeholder="Enter category description here!" /> 
+					</div>
+				</div>	        	        
+	        	<sf:hidden path="active"/>
+				<sf:hidden path="imgUrl"/>
+	        
+				<div class="form-group">				
+					<div class="col-md-offset-4 col-md-4">					
+						<input type="submit" name="submit" value="Save" class="btn btn-primary"/>						
+					</div>
+				</div>
+					        
+	        </sf:form>
 				
-			
-			</sf:form>
+			</div>
 		</div>
 	</div>
 </div>

@@ -5,6 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ffm_backend.util.ffmUtil;
@@ -16,8 +20,11 @@ public class Post {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@NotBlank(message = "Titlte should not be blank")
 	private String title;
 	//private String shortDescription;//todo later
+	
+	@NotBlank(message = "Description should not be blank")
 	private String description;
 	
 	//private String code
@@ -44,6 +51,17 @@ public class Post {
 	private int view;
 	private int apply;
 	
+	@Transient
+	private MultipartFile file;
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
 	public Post() {
 		this.code = ffmUtil.genImageCode("post");
 	}

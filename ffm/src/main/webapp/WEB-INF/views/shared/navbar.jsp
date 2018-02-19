@@ -10,18 +10,18 @@
 		<div class="collapse navbar-collapse" id="mynavbar">
 			<ul class="nav navbar-nav navbar-right">
 				<li id="home"><a href="${contextRoot}/home">Home</a></li>
-				<li id="listProducts">
+				<li id="viewPost">
                       <a href="${contextRoot}/show/all/post">View Post</a>
                  </li>				
 				<li id="about"><a href="${contextRoot}/about">how it works</a></li>
 				<li id="contact"><a href="${contextRoot}/contact">Contact Us</a></li>
+				<li id="managePost"><a href="${contextRoot}/manage/post">Manage Post</a></li>
 				<!--</ul>
                         <ul class="nav navbar-nav navbar-right">-->
 				
 				<li><a data-target="#mymodal" data-toggle="modal">sign in<span
 						class="glyphicon glyphicon-log-in"></span></a></li>
-				<li><a data-target="#modal-signup" data-toggle="modal">sign
-						up<span class="glyphicon glyphicon-user"></span>
+				<li><a data-target="#modal-signup" data-toggle="modal">sign up<span class="glyphicon glyphicon-user"></span>
 				</a></li>
 			</ul>
 		</div>

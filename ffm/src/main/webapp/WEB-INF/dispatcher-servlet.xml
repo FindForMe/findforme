@@ -23,15 +23,14 @@
   		<property name="suffix" value=".jsp"/>
   	
   	</bean>  
-  	
-  	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
+	  	
   	<!-- Loading static resources -->
 	<mvc:annotation-driven />
 	
 	<mvc:resources location="/assets/" mapping="/resources/**" /> 
 	
 	 <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
- 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
- 	</bean>
+ 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>
                   
 </beans>

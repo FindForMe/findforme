@@ -17,7 +17,12 @@ $('document').ready(function(){
 	case 'FindForMe':
 		$('#home').addClass('active');
 		break;
-			
+	case 'All Post':
+		$('#viewPost').addClass('active');
+		break;
+	case 'ManagePost' :
+		$('#managePost').addClass('active');
+	break;
 	}
 	
 	//var signin = $('#default-signin-modal').html();
@@ -64,16 +69,17 @@ $('document').ready(function(){
            		 dataSrc : ''
            	 },
            	 columns:[
-           		 {data:'imgURl',
+           		 {data:'code',
            			 bSortable : false,
            			 mRender : function(data, type , row){
            				 str = '';
-           				 str += '<img src="'+window.contextRoot+'/resources/img/'+data+'.PNG" class="imgDataTable">';
+           				 str += '<img src="'+window.contextRoot+'/resources/img/'+data+'.jpg" class="imgDataTable">';
+           				 console.log('img path : '+window.contextRoot+'/resources/img/'+data+'.jpg');
            				 return str;
            			 }
            		 },
            		 {data:'title'},
-           		 {data:'descriptioin'},
+           		 {data:'description'},
            		 {data:'active'},
            		 {data:'id',
        			  mRender:function(data,type,row){
@@ -81,7 +87,7 @@ $('document').ready(function(){
        			 }
            		 },
            		{data:'id',
-           			 bSortabe : false,
+           			 bSortable : false,
        				 mRender:function(data,type,row){
        				var str = '';
        				str+='<button class="btn btn-default">View</button>';
@@ -92,7 +98,7 @@ $('document').ready(function(){
            			bSortable : false,
            			mRender:function(data,type,row){
    					var str = '';
-   					str+='<button class="btn btn-default">Apply<button>'
+   					str+='<button class="btn btn-default">Apply<button>';
    					return str;
    				}}
            	 ]

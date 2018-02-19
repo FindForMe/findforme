@@ -20,7 +20,7 @@
 				</thead>
 				<tbody>
 				</tbody>
-				<tfoot>
+				<!-- <tfoot>
 					<tr>
 						<th>Image</th>
 						<th>Title</th>
@@ -30,7 +30,7 @@
 						<th>View</th>
 						<th>Apply</th>
 					</tr>
-				</tfoot>
+				</tfoot> -->
 			</table>
 		</div>
 	</div>
