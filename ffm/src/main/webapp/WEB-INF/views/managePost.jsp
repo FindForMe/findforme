@@ -2,6 +2,17 @@
 
 
 <div class="container">
+
+	<c:if test="${not empty message}">
+		<div class="row">
+			<div class="col-xs-12 col-md-offset-2 col-md-8">
+				<div class="alert alert-info alert-dismissable ">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					${message}
+				</div>
+			</div>
+		</div>
+	</c:if>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-primary">
@@ -13,14 +24,18 @@
 						<div class="form-group">
 							<label for="title">Title</label>
 							<sf:input type="text" path="title" id="title" class="form-control"/>
+							<sf:errors path="title" cssClass="help-block" element="em"/>
+							
 						</div>
 						<div class="form-group">
 							<label for="description">Description</label>
 							<sf:textarea path="description" class="form-control"/>
+							<sf:errors path="description" cssClass="help-block" element="em"/> 
 						</div>
 						<div class="form-grpup">
 							<label for="expireDate">Post Expire Date</label> 
 							<sf:input type="text" path="expireDate" id="expireDate" class="form-control"/>
+							<sf:errors path="expireDate" cssClass="help-block" element="em"/> 
 						</div> 
 						<div class="form-group">
 							<label for="file">Select File</label>
@@ -29,6 +44,7 @@
 						<div class="form-group">
 							<label for="categoryId">Select Category</label>
 							<sf:select path="categoryId" items="${categories}" itemLabel="name" itemValue="id" class="form-control"/> 
+							<sf:errors path="categoryId" cssClass="help-block" element="em"/> 
 						</div>
 						<div class="text-right">
 							<sf:hidden path="id"/>
@@ -76,7 +92,7 @@
 					</div>
 				</div>	        	        
 	        	<sf:hidden path="active"/>
-				<sf:hidden path="imgUrl"/>
+				<sf:hidden path="imgURL"/>
 	        
 				<div class="form-group">				
 					<div class="col-md-offset-4 col-md-4">					

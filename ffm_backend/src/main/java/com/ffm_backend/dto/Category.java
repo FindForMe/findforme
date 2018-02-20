@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.Type;
 
 @Entity(name = "category")
 public class Category implements  Serializable{
@@ -24,9 +27,12 @@ public class Category implements  Serializable{
 	private String description;
 	
 	@Column(name = "image_url")
-	private String imgageUrl;
+	private String imgURL;
 	
-	@Column(name = "active")
+	//@Type(type= "org.hibernate.type.NumericBooleanType")
+	//@org.hibernate.annotations.Type(type="true_false")
+	@Type(type="boolean")
+	@Column(name = "active", columnDefinition = "char(1) not null")
 	private boolean active = true;
 	
 	public int getId() {
@@ -47,21 +53,22 @@ public class Category implements  Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getImgageUrl() {
-		return imgageUrl;
+	
+	public String getImgURL() {
+		return imgURL;
 	}
-	public void setImgageUrl(String imgageUrl) {
-		this.imgageUrl = imgageUrl;
+	public void setImgURL(String imgURL) {
+		this.imgURL = imgURL;
 	}
 	public boolean isActive() {
 		return active;
 	}
-	public void setActive(boolean active) {
+	public void setActive(boolean active ) {
 		this.active = active;
 	}
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imgageUrl=" + imgageUrl
+		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imgURL=" + imgURL
 				+ ", active=" + active + "]";
 	}
 	

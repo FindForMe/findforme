@@ -79,15 +79,17 @@
 				<c:if test="${userClickShowProduct == true}">
 					<%@include file="./singleProduct.jsp" %>
 				</c:if>
-				
+				<!-- Loading All Post -->
 				<c:if test="${userClickAllPost == true}">
 					<%@include file="./post.jsp" %>
 				</c:if>
 				
+				<!-- Loading Single Post -->
 				<c:if test="${userClickCategoryPost == true}">
 					<%@include file="./singlePost.jsp" %>
 				</c:if>
 				
+				<!-- Loading ManagePost -->
 				<c:if test="${userClickManagePost == true}">
 					<%@include file="./managePost.jsp" %>
 				</c:if>

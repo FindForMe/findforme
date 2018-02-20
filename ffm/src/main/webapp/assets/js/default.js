@@ -59,8 +59,14 @@ $('document').ready(function(){
          * {"id":2,"title":"title2","descriptioin":"this is description of title1","imgURl":"imgage1.jpg","active":true}]
          */
         
+       // var URL = window.
+       
+        
+        /*
+         * showing post
+         */
         	$table = $('#dataTable');
-        	var jsonurl = 'http://localhost:8080/ffm/json/data/all/post';
+        	var jsonurl = window.contextRoot+'/json/data/all/post';
         if($table.length){
         	console.log('inside table length');
         	$table.dataTable({
@@ -74,7 +80,7 @@ $('document').ready(function(){
            			 mRender : function(data, type , row){
            				 str = '';
            				 str += '<img src="'+window.contextRoot+'/resources/img/'+data+'.jpg" class="imgDataTable">';
-           				 console.log('img path : '+window.contextRoot+'/resources/img/'+data+'.jpg');
+           				 //console.log('img path : '+window.contextRoot+'/resources/img/'+data+'.jpg');
            				 return str;
            			 }
            		 },
@@ -105,4 +111,14 @@ $('document').ready(function(){
             });
         }
      
+        /*
+         * dismiss alert after 3 sec
+         */
+       $alert = $('.alert');
+       if($alert.length){
+    	   setTimeout(() => {
+			$alert.fadeOut('slow');
+		}, 3000);
+       }
+        
 }); 

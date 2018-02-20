@@ -22,29 +22,29 @@ public class CategoryDAOImpl implements CategoryDAO {
 	public static List<Category> categories = new ArrayList<>();
 
 	
-	static {
+	/*static {
 		Category category = new Category();
 		category.setId(1);
 		category.setName("Mobile");
 		category.setDescription("this is Description for mobile");
-		category.setImgageUrl("cat_1.jpg");
+		category.setImgURL("cat_1.jpg");
 		list.add(category);
 		
 		category = new Category();
 		category.setId(2);
 		category.setName("Laptop");
 		category.setDescription("this is Description for laptop");
-		category.setImgageUrl("cat_2.jpg");
+		category.setImgURL("cat_2.jpg");
 		list.add(category);
 		
 		category = new Category();
 		category.setId(3);
 		category.setName("Talevision");
 		category.setDescription("this is Description for Talevision");
-		category.setImgageUrl("cat_3.jpg");
+		category.setImgURL("cat_3.jpg");
 		list.add(category);
 		
-	}
+	}*/
 	
 	@Override
 	public Category get(int id) {

@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ffm.exception.PostNotFoundException;
 import com.ffm_backend.dao.CategoryDAO;
+import com.ffm_backend.dao.PostDAO;
 import com.ffm_backend.dto.Category;
+import com.ffm_backend.dto.Post;
 
 @Controller
 public class PageController {
@@ -18,6 +21,9 @@ public class PageController {
 	
 	@Autowired
 	CategoryDAO categoryDAO;
+	@Autowired
+	PostDAO postDAO;
+	
 	
 	@RequestMapping(value = {"/", "/home", "/index"})
 	public ModelAndView index() {
@@ -69,6 +75,7 @@ public class PageController {
 		mv.addObject("userClickAllPost",true);
 		return mv;
 	}
+
 	@RequestMapping(value = "/show/category/{id}/post")
 	public ModelAndView showCategoryProducts(@PathVariable int id) {
 		ModelAndView mv = new ModelAndView("page");
@@ -77,8 +84,30 @@ public class PageController {
 		mv.addObject("title",category.getName());
 		mv.addObject("category",category);
 
-		mv.addObject("userClickShowPost",true);
+		mv.addObject("userClickSinglePost",true);
 		return mv;
 	}
+	
+	@RequestMapping(value = "/show/{id}/post")
+	public ModelAndView showSinglePost(@PathVariable int id)throws PostNotFoundException {
+		ModelAndView mv = new ModelAndView("page");
+		Post post = postDAO.get(id);
+		if(post == null) throw new PostNotFoundException();
+		//update the view 
+		post.setView(post.getView()+1);
+		postDAO.update(post);
+		mv.addObject("title",post.getId());
+		mv.addObject("post",post);
+		mv.addObject("userClickSinglePost",true);
+		
+		return mv;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 }
