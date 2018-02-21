@@ -51,13 +51,15 @@ public class Post {
 	private int view;
 	private int apply;
 	
+	
+	//Adding Transient Field fom Multipart file Upload
 	@Transient
 	private MultipartFile file;
 	
 	public MultipartFile getFile() {
 		return file;
 	}
-
+	
 	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
