@@ -12,6 +12,8 @@ public interface PostDAO {
 	
 	List<Post> list();
 	
+	List<Post> getPostByCategoryId(int categoryId );
+	
 	boolean update(Post post);
 	
 	boolean delete(Post post);

@@ -66,12 +66,22 @@ $('document').ready(function(){
          * showing post
          */
         	$table = $('#dataTable');
-        	var jsonurl = window.contextRoot+'/json/data/all/post';
+        	
         if($table.length){
         	console.log('inside table length');
+        	
+        	var jsonUrl = '';
+
+        	if(window.categoryId == ''){
+            	jsonUrl = window.contextRoot+'/json/data/all/post';
+        	}else{
+        		jsonUrl = window.contextRoot+'/json/data/category/'+window.categoryId+'/post';
+        	}
+
+        	console.log('jsonUrl : '+jsonUrl+'/n categoryId : '+window.categoryId);
         	$table.dataTable({
            	 ajax : {
-           		 url :jsonurl,
+           		 url :jsonUrl,
            		 dataSrc : ''
            	 },
            	 columns:[

@@ -82,9 +82,10 @@ public class PageController {
 		Category category = null;
 		category = categoryDAO.get(id);
 		mv.addObject("title",category.getName());
+		mv.addObject("categories",categoryDAO.list());
 		mv.addObject("category",category);
-
-		mv.addObject("userClickSinglePost",true);
+		
+		mv.addObject("userClickCategoryPost",true);
 		return mv;
 	}
 	

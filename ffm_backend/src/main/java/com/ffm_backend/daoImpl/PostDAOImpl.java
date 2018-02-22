@@ -3,6 +3,7 @@ package com.ffm_backend.daoImpl;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.sql.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -56,6 +57,17 @@ public class PostDAOImpl implements PostDAO {
 	}
 
 	@Override
+	public List<Post> getPostByCategoryId(int categoryId ){
+		String queryString = "FROM post where categoryId =:categoryId";
+		return sessionFactory.getCurrentSession()
+				.createQuery(queryString)
+				.setParameter("categoryId",categoryId)
+				.getResultList();
+	}
+
+	
+	
+	@Override
 	public boolean update(Post post) {
 	
 		try {
@@ -86,5 +98,6 @@ public class PostDAOImpl implements PostDAO {
 		return update(post);
 		
 	}
-
+	
+	
 }

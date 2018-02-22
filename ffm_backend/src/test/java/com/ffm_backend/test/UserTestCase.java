@@ -17,7 +17,6 @@ public class UserTestCase {
 	private static AnnotationConfigApplicationContext context;
 	
 	
-	
 	@BeforeClass
 	public static void init() {
 		 context = new AnnotationConfigApplicationContext();

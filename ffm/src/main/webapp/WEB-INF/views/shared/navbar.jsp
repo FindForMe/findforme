@@ -21,9 +21,19 @@
 				
 				<li><a data-target="#mymodal" data-toggle="modal">sign in<span
 						class="glyphicon glyphicon-log-in"></span></a></li>
-				<li><a data-target="#modal-signup" data-toggle="modal">sign up<span class="glyphicon glyphicon-user"></span>
+				<li><a data-target="#modal-signup" data-toggle="modal">sign up modal<span class="glyphicon glyphicon-user"></span>
 				</a></li>
 			</ul>
+			
+			 <ul class="nav navbar-nav navbar-right">
+			    	
+	                    <li id="signup">
+	                        <a href="${contextRoot}/membership">Sign Up</a>
+	                    </li>
+						<li id="login">
+	                        <a href="${contextRoot}/login">Login</a>
+	                    </li> 
+	          </ul>
 		</div>
 	</div>
 </nav>

@@ -80,12 +80,24 @@
 					<%@include file="./singleProduct.jsp" %>
 				</c:if>
 				<!-- Loading All Post -->
-				<c:if test="${userClickAllPost == true}">
+				<c:if test="${userClickAllPost == true or userClickCategoryPost == true }">
 					<%@include file="./post.jsp" %>
 				</c:if>
 				
+				<%-- <!-- Loading All Post -->
+				<c:if test="${userClickAllPost == true or userClickCategoryPost == true }">
+					<%@include file="./post.jsp" %>
+				</c:if> --%>
+				
+				<%-- 
+				<!-- Loading All Post -->
+				<c:if test=" ${userClickCategoryPost == true }">
+					<%@include file="./post.jsp" %>
+				</c:if> 
+				--%>
+				
 				<!-- Loading Single Post -->
-				<c:if test="${userClickCategoryPost == true}">
+				<c:if test="${userClickSinglePost == true}">
 					<%@include file="./singlePost.jsp" %>
 				</c:if>
 				
@@ -98,13 +110,22 @@
 			<%@include file="./shared/footer.jsp"%>
 			
 			<!-- jQuery -->
-			<script type="text/javascript" src="${js}/jquery-3.2.1.js"></script>
+			<script src="${js}/jquery.js"></script>
 	
-			<!-- BootStrap core JavaScript-->
-			<script type="text/javascript" src="${js}/bootstrap.js"></script>
+			<script src="${js}/jquery.validate.js"></script>
 	
-			<!-- jQueryData Table -->
-			<script type="text/javascript" src="${js}/datatables.js"></script>
+			<!-- Bootstrap Core JavaScript -->
+			<script src="${js}/bootstrap.min.js"></script>
+			
+			<!-- DataTable Plugin -->
+			<script src="${js}/jquery.dataTables.js"></script>
+			
+			<!-- DataTable Bootstrap Script -->
+			<script src="${js}/dataTables.bootstrap.js"></script>
+			
+			<!-- DataTable Bootstrap Script -->
+			<script src="${js}/bootbox.min.js"></script>
+			
 			<!-- Default JavaScript -->
 			<script type="text/javascript" src="${js}/default.js"></script>
 			

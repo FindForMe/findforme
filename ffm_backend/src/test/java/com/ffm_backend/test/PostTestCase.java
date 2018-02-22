@@ -27,7 +27,7 @@ public class PostTestCase {
 		
 	}
 	
-	@Test
+	/*@Test
 	public void add() {
 		post = new Post();
 		
@@ -41,7 +41,7 @@ public class PostTestCase {
 		
 		assertEquals("added a post in data base", true, postDAO.add(post));
 		
-	}
+	}*/
 	
 	
 	
@@ -63,5 +63,10 @@ public class PostTestCase {
 	public void getListTest() {
 		assertEquals("getting list of post",2,postDAO.list().size());
 	}*/
+	
+	@Test
+	public void getCategoryPostTest() {
+		assertEquals("failed to get categorypost", 1, postDAO.getPostByCategoryId(1).size());
+	}
 	
 }

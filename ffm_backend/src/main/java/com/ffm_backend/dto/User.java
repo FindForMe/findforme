@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import com.ffm_backend.util.ffmUtil;
 
@@ -24,6 +25,7 @@ public class User implements Serializable{
 	private int id;
 	private String email;
 	private String password;
+	@Transient
 	private String confirmPassword;
 	private String role;
 	private boolean active = true;
@@ -113,6 +115,7 @@ public class User implements Serializable{
 	public void setApply(Apply apply) {
 		this.apply = apply;
 	}
+	
 	
 	
 	
