@@ -21,11 +21,13 @@ public class RegisterModel implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public Address getaddress() {
+	public Address getAddress() {
 		return address;
 	}
-	public void setaddress(Address address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+	
 		
 }

@@ -17,18 +17,19 @@
 				<li id="contact"><a href="${contextRoot}/contact">Contact Us</a></li>
 				<li id="managePost"><a href="${contextRoot}/manage/post">Manage Post</a></li>
 				<!--</ul>
-                        <ul class="nav navbar-nav navbar-right">-->
+                        <ul class="nav navbar-nav navbar-right">
 				
 				<li><a data-target="#mymodal" data-toggle="modal">sign in<span
 						class="glyphicon glyphicon-log-in"></span></a></li>
 				<li><a data-target="#modal-signup" data-toggle="modal">sign up modal<span class="glyphicon glyphicon-user"></span>
 				</a></li>
+				-->
 			</ul>
 			
 			 <ul class="nav navbar-nav navbar-right">
 			    	
 	                    <li id="signup">
-	                        <a href="${contextRoot}/membership">Sign Up</a>
+	                        <a href="${contextRoot}/register">Sign Up</a>
 	                    </li>
 						<li id="login">
 	                        <a href="${contextRoot}/login">Login</a>
