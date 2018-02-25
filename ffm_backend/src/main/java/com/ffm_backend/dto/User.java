@@ -3,6 +3,7 @@ package com.ffm_backend.dto;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.ffm_backend.util.ffmUtil;
 
@@ -23,14 +26,31 @@ public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String firstName;
+
+	/*private String firstName;
 	private String lastName;
 	private String email;
+	private String contactNumber;*/
+	
+	@NotBlank(message = "Please enter first name!")
+	@Column(name = "first_name")
+	private String firstName;
+	@NotBlank(message = "Please enter last name!")
+	@Column(name = "last_name")
+	private String lastName;
+	@NotBlank(message = "Please enter email address!")	
+	private String email;
+	@NotBlank(message = "Please enter contact number!")
+	@Column(name = "contact_number")
 	private String contactNumber;
+	private String role;
+	@NotBlank(message = "Please enter password!")
 	private String password;
+	//private boolean enabled = true;
+	
 	@Transient
 	private String confirmPassword;
-	private String role;
+	
 	private boolean active = true;
 	private String created = ffmUtil.genCurrDateTime();
 	private String modified;

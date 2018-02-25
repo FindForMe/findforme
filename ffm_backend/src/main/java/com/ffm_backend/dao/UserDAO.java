@@ -15,16 +15,18 @@ public interface UserDAO {
 	boolean deleteUser(User user);
 	*/
 	
-	User getByEmail(String email);
-	User get(int id);
+	User getUserByEmail(String email);
+	User getUserById(int id);
 
-	boolean add(User user);
+	boolean addUser(User user);
 	
 	// adding and updating a new address
-	Address getAddress(int addressId);
+	Address getAddressById(int addressId);
 	boolean addAddress(Address address);
 	boolean updateAddress(Address address);
-	Address getBillingAddress(int userId);
-	List<Address> listShippingAddresses(int userId);
+	List<Address> getListAddressByUserId(int userid);
+	Address getPermanentAddress(int userid);
+	Address getCurrentAddress(int userid);
+	
 	
 }

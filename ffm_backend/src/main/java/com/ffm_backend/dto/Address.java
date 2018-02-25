@@ -7,7 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Address implements Serializable {
@@ -22,21 +23,40 @@ public class Address implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	private String addressLineOne;
+	/*private String addressLineOne;
 	private String addressLineTwo;
-	private String city;
+	private String city;*/
 	
+	
+	@NotBlank(message = "Please enter address line one!")
+	@Column(name = "address_line_one")
+	private String addressLineOne;
+	@NotBlank(message = "Please enter address line two!")	
+	@Column(name = "address_line_two")
+	private String addressLineTwo;
+	@NotBlank(message = "Please enter City!")	
+	private String city;
+	@NotBlank(message = "Please enter State!")	
+	private String state;
+	@NotBlank(message = "Please enter country!")	
+	private String country;
+	@Column(name ="postal_code")
+	@NotBlank(message = "Please enter Postal Code!")	
+	private String postalCode;
+	
+	/*
 	@Column(name = "postal_code")
 	private String postalCode;
 	private String state;
-	private String country;
+	private String country;*/
 	@Column(name = "is_permanent")
 	private boolean permanentAddress;
 	
-	@Column(name = "is_present")
-	private boolean presentAddress;
+	@Column(name = "is_current")
+	private boolean currentAddress;
 	@Column(name = "userid")
 	private int userId;
+	
 	public int getId() {
 		return id;
 	}
@@ -85,11 +105,11 @@ public class Address implements Serializable {
 	public void setPermanentAddress(boolean permanentAddress) {
 		this.permanentAddress = permanentAddress;
 	}
-	public boolean isPresentAddress() {
-		return presentAddress;
+	public boolean isCurrentAddress() {
+		return currentAddress;
 	}
-	public void setPresentAddress(boolean presentAddress) {
-		this.presentAddress = presentAddress;
+	public void setCurrentAddress(boolean currentAddress) {
+		this.currentAddress = currentAddress;
 	}
 	public int getUserId() {
 		return userId;
@@ -101,12 +121,8 @@ public class Address implements Serializable {
 	public String toString() {
 		return "Address [id=" + id + ", addressLineOne=" + addressLineOne + ", addressLineTwo=" + addressLineTwo
 				+ ", city=" + city + ", postalCode=" + postalCode + ", state=" + state + ", country=" + country
-				+ ", permanentAddress=" + permanentAddress + ", presentAddress=" + presentAddress + ", userId=" + userId
+				+ ", permanentAddress=" + permanentAddress + ", currentAddress=" + currentAddress + ", userId=" + userId
 				+ "]";
 	}
-	
-	
-
-	
 	
 }

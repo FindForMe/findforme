@@ -82,10 +82,10 @@
 								<label class="control-label col-md-4">Select Role</label>
 								<div class="col-md-8">
 									<label class="radio-inline">
-										<sf:radiobutton path="role" value="USER" checked="checked"/> User 				
+										<sf:radiobutton path="role" value="SEEKER" checked="checked"/> SEEKER 				
 									</label>
 									<label class="radio-inline">
-										<sf:radiobutton path="role" value="SUPPLIER"/> Supplier
+										<sf:radiobutton path="role" value="PROVIDER"/> PROVIDER
 									</label>
 								</div>
 							</div>							
