@@ -1,1 +1,4 @@
 /target/
+/ffm_backend/.classpath
+.project
+.class
