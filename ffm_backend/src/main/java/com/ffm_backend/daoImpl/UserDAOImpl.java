@@ -20,7 +20,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User getUserByEmail(String email) {
-		String selectQuery = "FROM User WHERE email=:email";
+		String selectQuery = "FROM user WHERE email=:email";
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(selectQuery,User.class)
@@ -95,7 +95,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public List<Address> getListAddressByUserId(int userId) {
 
-		String selectQuery = "FROM Address WHERE userId = :userId";
+		String selectQuery = "FROM address WHERE userId = :userId";
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(selectQuery, Address.class)
@@ -109,7 +109,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public Address getPermanentAddress(int userId) {
-		String selectQuery = "FROM Address WHERE userId = :userId AND permanentAddress = :permanentAddress";
+		String selectQuery = "FROM address WHERE userId = :userId AND permanentAddress = :permanentAddress";
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(selectQuery,Address.class)
@@ -124,7 +124,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public Address getCurrentAddress(int userId) {
-		String selectQuery = "FROM Address WHERE userId = :userId AND currentAddress = :currentAddress";
+		String selectQuery = "FROM address WHERE userId = :userId AND currentAddress = :currentAddress";
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(selectQuery,Address.class)

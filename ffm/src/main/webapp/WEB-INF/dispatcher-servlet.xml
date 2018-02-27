@@ -17,6 +17,7 @@
 
  <context:component-scan base-package="com.ffm"></context:component-scan>                          
  <context:component-scan base-package="com.ffm_backend"></context:component-scan>   
+
   	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
   		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
   		<property name="prefix" value="/WEB-INF/views/"/>
@@ -27,6 +28,16 @@
 	  	
   	<!-- Loading static resources -->
 	<mvc:annotation-driven />
+	
+	<!-- this is for rendering 
+	jsp pages if tomcat giving 404 
+	it can render jsp pages but
+	it does not rendered static resources 
+	this proble was in spring flow..
+	
+	<mvc:default-servlet-handler />
+	-->
+	 
 	
 	<mvc:resources location="/assets/" mapping="/resources/**" /> 
 	
