@@ -34,6 +34,8 @@
  	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>
       
     <!-- web flow configurations -->
+    
+    
     <wf:flow-executor id="flowExecutor"  />
 	
 	<wf:flow-registry id="flowRegistry" base-path="/WEB-INF/views/flows" flow-builder-services="flowBuilderServices">
@@ -59,5 +61,6 @@
  	</bean>	
  	
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/> 	
-                  
+     
+                
 </beans>

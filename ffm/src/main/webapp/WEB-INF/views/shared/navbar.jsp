@@ -1,3 +1,4 @@
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -15,25 +16,44 @@
                  </li>				
 				<li id="about"><a href="${contextRoot}/about">how it works</a></li>
 				<li id="contact"><a href="${contextRoot}/contact">Contact Us</a></li>
-				<li id="managePost"><a href="${contextRoot}/manage/post">Manage Post</a></li>
-				<!--</ul>
-                        <ul class="nav navbar-nav navbar-right">-->
-				
-				<li><a data-target="#mymodal" data-toggle="modal">sign in<span
-						class="glyphicon glyphicon-log-in"></span></a></li>
-				<li><a data-target="#modal-signup" data-toggle="modal">sign up modal<span class="glyphicon glyphicon-user"></span>
-				</a></li>
-			</ul>
-			
-			 <ul class="nav navbar-nav navbar-right">
-			    	
+				<security:authorize access="hasAuthority('ADMIN')">
+	                    <li id="manageProduct">
+	                        <a href="${contextRoot}/manage/product">Manage Product</a>
+	                    </li>					
+					</security:authorize>
+                </ul>
+			    
+			    <ul class="nav navbar-nav navbar-right">
+			    	<security:authorize access="isAnonymous()">
 	                    <li id="signup">
-	                        <a href="${contextRoot}/membership">Sign Up</a>
+	                        <a href="${contextRoot}/register">Sign Up</a>
 	                    </li>
 						<li id="login">
 	                        <a href="${contextRoot}/login">Login</a>
-	                    </li> 
-	          </ul>
+	                    </li> 			    	
+			    	</security:authorize>
+			    	<security:authorize access="isAuthenticated()">
+						<li class="dropdown" id="userModel">
+						  <a class="btn btn-default dropdown-toggle" href="javascript:void(0)" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						    ${userModel.fullName}
+						    <span class="caret"></span>
+						  </a>
+						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+		                    <security:authorize access="hasAuthority('USER')">
+			                    <li id="cart">
+			                        <a href="${contextRoot}/cart/show">
+			                        	<span class="glyphicon glyphicon-shopping-cart"></span>&#160;<span class="badge">test</span> - &#8377; test apply 
+			                        </a>
+			                    </li>		     
+			                	<li role="separator" class="divider"></li>	                                   
+		                    </security:authorize>
+							<li id="logout">
+		                        <a href="${contextRoot}/logout">Logout</a>
+		                    </li>                    			    	
+						  </ul>		
+						</li>    			    
+			    	</security:authorize>                    
+			   	          </ul>
 		</div>
 	</div>
 </nav>

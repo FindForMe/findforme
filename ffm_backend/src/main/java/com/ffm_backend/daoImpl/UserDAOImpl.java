@@ -19,54 +19,123 @@ public class UserDAOImpl implements UserDAO {
 	SessionFactory sessionFactory;
 
 	@Override
-	public User getByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+	public User getUserByEmail(String email) {
+		String selectQuery = "FROM User WHERE email=:email";
+		try {
+			return sessionFactory.getCurrentSession()
+					.createQuery(selectQuery,User.class)
+					.setParameter("email", email)
+					.getSingleResult();
+					
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
-	public User get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public User getUserById(int id) {
+	
+		try {
+			return sessionFactory.getCurrentSession().get(User.class, Integer.valueOf(id));
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
-	public boolean add(User user) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean addUser(User user) {
+		
+		try {
+			sessionFactory.getCurrentSession().persist(user);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
-	public Address getAddress(int addressId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Address getAddressById(int addressId) {
+		try {
+			return sessionFactory.getCurrentSession().get(Address.class, addressId);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
+		
 	}
 
 	@Override
 	public boolean addAddress(Address address) {
-		// TODO Auto-generated method stub
-		return false;
+
+		try {
+			sessionFactory.getCurrentSession().persist(address);
+			return true;
+		}catch(Exception ex){
+			ex.printStackTrace();
+			return false;
+		}
+		
 	}
 
 	@Override
 	public boolean updateAddress(Address address) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			sessionFactory.getCurrentSession().update(address);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	
 	}
 
 	@Override
-	public Address getBillingAddress(int userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Address> getListAddressByUserId(int userId) {
+
+		String selectQuery = "FROM Address WHERE userId = :userId";
+		try {
+			return sessionFactory.getCurrentSession()
+					.createQuery(selectQuery, Address.class)
+					.setParameter("userId", userId)
+					.getResultList();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
-	public List<Address> listShippingAddresses(int userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Address getPermanentAddress(int userId) {
+		String selectQuery = "FROM Address WHERE userId = :userId AND permanentAddress = :permanentAddress";
+		try {
+			return sessionFactory.getCurrentSession()
+					.createQuery(selectQuery,Address.class)
+					.setParameter("userId", userId)
+					.setParameter("permanentAddress", true)
+					.getSingleResult();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
 	}
-	
-	
 
-	
-}
+	@Override
+	public Address getCurrentAddress(int userId) {
+		String selectQuery = "FROM Address WHERE userId = :userId AND currentAddress = :currentAddress";
+		try {
+			return sessionFactory.getCurrentSession()
+					.createQuery(selectQuery,Address.class)
+					.setParameter("userId", userId)
+					.setParameter("currentAddress", true)
+					.getSingleResult();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
+
+
+	}
