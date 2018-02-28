@@ -18,7 +18,7 @@
 				<li id="contact"><a href="${contextRoot}/contact">Contact Us</a></li>
 				<security:authorize access="hasAuthority('ADMIN')">
 	                    <li id="manageProduct">
-	                        <a href="${contextRoot}/manage/product">Manage Product</a>
+	                        <a href="${contextRoot}/manage/post">Manage Product</a>
 	                    </li>					
 					</security:authorize>
                 </ul>
