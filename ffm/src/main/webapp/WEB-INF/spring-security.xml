@@ -15,7 +15,7 @@
 
 	<http pattern="/resources/**" security="none"/>
 
-	<http>
+	 <http auto-config="true" use-expressions="true">
 		<!-- only admin access -->
 		<intercept-url pattern="/manage/**" access="hasAuthority('ADMIN')" />
 		<!-- only user access (who is registered) -->
