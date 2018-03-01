@@ -16,10 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ffm.exception.PostNotFoundException;
+import com.ffm.exception.UserNotFoundException;
 import com.ffm_backend.dao.CategoryDAO;
 import com.ffm_backend.dao.PostDAO;
+import com.ffm_backend.dao.UserDAO;
 import com.ffm_backend.dto.Category;
 import com.ffm_backend.dto.Post;
+import com.ffm_backend.dto.User;
 
 @Controller
 public class PageController {
@@ -30,6 +33,8 @@ public class PageController {
 	CategoryDAO categoryDAO;
 	@Autowired
 	PostDAO postDAO;
+	@Autowired
+	UserDAO userDAO;
 	
 	
 	@RequestMapping(value = {"/", "/home", "/index"})
@@ -110,6 +115,25 @@ public class PageController {
 		
 		return mv;
 	}
+	
+	//adding profile view
+	
+	@RequestMapping(value = "/show/{id}/user")
+	public ModelAndView getUserProfile(@PathVariable int id) throws UserNotFoundException {
+		ModelAndView mv = new ModelAndView("page");
+		
+		logger.info("id "+id);
+		User user = userDAO.getUserById(id);
+		if(user == null) throw new UserNotFoundException();
+		mv.addObject("user",user);
+		mv.addObject("title",user.getFirstName()+" "+user.getLastName());
+		mv.addObject("userClickProfile",true);
+		
+		return mv;
+	}
+	
+	
+	
 	
 	@RequestMapping(value="/login")
 	public ModelAndView login(@RequestParam(name="error", required = false)	String error,

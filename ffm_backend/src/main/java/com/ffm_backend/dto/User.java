@@ -16,7 +16,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import com.ffm_backend.util.ffmUtil;
 
-@Entity(name ="user")
+@Entity(name ="user_details")
 public class User implements Serializable{
 
 	/**

@@ -1,14 +1,15 @@
 package com.ffm_backend.test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.ffm_backend.dao.UserDAO;
-import com.ffm_backend.dto.Address;
+import com.ffm_backend.dto.Apply;
 import com.ffm_backend.dto.User;
+import com.ffm_backend.util.ffmUtil;
 
 public class UserTestCase {
 
@@ -25,7 +26,7 @@ public class UserTestCase {
 		 userDAO = (UserDAO)context.getBean("userDAO");
 	}
 
-	/*@Test
+/*	@Test
 	public void addTest() {
 		User user = new User();
 		user.setUserId("mukeem789");
@@ -37,7 +38,7 @@ public class UserTestCase {
 		
 		//assertEquals("user add test",true,userDAO.addUser(user));
 	}*/
-	/*
+	
 	@Test
 	public void addTest() {
 		User user = new User();
@@ -73,7 +74,7 @@ public class UserTestCase {
 		}
 		 
 		assertEquals("user add test",true,userDAO.addUser(user));
-	}*/
+	}
 /*	
 	@Test
 	public void addAddressTestCase() {

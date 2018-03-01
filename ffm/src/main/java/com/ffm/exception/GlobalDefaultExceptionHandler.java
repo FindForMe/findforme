@@ -33,4 +33,40 @@ public class GlobalDefaultExceptionHandler {
 		mv.addObject("errorDescription", sw.toString());
 		return mv;
 	}
+	
+	@ExceptionHandler(PostNotFoundException.class)
+	public ModelAndView handlerPostNotFoundException() {
+		
+		ModelAndView mv = new ModelAndView("error");
+		
+		mv.addObject("errorTitle", "Post not available!");
+		
+		mv.addObject("errorDescription", "The post you are looking for is not available right now!");
+		
+		mv.addObject("title", "Post Unavailable");
+		
+		return mv;
+	}
+	
+	@ExceptionHandler(UserNotFoundException.class)
+	public ModelAndView handleUserNotFoundException() {
+		
+		ModelAndView mv = new ModelAndView("error");
+		
+		mv.addObject("errorTitle","User not Found !");
+		
+		mv.addObject("errorDescription", "The user you are looking for is not available right now!");
+		
+		mv.addObject("title","User Unavailable");
+		
+		return mv;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

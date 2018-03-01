@@ -133,6 +133,43 @@ $('document').ready(function(){
             });
         }
      
+        
+        /*validating loginForm*/
+        
+        $loginForm = $('#loginForm');
+        
+        if($loginForm.length){
+        	$loginForm.validate({
+        		rules : {
+        			username : {
+        				required : true,
+        				email : true
+        			},
+        			password : {
+        				required : true,
+        			}
+        		},
+        		message: {
+        			username : {
+        				required : 'Please enter you Email',
+        				email : 'Please Enter a valid Email'
+        			},
+        			password : {
+        				required : 'Please enter your password'
+        			}
+        		},
+        		errorElement : 'em',
+        		errorPlacement : function(error , element){
+        			//add help block class
+        			error.addClass('help-block');
+        			//add the error label after the input	
+        			error.insertAfter(element);
+        		}
+        		
+        	});
+        }
+        
+        
         /*
          * dismiss alert after 3 sec
          */
