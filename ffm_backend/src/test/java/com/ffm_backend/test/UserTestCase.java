@@ -1,13 +1,14 @@
 package com.ffm_backend.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.ffm_backend.dao.UserDAO;
-import com.ffm_backend.dto.Company;
+import com.ffm_backend.dto.Address;
+import com.ffm_backend.dto.User;
 
 public class UserTestCase {
 
@@ -75,8 +76,8 @@ public class UserTestCase {
 	}
  	*/
 	
-	/*	
-	@Test
+		
+	/*@Test
 	public void addAddressTestCase() {
 	
 		
@@ -88,16 +89,32 @@ public class UserTestCase {
 		address.setCountry("india");
 		address.setPostalCode("122001");
 		//address.setPermanentAddress(true);
-		address.setPresentAddress(true);
+		address.setCurrentAddress(true);
+		User user = userDAO.getUserByEmail("mak@ffm.com");
+		User user1 = userDAO.getUserById(4);
+		address.setUserId(user.getId());
+		address.setUserId(3);
+		
+		assertEquals("Faild to add address",true, userDAO.addAddress(address));
+		
+		address = new Address();
+		address.setAddressLineOne("sector 18");
+		address.setAddressLineTwo("sarhaul");
+		address.setCity("gurgaon");
+		address.setState("hariyana");
+		address.setCountry("india");
+		address.setPostalCode("122001");
+		address.setPermanentAddress(true);
+		address.setCurrentAddress(true);
 		User user = userDAO.getUserByEmail("mak@ffm.com");
 		User user1 = userDAO.getUserById(4);
 		address.setUserId(user.getId());
 		
+		address.setUserId(3);
 		assertEquals("Faild to add address",true, userDAO.addAddress(address));
+		//assertEquals("failed to featch current ", 3, userDAO.getPermanentAddress(user.getId()).getUserId());
 		
-		assertEquals("failed to featch current ", 3, userDAO.getPermanentAddress(user.getId()).getUserId());
-		
-		assertEquals("failed to featch permanent ", 4, userDAO.getPermanentAddress(user1.getId()).getUserId());
+		//assertEquals("failed to featch permanent ", 4, userDAO.getPermanentAddress(user1.getId()).getUserId());
 		
 	}*/
 	/*@Test
@@ -205,12 +222,12 @@ public class UserTestCase {
 	}*/
 	
 	
-	@Test
+	/*@Test
 	public void deleteCompany() {
 		
 	
 		assertEquals("failed to test company", true, userDAO.deleteCompany(3));
-	}
+	}*/
 	
 	
 }

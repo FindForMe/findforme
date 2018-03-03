@@ -105,7 +105,7 @@
 				<c:if test="${userClickManagePost == true}">
 					<%@include file="./managePost.jsp" %>
 				</c:if>
-				<c:if test="${userClickShowProfile == true}">
+				<c:if test="${userClickShowUser == true}">
 					<%@include file="./profile.jsp"%>
 				</c:if>
 				

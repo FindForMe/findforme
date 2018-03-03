@@ -1,5 +1,7 @@
 package com.ffm.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -120,24 +122,43 @@ public class PageController {
 	//adding profile view
 	
 	@RequestMapping(value = "/show/{id}/user")
-	public ModelAndView getUserProfile(@PathVariable int id) throws UserNotFoundException {
+	public ModelAndView getUserProfile(@RequestParam(name = "success",required = false) String success,@PathVariable int id) throws UserNotFoundException {
 		ModelAndView mv = new ModelAndView("page");
 		
 		logger.info("id "+id);
 		User user = userDAO.getUserById(id);
 		if(user == null) throw new UserNotFoundException();
 		mv.addObject("user",user);
-		Address pAddress = userDAO.getPermanentAddress(id);
+		List<Address> listAddress = userDAO.getListAddressByUserId(id);
+		logger.info("-------------------address list---------------\n"+listAddress);
+		Address pAddress = null,cAddress = null, comAddress = null;
+		for(Address address : listAddress) {
+			if(address.isPermanentAddress() == true) {
+				pAddress = address;
+			}else if(address.isCurrentAddress() == true) {
+				cAddress = address;
+			}else {
+				
+			}
+		}
 		
 		mv.addObject("pAddress",pAddress);
+		mv.addObject("cAddress",cAddress);
 		
-		mv.addObject("cAddress",userDAO.getCurrentAddress(id));
+		mv.addObject("experience",userDAO.getExperienceList(id));
 		mv.addObject("title",user.getFirstName()+" "+user.getLastName());
-		mv.addObject("userClickShowProfile",true);
+		mv.addObject("userClickShowUser",true);
+		if(success != null) {
+
+			if(success.equals("personal")) {
+				mv.addObject("message","Profile Updated Successfully");
+			}
+		}
+		
+		
 		
 		return mv;
 	}
-	
 	
 	
 	

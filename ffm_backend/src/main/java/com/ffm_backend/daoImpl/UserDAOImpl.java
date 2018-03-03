@@ -52,6 +52,17 @@ public class UserDAOImpl implements UserDAO {
 			return null;
 		}
 	}
+	
+	@Override
+	public boolean updateUser(User user) {
+		try {
+			sessionFactory.getCurrentSession().update(user);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
 
 	@Override
 	public boolean addUser(User user) {
@@ -65,6 +76,10 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
+	/*
+	 * Address details
+	 */
+	
 	@Override
 	public Address getAddressById(int addressId) {
 		try {
@@ -159,7 +174,7 @@ public class UserDAOImpl implements UserDAO {
 			.setParameter("userId", userId)
 			.getResultList();
 		}catch(Exception ex) {
-			ex.printStackTrace();
+			logger.error("Education list not found");
 			return null;
 		}
 	}
