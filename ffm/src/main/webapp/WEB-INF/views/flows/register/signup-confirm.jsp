@@ -17,8 +17,9 @@
 						<h4>Email : <strong>${registerModel.user.email}</strong></h4>
 						<h4>Contact : <strong>${registerModel.user.contactNumber}</strong></h4>
 						<h4>Role : <strong>${registerModel.user.role}</strong></h4> --%>
-						<h4>Name: <strong>${registerModel.user.firstName} ${registerModel.user.lastName}</strong></h4>
-						<h4>Email: <strong>${registerModel.user.contactNumber}</strong></h4>
+						<h4>Name: <strong>${registerModel.user.firstName} ${registerModel.user.lastName}</strong>,</h4>
+						<h4>Email: <strong>${registerModel.user.email}</strong>,</h4>
+						<h4>Contact No.: <strong>${registerModel.user.contactNumber}</strong>,</h4>
 						<h4>Role: <strong>${registerModel.user.role}</strong></h4>
 						
 						<p>

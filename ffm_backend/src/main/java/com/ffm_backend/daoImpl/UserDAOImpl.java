@@ -3,6 +3,8 @@ package com.ffm_backend.daoImpl;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,10 +16,14 @@ import com.ffm_backend.dto.Education;
 import com.ffm_backend.dto.Experience;
 import com.ffm_backend.dto.User;
 
+
+
 @Repository("userDAO")
 @Transactional
 public class UserDAOImpl implements UserDAO {
 
+	Logger logger = LoggerFactory.getLogger(UserDAOImpl.class);
+	
 	@Autowired
 	SessionFactory sessionFactory;
 
@@ -135,7 +141,8 @@ public class UserDAOImpl implements UserDAO {
 					.setParameter("currentAddress", true)
 					.getSingleResult();
 		}catch(Exception ex) {
-			ex.printStackTrace();
+			//ex.printStackTrace();
+			logger.error("current address is not found");
 			return null;
 		}
 	}

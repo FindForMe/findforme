@@ -20,6 +20,7 @@ import com.ffm.exception.UserNotFoundException;
 import com.ffm_backend.dao.CategoryDAO;
 import com.ffm_backend.dao.PostDAO;
 import com.ffm_backend.dao.UserDAO;
+import com.ffm_backend.dto.Address;
 import com.ffm_backend.dto.Category;
 import com.ffm_backend.dto.Post;
 import com.ffm_backend.dto.User;
@@ -126,6 +127,11 @@ public class PageController {
 		User user = userDAO.getUserById(id);
 		if(user == null) throw new UserNotFoundException();
 		mv.addObject("user",user);
+		Address pAddress = userDAO.getPermanentAddress(id);
+		
+		mv.addObject("pAddress",pAddress);
+		
+		mv.addObject("cAddress",userDAO.getCurrentAddress(id));
 		mv.addObject("title",user.getFirstName()+" "+user.getLastName());
 		mv.addObject("userClickShowProfile",true);
 		

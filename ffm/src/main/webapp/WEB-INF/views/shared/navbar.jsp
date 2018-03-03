@@ -23,7 +23,7 @@
 							Product</a></li>
 				</security:authorize >
 				
-				<security:authorize access="hasAuthority('SEEKER')">
+				<security:authorize access="isAuthenticated()">
 				<li id="userProfile"><a href="${contextRoot}/show/${userModel.id}/user"/>Profile
 							</a></li>
 				
@@ -37,6 +37,7 @@
 					<li id="login"><a href="${contextRoot}/login">Login</a></li>
 					<li id="signup"><a href="${contextRoot}/register">Sign Up</a></li>
 				</security:authorize>
+				
 				<security:authorize access="isAuthenticated()">
 					<li class="dropdown" id="userModel">
 						<a class="btn btn-default dropdown-toggle" href="${contextRoot}/show/${userModel.id}/user"  
@@ -44,6 +45,8 @@
 							aria-expanded="true"> ${userModel.fullName} <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							<li id="userProfile"><a href="${contextRoot}/show/${userModel.id}/user"/>${userModel.fullName}
+							</a></li>
 							<security:authorize access="hasAuthority('USER')">
 								<li id="apply">
 								<a href="${contextRoot}/apply/show"> 
