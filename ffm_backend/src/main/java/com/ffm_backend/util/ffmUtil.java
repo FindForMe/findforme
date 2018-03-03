@@ -2,8 +2,9 @@ package com.ffm_backend.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Random;
 import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class ffmUtil {
 	

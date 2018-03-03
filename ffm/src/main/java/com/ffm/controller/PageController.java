@@ -127,7 +127,7 @@ public class PageController {
 		if(user == null) throw new UserNotFoundException();
 		mv.addObject("user",user);
 		mv.addObject("title",user.getFirstName()+" "+user.getLastName());
-		mv.addObject("userClickProfile",true);
+		mv.addObject("userClickShowProfile",true);
 		
 		return mv;
 	}

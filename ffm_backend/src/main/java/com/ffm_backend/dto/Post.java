@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ffm_backend.util.ffmUtil;
 
-@Entity(name = "post")
+@Entity
 public class Post {
 
 	@Id

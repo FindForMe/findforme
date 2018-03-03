@@ -61,12 +61,4 @@ public class GlobalDefaultExceptionHandler {
 		
 		return mv;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }

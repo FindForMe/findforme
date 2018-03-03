@@ -44,10 +44,10 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public List<Post> list() {
 		
+		String queryString = "FROM Post";
 		try {
-			
 			return sessionFactory.getCurrentSession()
-					.createQuery("FROM post",Post.class)
+					.createQuery(queryString,Post.class)
 					.getResultList();
 			
 		}catch(Exception ex) {
@@ -58,18 +58,21 @@ public class PostDAOImpl implements PostDAO {
 
 	@Override
 	public List<Post> getPostByCategoryId(int categoryId ){
-		String queryString = "FROM post where categoryId =:categoryId";
-		return sessionFactory.getCurrentSession()
-				.createQuery(queryString)
-				.setParameter("categoryId",categoryId)
-				.getResultList();
+		String queryString = "FROM Post where categoryId =:categoryId";
+		try {
+			return sessionFactory.getCurrentSession()
+					.createQuery(queryString,Post.class)
+					.setParameter("categoryId",categoryId)
+					.getResultList();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
+		
 	}
-
-	
 	
 	@Override
 	public boolean update(Post post) {
-	
 		try {
 			sessionFactory.getCurrentSession().update(post);
 			return true;
@@ -81,7 +84,6 @@ public class PostDAOImpl implements PostDAO {
 
 	@Override
 	public boolean delete(Post post) {
-	
 		try {
 			sessionFactory.getCurrentSession().delete(post);
 			return true;
@@ -93,11 +95,7 @@ public class PostDAOImpl implements PostDAO {
 	
 	@Override
 	public boolean deActive(Post post) {
-		
 		post.setActive(false);
 		return update(post);
-		
 	}
-	
-	
 }

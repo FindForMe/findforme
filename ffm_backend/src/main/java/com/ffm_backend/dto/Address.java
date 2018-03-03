@@ -10,7 +10,7 @@ import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-@Entity(name = "address")
+@Entity
 public class Address implements Serializable {
 
 	

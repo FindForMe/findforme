@@ -8,25 +8,21 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 			
-				<div class="panel">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h3>Name</h3>
+						<h3>${user.firstName} ${user.lastName}</h3>
 					</div>
 					<div class="panel-body">
 						<!-- showing details of user  -->
-						<table class="table table-responsive table-bordered">
-							<tr>
-								<th>Personal details</th>
-							</tr>
-							<tr>
-								<td>
+						
+							<div class="row">
+								<div class="col-xs-12">Personal Details</div>
+								<!-- showing personal details -->
+								<div class="col-xs-8">
+								<table class="table table-responsive table-bordered">
 									<tr>
 										<td>Name : </td>
-										<td>${user.firstName} ${lastName}</td>
-										<!-- <td>
-											<button type="button" class="btn btn-primary" data-target="#personalModal" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span>
-											</button>
-										</td> -->
+										<td>${user.firstName} ${user.lastName}</td>
 									</tr>
 									<tr>
 										<td>Email Id: </td>
@@ -36,13 +32,13 @@
 										<td>Contact NO.: </td>
 										<td>${user.contactNumber}</td>
 									</tr>
-									
-								</td>
-								<td>
-									<img class="image-responsive" src="#" alt="profile picture">
-								</td>
-							</tr>
-						</table>
+									</table>
+								</div>
+								<div class="col-xs-4">
+									<img class="img img-responsive" src="#" alt="profile image">
+								</div>
+							
+							</div>
 					</div>
 				</div>	
 			

@@ -39,7 +39,7 @@ public class UserTestCase {
 		//assertEquals("user add test",true,userDAO.addUser(user));
 	}*/
 	
-	@Test
+/*	@Test
 	public void addTest() {
 		User user = new User();
 		user.setFirstName("mak");
@@ -75,7 +75,9 @@ public class UserTestCase {
 		 
 		assertEquals("user add test",true,userDAO.addUser(user));
 	}
-/*	
+*/
+	
+	/*	
 	@Test
 	public void addAddressTestCase() {
 	
@@ -101,11 +103,11 @@ public class UserTestCase {
 		assertEquals("failed to featch permanent ", 4, userDAO.getPermanentAddress(user1.getId()).getUserId());
 		
 	}*/
-	/*@Test
+	@Test
 	public void getUserByEmailTest() {
 		
-		assertEquals("failed to featch user",3, userDAO.getUserByEmail("mak@ffm.com").getId());
-	}*/
+		assertEquals("failed to featch user",1, userDAO.getUserByEmail("mak@ffm.com").getId());
+	}
 	
 	/*@Test
 	public void getPermantentTest() {

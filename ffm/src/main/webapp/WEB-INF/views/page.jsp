@@ -105,6 +105,10 @@
 				<c:if test="${userClickManagePost == true}">
 					<%@include file="./managePost.jsp" %>
 				</c:if>
+				<c:if test="${userClickShowProfile == true}">
+					<%@include file="./profile.jsp"%>
+				</c:if>
+				
 			</div>
 			<!-- Footer -->
 			<%@include file="./shared/footer.jsp"%>

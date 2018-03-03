@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Type;
 
-@Entity(name = "category")
+@Entity
 public class Category implements  Serializable{
 	
 	
