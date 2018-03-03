@@ -21,10 +21,14 @@
 				<security:authorize access="hasAuthority('ADMIN')">
 					<li id="manageProduct"><a href="${contextRoot}/manage/post">Manage
 							Product</a></li>
-				</security:authorize>
+				</security:authorize >
 				
-					<li id="userProfile"><a href="${contextRoot}/show/${userModel.id}/user"/>Profile
+				<security:authorize access="hasAuthority('SEEKER')">
+				<li id="userProfile"><a href="${contextRoot}/show/${userModel.id}/user"/>Profile
 							</a></li>
+				
+				</security:authorize>
+					
 				
 			</ul>
 

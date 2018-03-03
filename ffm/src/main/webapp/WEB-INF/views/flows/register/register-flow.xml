@@ -41,7 +41,7 @@
    <action-state id="validate">
    	<evaluate expression="registerHandler.validateUser(user, messageContext)"/>
    	<transition on="success" to="address"/>
-   	<transition on="failure" to="personal" />
+   	<transition on="faliure" to="personal" />
    </action-state>
    
    <!-- end state -->

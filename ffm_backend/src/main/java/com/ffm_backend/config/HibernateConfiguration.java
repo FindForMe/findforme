@@ -53,7 +53,6 @@ public class HibernateConfiguration {
 	
 	//Hibernate all properties will be returned in this method.
 	private Properties gatHibernateProperties() {
-		// TODO Auto-generated method stub
 		
 		Properties properties = new Properties();
 		

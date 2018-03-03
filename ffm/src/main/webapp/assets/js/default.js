@@ -118,7 +118,7 @@ $('document').ready(function(){
            			 bSortable : false,
        				 mRender:function(data,type,row){
        				var str = '';
-       				str+='<button class="btn btn-default">View</button>';
+       				str+='<a href="'+window.contextRoot+'/show/'+data+'/post" class="btn btn-default">View</a>';
        				return str;
        			}
            		},

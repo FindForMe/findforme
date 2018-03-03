@@ -20,9 +20,11 @@ public class Education implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="")
+
 	private String graduation;
+	
+	@Column(name = "graduation_other")
+	private String graducationOther;
 	@Column(name = "graduation_year")
 	private int gradutaionYear;
 	@Column(name="graduation_percentage")
@@ -40,9 +42,25 @@ public class Education implements Serializable {
 	@Column(name="highSchool_percentage")
 	private double highSchoolPercentage;
 	
-	private String experience;
+	/*private String experience;
 	@Column(name = "experience_duration")
-	private String experienceTime;
+	private String experienceTime;*/
+	
+	@Column(name = "userid")
+	private int userId;
+	
+	public String getGraducationOther() {
+		return graducationOther;
+	}
+	public void setGraducationOther(String graducationOther) {
+		this.graducationOther = graducationOther;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	public int getId() {
 		return id;
 	}
@@ -103,26 +121,7 @@ public class Education implements Serializable {
 	public void setHighSchoolPercentage(double highSchoolPercentage) {
 		this.highSchoolPercentage = highSchoolPercentage;
 	}
-	public String getExperience() {
-		return experience;
-	}
-	public void setExperience(String experience) {
-		this.experience = experience;
-	}
-	public String getExperienceTime() {
-		return experienceTime;
-	}
-	public void setExperienceTime(String experienceTime) {
-		this.experienceTime = experienceTime;
-	}
-	@Override
-	public String toString() {
-		return "Education [id=" + id + ", graduation=" + graduation + ", gradutaionYear=" + gradutaionYear
-				+ ", graduationPercentage=" + graduationPercentage + ", intermediate=" + intermediate
-				+ ", intermediateYear=" + intermediateYear + ", intermediatePercentage=" + intermediatePercentage
-				+ ", highSchool=" + highSchool + ", highSchoolYear=" + highSchoolYear + ", highSchoolPercentage="
-				+ highSchoolPercentage + ", experience=" + experience + ", experienceTime=" + experienceTime + "]";
-	}
+	
 	
 		
 	

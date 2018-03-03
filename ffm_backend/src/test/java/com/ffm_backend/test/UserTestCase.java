@@ -7,9 +7,7 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.ffm_backend.dao.UserDAO;
-import com.ffm_backend.dto.Apply;
-import com.ffm_backend.dto.User;
-import com.ffm_backend.util.ffmUtil;
+import com.ffm_backend.dto.Company;
 
 public class UserTestCase {
 
@@ -75,7 +73,7 @@ public class UserTestCase {
 		 
 		assertEquals("user add test",true,userDAO.addUser(user));
 	}
-*/
+ 	*/
 	
 	/*	
 	@Test
@@ -98,16 +96,15 @@ public class UserTestCase {
 		assertEquals("Faild to add address",true, userDAO.addAddress(address));
 		
 		assertEquals("failed to featch current ", 3, userDAO.getPermanentAddress(user.getId()).getUserId());
-
 		
 		assertEquals("failed to featch permanent ", 4, userDAO.getPermanentAddress(user1.getId()).getUserId());
 		
 	}*/
-	@Test
+	/*@Test
 	public void getUserByEmailTest() {
 		
 		assertEquals("failed to featch user",1, userDAO.getUserByEmail("mak@ffm.com").getId());
-	}
+	}*/
 	
 	/*@Test
 	public void getPermantentTest() {
@@ -124,4 +121,96 @@ public class UserTestCase {
 	public void getAddressList() {
 		assertEquals("failed to featch address list ", 1, userDAO.getListAddressByUserId(4).size());
 	}*/
+	
+	
+	/*@Test
+	public void testAddEducation() {
+		
+		Education education = new Education();
+		education.setGraduation("b.tech");
+		education.setGraducationOther("UPTU");
+		education.setGraduationPercentage(78.2);
+		education.setGradutaionYear(2016);
+		
+		education.setIntermediate("RBSIC");
+		education.setIntermediateYear(2012);
+		education.setIntermediatePercentage(70);
+		
+		education.setHighSchool("RBSIC");
+		education.setHighSchoolPercentage(60);
+		education.setHighSchoolYear(2010);
+		
+		education.setUserId(3);
+	
+		assertEquals("education add failed",true, userDAO.addEducation(education));
+		
+	}*/
+	
+	/*@Test
+	public void getEducation() {
+		
+		assertEquals("failed to fetch education",3, userDAO.getEducationByUserId(3).getUserId());
+		
+	}*/
+	
+	/*@Test
+	public void updateEducation() {
+		
+		Education education = userDAO.getEducationByUserId(3);
+		education.setHighSchool("up board");
+		assertEquals("failed to fetch education",true, userDAO.updateEducation(education));
+		
+	}*/
+	
+	/*@Test
+	public void listEducation() {
+		
+		assertEquals("failed to fetch education",1, userDAO.getEducationList(3).size());
+		
+	}*/
+	
+	/*@Test
+	public void deleteEducation() {
+		
+		//assertEquals("failed to delete education",1, userDAO.getEducationList(3).size());
+		
+	}*/
+	
+	
+	/*
+	 * Companay Test
+	 */
+
+	/*@Test
+	public void addCompany() {
+		Company company = new Company();
+		company.setUserId(3);
+		company.setName("Find For Me");
+		company.setDescription("Deals with ffm");
+		company.setAddress("Gurgaon");
+		
+		assertEquals("failed to test company", true, userDAO.addCompany(company));
+	}*/
+	/*@Test
+	public void getCompany() {
+		
+		assertEquals("failed to test company", 1, userDAO.getCompanyList(3).size());
+	}*/
+	
+	/*@Test
+	public void updateCompany() {
+		Company company = userDAO.getCompanyById(1);
+		company.setDescription("updated ffm");
+		assertEquals("failed to test company", true, userDAO.updateCompany(company));
+	}*/
+	
+	
+	@Test
+	public void deleteCompany() {
+		
+	
+		assertEquals("failed to test company", true, userDAO.deleteCompany(3));
+	}
+	
+	
 }

@@ -33,25 +33,25 @@ public interface UserDAO {
 	
 	
 	//adding and updating education 
-	List<Education> getEducationList();
+	List<Education> getEducationList(int userId);
 	Education getEducationById(int educationId);
 	Education getEducationByUserId(int userId);
 	boolean addEducation(Education education);
-	boolean updateEducation(Education eduacation);
+	boolean updateEducation(Education education);
 	boolean deleteEducation(int userId);
 	
 	//adding and updating company 
-	List<Company> getCompanyList();
+	List<Company> getCompanyList(int userId);
 	Company getCompanyById(int companyId);
-	Company getCompanyByUserId(int userId);
+	Company loadCompanyById(int companyId);
 	boolean addCompany(Company company);
 	boolean updateCompany(Company company);
 	boolean deleteCompany(int userId);
 	
 	//adding and updating experience 
-	List<Experience> getExperienceList();
+	List<Experience> getExperienceList(int userId);
 	Experience getExperienceById(int experienceId);
-	Experience getExperienceByUserId(int userId);
+	//Experience getExperienceByUserId(int userId);
 	boolean addExperience(Experience experience);
 	boolean updateExperience(Experience experience);
 	boolean deleteExperience(int userId);

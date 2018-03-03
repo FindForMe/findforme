@@ -19,7 +19,7 @@
 								<div class="col-xs-12">Personal Details</div>
 								<!-- showing personal details -->
 								<div class="col-xs-8">
-								<table class="table table-responsive table-bordered">
+								<table class="table table-responsive">
 									<tr>
 										<td>Name : </td>
 										<td>${user.firstName} ${user.lastName}</td>
@@ -35,7 +35,11 @@
 									</table>
 								</div>
 								<div class="col-xs-4">
-									<img class="img img-responsive" src="#" alt="profile image">
+									<div class="thumbnail">
+														
+										<img src="#" class="img img-responsive" alt="Profile Image"/>
+													
+									</div>								
 								</div>
 							
 							</div>

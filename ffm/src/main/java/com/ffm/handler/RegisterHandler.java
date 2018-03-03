@@ -1,5 +1,7 @@
 package com.ffm.handler;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
@@ -34,6 +36,8 @@ public class RegisterHandler {
 	
 	//validate user
 	
+	Logger logger = LoggerFactory.getLogger(RegisterHandler.class);
+	
 	public String validateUser(User user, MessageContext error) {
 		String transitionValue = "success";
 		
@@ -48,8 +52,8 @@ public class RegisterHandler {
 		
 		//checking uniqueness of email
 		if(userDAO.getUserByEmail(user.getEmail()) != null) {
-			
-			error.addMessage(new MessageBuilder().error().source("confirmPassword")
+			logger.info("email aleardy taken");
+			error.addMessage(new MessageBuilder().error().source("email")
 					.defaultText("Email address is already taken!").build()
 					);
 			transitionValue = "faliure";

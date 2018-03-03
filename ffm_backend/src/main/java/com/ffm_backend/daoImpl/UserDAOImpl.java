@@ -140,11 +140,16 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
+	/*
+	 * Education 
+	 */
 	@Override
-	public List<Education> getEducationList() {
+	public List<Education> getEducationList(int userId) {
+		String selectQuery = "FROM Education WHERE userId = :userId";
 		try {
 			return sessionFactory.getCurrentSession()
-			.createQuery("FROM Education",Education.class)
+			.createQuery(selectQuery,Education.class)
+			.setParameter("userId", userId)
 			.getResultList();
 		}catch(Exception ex) {
 			ex.printStackTrace();
@@ -199,82 +204,169 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean deleteEducation(int userId) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteEducation(int	userId) {
+		Education education = new Education();
+		education.setUserId(userId);
+		try {
+			sessionFactory.getCurrentSession().delete(education);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
+	/*
+	 * Company details
+	 */
+	
 	@Override
-	public List<Company> getCompanyList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Company> getCompanyList(int userId) {
+		String selectQuery = "FROM Company WHERE userId = :userId";
+		try {
+			return sessionFactory.getCurrentSession()
+			.createQuery(selectQuery,Company.class)
+			.setParameter("userId", userId)
+			.getResultList();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
 	public Company getCompanyById(int companyId) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return sessionFactory.getCurrentSession().get(Company.class, Integer.valueOf(companyId));
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
-	public Company getCompanyByUserId(int userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Company loadCompanyById(int companyId) {
+		try {
+			return sessionFactory.getCurrentSession().load(Company.class, Integer.valueOf(companyId));
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
 	public boolean addCompany(Company company) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			sessionFactory.getCurrentSession().persist(company);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean updateCompany(Company company) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			sessionFactory.getCurrentSession().update(company);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean deleteCompany(int userId) {
-		// TODO Auto-generated method stub
-		return false;
+
+		String deleteQuery = "DELETE FROM Company WHERE userId =:userId";
+		try {
+			sessionFactory.getCurrentSession()
+			.createQuery(deleteQuery)
+			.setParameter("userId", userId)
+			.executeUpdate();
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
+	/*
+	 * Experience details
+	 */
+	
 	@Override
-	public List<Experience> getExperienceList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Experience> getExperienceList(int userId) {
+		String selectQuery = "FROM Experience WHERE userId = :userId";
+		try {
+			return sessionFactory.getCurrentSession()
+			.createQuery(selectQuery,Experience.class)
+			.setParameter("userId", userId)
+			.getResultList();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
 	public Experience getExperienceById(int experienceId) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return sessionFactory.getCurrentSession().get(Experience.class, Integer.valueOf(experienceId));
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
 	}
 
-	@Override
+	/*@Override
 	public Experience getExperienceByUserId(int userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		String selectQuery = "FROM Experience WHERE userId = :userId";
+		try {
+			return sessionFactory.getCurrentSession()
+					.createQuery(selectQuery,Experience.class)
+					.setParameter("userId", userId)
+					.getSingleResult();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}*/
 
 	@Override
 	public boolean addExperience(Experience experience) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			sessionFactory.getCurrentSession().persist(experience);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean updateExperience(Experience experience) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			sessionFactory.getCurrentSession().update(experience);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
-	public boolean deleteExperience(int userId) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteExperience(int	userId) {
+		Experience experience = new Experience();
+		experience.setUserId(userId);
+		try {
+			sessionFactory.getCurrentSession().delete(experience);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
-
 
 	}

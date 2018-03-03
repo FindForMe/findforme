@@ -53,6 +53,13 @@ body{
 .help-block{
 	color:red;
 }
+.container-fluid>.navbar-collapse{
+	
+}
+.container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse{
+	/* margin-right: 0px !important;
+    margin-left: 0px !important; */
+} 
 
 
 
