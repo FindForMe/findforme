@@ -6,9 +6,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.ffm_backend.dao.UserDAO;
-import com.ffm_backend.dto.Address;
-import com.ffm_backend.dto.User;
+import com.ffm_backend.dao.*;
+import com.ffm_backend.dto.Education;
 
 public class UserTestCase {
 
@@ -140,7 +139,7 @@ public class UserTestCase {
 	}*/
 	
 	
-	/*@Test
+	@Test
 	public void testAddEducation() {
 		
 		Education education = new Education();
@@ -161,7 +160,7 @@ public class UserTestCase {
 	
 		assertEquals("education add failed",true, userDAO.addEducation(education));
 		
-	}*/
+	}
 	
 	/*@Test
 	public void getEducation() {

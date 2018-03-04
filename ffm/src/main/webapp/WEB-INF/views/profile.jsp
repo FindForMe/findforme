@@ -100,6 +100,40 @@
 							</div>
 						</div><hr/>
 						
+						<!-- Education Details -->
+						
+						<div class="row">
+							<div class="col-xs-12 col-sm-6">
+					
+								<h4>Education Details</h4><hr/>
+								<c:if test = "${not empty education}">
+									<h5>Graduation Details</h5><hr/>
+									<p>${education.graduation}</p>
+									<p>${education.graducationOther}</p>
+									<p>${education.gradutaionYear}</p>
+									<p>${education.graduationPercentage}</p>
+									<h5>Intermediate Details</h5><hr/>
+									<p>${education.intermediate}</p>
+									<p>${education.intermediateYear}</p>
+									<p>${education.intermediatePercentage}</p>
+									<h5>HighSchool Details</h5><hr/>
+									<p>${education.highSchool}</p>
+									<p>${education.highSchoolYear}</p>
+									<p>${education.highSchoolPercentage}</p>
+									
+								</c:if>
+								<c:if test = "${empty education}">
+									<p>Education is not updated..</p>
+								</c:if>
+								<hr>
+								<div class="profileEditbtn">
+									<button type="button" class="btn btn-primary" data-target="#educationEditModal" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span></button>
+								</div>
+								
+							</div>
+						
+						</div><hr/>
+						
 						<!-- Experience Details -->
 						
 						<div class="row">
@@ -118,7 +152,7 @@
 								</c:if>
 								<hr>
 								<div class="profileEditbtn">
-									<button type="button" class="btn btn-primary" data-target="#personalModal" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span></button>
+									<button type="button" class="btn btn-primary" data-target="#experienceEditModal" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span></button>
 								</div>
 								
 							</div>
@@ -395,7 +429,21 @@
 	
 	</div> 
 	
+	<!-- Education Modal -->
 	
-	
+			
+	<div class="modal fade" role="dialog" id="educationEditModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Edit Education</h4>
+				</div>
 
+			</div>
+		</div>
+	
+	</div> 	
+	
+	
 <%@include file="./shared/footer.jsp"%>

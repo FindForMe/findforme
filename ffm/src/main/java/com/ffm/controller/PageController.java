@@ -24,6 +24,7 @@ import com.ffm_backend.dao.PostDAO;
 import com.ffm_backend.dao.UserDAO;
 import com.ffm_backend.dto.Address;
 import com.ffm_backend.dto.Category;
+import com.ffm_backend.dto.Education;
 import com.ffm_backend.dto.Post;
 import com.ffm_backend.dto.User;
 
@@ -154,6 +155,11 @@ public class PageController {
 		mv.addObject("pAddress",pAddress);
 		mv.addObject("cAddress",cAddress);
 		
+		Education education = userDAO.getEducationByUserId(id);
+		if(education == null) {
+			education = new Education();
+		}
+		mv.addObject("education",education);
 		mv.addObject("experience",userDAO.getExperienceList(id));
 		mv.addObject("title",user.getFirstName()+" "+user.getLastName());
 		mv.addObject("userClickShowUser",true);
