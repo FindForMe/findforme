@@ -142,6 +142,15 @@ public class PageController {
 			}
 		}
 		
+		if(pAddress == null) {
+			logger.info("pAddress is null");
+			pAddress = new Address();
+		}
+		if(cAddress == null) {
+			logger.info("cAddress is null");
+			cAddress = new Address();
+		}
+		
 		mv.addObject("pAddress",pAddress);
 		mv.addObject("cAddress",cAddress);
 		

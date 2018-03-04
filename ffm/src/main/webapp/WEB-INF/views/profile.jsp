@@ -299,7 +299,7 @@
 							<sf:hidden path="id"/>
 							<sf:hidden path="permanentAddress"/>
 							<sf:hidden path="currentAddress"/>
-							<sf:hidden path="userId"/>
+							<sf:hidden path="userId" value="${userModel.id}"/>
 							
 						</div>
 						<div class="modal-footer">
@@ -336,7 +336,6 @@
 								<div class="col-md-8">
 									<sf:input type="text" path="addressLineOne" class="form-control" value="${cAddress.addressLineOne }"
 										placeholder="Enter Address Line One" />
-									<sf:errors path="addressLineOne" cssClass="help-block" element="em"/> 
 								</div>
 							</div>
 
@@ -345,7 +344,6 @@
 								<div class="col-md-8">
 									<sf:input type="text" path="addressLineTwo" class="form-control" value="${cAddress.addressLineTwo }"
 										placeholder="Enter Address Line Two" />
-									<sf:errors path="addressLineTwo" cssClass="help-block" element="em"/> 
 								</div>
 							</div>
 
@@ -354,7 +352,6 @@
 								<div class="col-md-8">
 									<sf:input type="text" path="city" class="form-control" value="${cAddress.city }"
 										placeholder="Enter City Name" />
-									<sf:errors path="city" cssClass="help-block" element="em"/> 
 								</div>
 							</div>
 							
@@ -363,7 +360,6 @@
 								<div class="col-md-8">
 									<sf:input type="text" path="postalCode" class="form-control" value="${cAddress.postalCode }"
 										placeholder="XXXXXX" />
-									<sf:errors path="postalCode" cssClass="help-block" element="em"/> 
 								</div>
 							</div>							
 						
@@ -372,7 +368,6 @@
 								<div class="col-md-8">
 									<sf:input type="text" path="state" class="form-control" value="${cAddress.state }"
 										placeholder="Enter State Name" />
-									<sf:errors path="state" cssClass="help-block" element="em"/> 
 								</div>
 							</div>
 
@@ -381,13 +376,12 @@
 								<div class="col-md-8">
 									<sf:input type="text" path="country" class="form-control" value="${cAddress.country }"
 										placeholder="Enter Country Name" />
-									<sf:errors path="country" cssClass="help-block" element="em"/> 
 								</div>
 							</div>
 							<sf:hidden path="id"/>
 							<sf:hidden path="permanentAddress"/>
 							<sf:hidden path="currentAddress"/>
-							<sf:hidden path="userId"/>
+							<sf:hidden path="userId" value="${userModel.id}"/>
 							
 						</div>
 						<div class="modal-footer">
@@ -400,6 +394,8 @@
 		</div>
 	
 	</div> 
+	
+	
 	
 
 <%@include file="./shared/footer.jsp"%>
