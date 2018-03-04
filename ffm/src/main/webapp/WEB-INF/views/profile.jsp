@@ -228,7 +228,7 @@
 	
 		<!-- Parmanent Address Modal -->
 	
-	<%-- <div class="modal fade" role="dialog" id="pAddressEditModal">
+	<div class="modal fade" role="dialog" id="pAddressEditModal">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -240,8 +240,6 @@
 							id="pAddressUpdateForm"
 							method="POST"
 							modelAttribute="pAddress"
-							class="form-horizontal"
-							
 						>
 						
 					<div class="modal-body">	
@@ -298,6 +296,11 @@
 									<sf:errors path="country" cssClass="help-block" element="em"/> 
 								</div>
 							</div>
+							<sf:hidden path="id"/>
+							<sf:hidden path="permanentAddress"/>
+							<sf:hidden path="currentAddress"/>
+							<sf:hidden path="userId"/>
+							
 						</div>
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-primary">Save </button>																	 
@@ -305,15 +308,98 @@
 						</div>
 					
 					</sf:form>
-							
 			</div>
 		</div>
 	
-	</div> --%>
+	</div> 
 	 
 	
 		<!--Current Address Modal -->
+		
+	<div class="modal fade" role="dialog" id="cAddressEditModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Edit Current Address</h4>
+				</div>
+				<sf:form action="${contextRoot}/update/${userModel.id}/cAddress" 
+							class="form-horizontal"
+							id="cAddressUpdateForm"
+							method="POST"
+							modelAttribute="cAddress"
+						>
+						
+					<div class="modal-body">	
+							<div class="form-group">
+								<label class="control-label col-md-4" for="addressLineOne">Address Line One</label>
+								<div class="col-md-8">
+									<sf:input type="text" path="addressLineOne" class="form-control" value="${cAddress.addressLineOne }"
+										placeholder="Enter Address Line One" />
+									<sf:errors path="addressLineOne" cssClass="help-block" element="em"/> 
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-md-4" for="addressLineTwo">Address Line Two</label>
+								<div class="col-md-8">
+									<sf:input type="text" path="addressLineTwo" class="form-control" value="${cAddress.addressLineTwo }"
+										placeholder="Enter Address Line Two" />
+									<sf:errors path="addressLineTwo" cssClass="help-block" element="em"/> 
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-md-4" for="city">City</label>
+								<div class="col-md-8">
+									<sf:input type="text" path="city" class="form-control" value="${cAddress.city }"
+										placeholder="Enter City Name" />
+									<sf:errors path="city" cssClass="help-block" element="em"/> 
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label col-md-4" for="postalCode">Postal Code</label>
+								<div class="col-md-8">
+									<sf:input type="text" path="postalCode" class="form-control" value="${cAddress.postalCode }"
+										placeholder="XXXXXX" />
+									<sf:errors path="postalCode" cssClass="help-block" element="em"/> 
+								</div>
+							</div>							
+						
+							<div class="form-group">
+								<label class="control-label col-md-4" for="state">State</label>
+								<div class="col-md-8">
+									<sf:input type="text" path="state" class="form-control" value="${cAddress.state }"
+										placeholder="Enter State Name" />
+									<sf:errors path="state" cssClass="help-block" element="em"/> 
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-md-4" for="country">Country</label>
+								<div class="col-md-8">
+									<sf:input type="text" path="country" class="form-control" value="${cAddress.country }"
+										placeholder="Enter Country Name" />
+									<sf:errors path="country" cssClass="help-block" element="em"/> 
+								</div>
+							</div>
+							<sf:hidden path="id"/>
+							<sf:hidden path="permanentAddress"/>
+							<sf:hidden path="currentAddress"/>
+							<sf:hidden path="userId"/>
+							
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary">Save </button>																	 
+							<button type="button" class="btn btn-warning close" data-dissmiss="modal">Cancel</button>
+						</div>
+					
+					</sf:form>
+			</div>
+		</div>
 	
+	</div> 
 	
 
 <%@include file="./shared/footer.jsp"%>

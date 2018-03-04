@@ -23,11 +23,8 @@ public class UpdateUserController {
 	@Autowired
 	UserDAO userDAO;
 	
-	
-	
 	@RequestMapping(value = "/{id}/personal", method = RequestMethod.POST )
 	public String updateUserProfile(@Valid @PathVariable int id ,@ModelAttribute("user") User  mUser, BindingResult result, Model model) {
-		
 		
 		if(result.hasErrors()) {
 			model.addAttribute("message","Profile Not Updated");
@@ -41,14 +38,11 @@ public class UpdateUserController {
 	
 	@RequestMapping(value = "/{id}/pAddress", method = RequestMethod.POST )
 	public String updatePermanentAddress(@Valid @PathVariable int id ,@ModelAttribute("pAddress") Address  pAddress, BindingResult result, Model model) {
-		
-		
 		if(result.hasErrors()) {
 			model.addAttribute("message","Profile Not Updated");
 			model.addAttribute("userClickShowUser",true);
 			return "page";
 		}
-		
 		pAddress.setPermanentAddress(true);
 		if(pAddress.getId() == 0) {
 			
@@ -56,8 +50,22 @@ public class UpdateUserController {
 		}else {
 			userDAO.updateAddress(pAddress);
 		}
-		
-		
+		return "redirect:/show/"+id+"/user?success=personal";
+	}
+	
+	@RequestMapping(value = "/{id}/cAddress", method = RequestMethod.POST )
+	public String updateCurrentAddress(@Valid @PathVariable int id ,@ModelAttribute("cAddress") Address  cAddress, BindingResult result, Model model) {
+		if(result.hasErrors()) {
+			model.addAttribute("message","Profile Not Updated");
+			model.addAttribute("userClickShowUser",true);
+			return "page";
+		}
+		cAddress.setCurrentAddress(true);
+		if(cAddress.getId() == 0) {
+			userDAO.addAddress(cAddress);
+		}else {
+			userDAO.updateAddress(cAddress);
+		}
 		return "redirect:/show/"+id+"/user?success=personal";
 	}
 	
