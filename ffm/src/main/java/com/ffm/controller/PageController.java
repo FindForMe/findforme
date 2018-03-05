@@ -126,6 +126,13 @@ public class PageController {
 	public ModelAndView getUserProfile(@RequestParam(name = "success",required = false) String success,@PathVariable int id) throws UserNotFoundException {
 		ModelAndView mv = new ModelAndView("page");
 		
+		if(success != null) {
+
+			if(success.equals("personal")) {
+				mv.addObject("message","Profile Updated Successfully");
+			}
+		}
+		
 		logger.info("id "+id);
 		User user = userDAO.getUserById(id);
 		if(user == null) throw new UserNotFoundException();
@@ -160,15 +167,12 @@ public class PageController {
 			education = new Education();
 		}
 		mv.addObject("education",education);
+		
+		//List<Experience> listExperience = userDAO.getExperienceList(id);
+		
 		mv.addObject("experience",userDAO.getExperienceList(id));
 		mv.addObject("title",user.getFirstName()+" "+user.getLastName());
 		mv.addObject("userClickShowUser",true);
-		if(success != null) {
-
-			if(success.equals("personal")) {
-				mv.addObject("message","Profile Updated Successfully");
-			}
-		}
 		
 		
 		

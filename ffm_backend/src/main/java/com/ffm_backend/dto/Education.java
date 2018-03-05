@@ -24,9 +24,9 @@ public class Education implements Serializable {
 	private String graduation;
 	
 	@Column(name = "graduation_other")
-	private String graducationOther;
+	private String graduationOther;
 	@Column(name = "graduation_year")
-	private int gradutaionYear;
+	private int graduationYear;
 	@Column(name="graduation_percentage")
 	private double graduationPercentage;
 	
@@ -49,11 +49,11 @@ public class Education implements Serializable {
 	@Column(name = "userid")
 	private int userId;
 	
-	public String getGraducationOther() {
-		return graducationOther;
+	public String getGraduationOther() {
+		return graduationOther;
 	}
-	public void setGraducationOther(String graducationOther) {
-		this.graducationOther = graducationOther;
+	public void setGraduationOther(String graduationOther) {
+		this.graduationOther = graduationOther;
 	}
 	public int getUserId() {
 		return userId;
@@ -73,11 +73,11 @@ public class Education implements Serializable {
 	public void setGraduation(String graduation) {
 		this.graduation = graduation;
 	}
-	public int getGradutaionYear() {
-		return gradutaionYear;
+	public int getGraduationYear() {
+		return graduationYear;
 	}
-	public void setGradutaionYear(int gradutaionYear) {
-		this.gradutaionYear = gradutaionYear;
+	public void setGraduationYear(int graduationYear) {
+		this.graduationYear = graduationYear;
 	}
 	public double getGraduationPercentage() {
 		return graduationPercentage;

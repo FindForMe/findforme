@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ffm_backend.dao.UserDAO;
 import com.ffm_backend.dto.Address;
+import com.ffm_backend.dto.Education;
 import com.ffm_backend.dto.User;
 
 @Controller
@@ -66,6 +67,18 @@ public class UpdateUserController {
 		}else {
 			userDAO.updateAddress(cAddress);
 		}
+		return "redirect:/show/"+id+"/user?success=personal";
+	}
+	
+	@RequestMapping(value = "/{id}/education", method = RequestMethod.POST)
+	public String updateEducation(@PathVariable int id, @ModelAttribute("education") Education education) {
+		
+		if(education.getId() == 0) {
+			userDAO.addEducation(education);
+		}else {
+			userDAO.updateEducation(education);
+		}
+		
 		return "redirect:/show/"+id+"/user?success=personal";
 	}
 	

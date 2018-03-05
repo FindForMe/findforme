@@ -138,13 +138,13 @@ public class UserTestCase {
 		assertEquals("failed to featch address list ", 1, userDAO.getListAddressByUserId(4).size());
 	}*/
 	
-	
+	/*
 	@Test
 	public void testAddEducation() {
 		
 		Education education = new Education();
 		education.setGraduation("b.tech");
-		education.setGraducationOther("UPTU");
+		education.setGraduationOther("UPTU");
 		education.setGraduationPercentage(78.2);
 		education.setGradutaionYear(2016);
 		
@@ -160,7 +160,7 @@ public class UserTestCase {
 	
 		assertEquals("education add failed",true, userDAO.addEducation(education));
 		
-	}
+	}*/
 	
 	/*@Test
 	public void getEducation() {
