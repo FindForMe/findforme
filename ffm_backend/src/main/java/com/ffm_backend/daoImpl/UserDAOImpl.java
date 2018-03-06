@@ -379,9 +379,9 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean deleteExperience(int	userId) {
+	public boolean deleteExperience(int	experienceId) {
 		Experience experience = new Experience();
-		experience.setUserId(userId);
+		experience.setId(experienceId);
 		try {
 			sessionFactory.getCurrentSession().delete(experience);
 			return true;

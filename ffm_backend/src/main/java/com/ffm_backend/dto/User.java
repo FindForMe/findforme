@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ffm_backend.util.ffmUtil;
 
@@ -53,6 +54,9 @@ public class User implements Serializable{
 	@Transient
 	private String confirmPassword;
 	
+	@Transient
+	private MultipartFile file;
+	
 	private boolean active = true;
 	private String created = ffmUtil.genCurrDateTime();
 	private String modified;
@@ -60,6 +64,14 @@ public class User implements Serializable{
 	
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Apply apply;
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 
 	public int getId() {
 		return id;

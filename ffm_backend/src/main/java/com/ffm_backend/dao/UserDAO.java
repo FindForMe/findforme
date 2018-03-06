@@ -54,6 +54,6 @@ public interface UserDAO {
 	//Experience getExperienceByUserId(int userId);
 	boolean addExperience(Experience experience);
 	boolean updateExperience(Experience experience);
-	boolean deleteExperience(int userId);
+	boolean deleteExperience(int experienceId);
 	
 }

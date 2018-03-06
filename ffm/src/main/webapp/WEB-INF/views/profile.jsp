@@ -36,12 +36,12 @@
 	
 								<div class="thumbnail">
 												
-									<img src="#" class="img img-responsive" alt="Profile Image"/>
+									<img src="${contextRoot}/resources/img/${user.id}.jpg" class="img img-responsive imgDataTable" alt="Profile Image"/>
 											
 								</div>
 								<hr/>
 								<div class="profileEditbtn">
-									<button type="button" class="btn btn-primary" data-target="#personalModal" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span></button>
+									<button type="button" class="btn btn-primary" data-target="#imageEditModal" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span></button>
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-8">
@@ -141,14 +141,20 @@
 						<div class="row">
 							<div class="col-xs-12 col-sm-6">
 								<h4>Experience</h4><hr/>
-								<c:if test = "${not empty experience}">
+								<c:if test = "${not empty experienceList}">
+								<c:forEach var="experience" items="${experienceList}">
 									<p>Total Experience of ${experience.total}</p>
 									<p>${experience.description}</p>
 									<p>${experience.fromDate} - ${experience.toDate}</p>
 									<p>${experience.other}</p>
+									<hr/>
+									<a href="${contextRoot}/update/${userModel.id}/experience/${experience.id}/delete"><span class="glyphicon glyphicon-remove"></span></a>
+									
+								</c:forEach>
+									
 									
 								</c:if>
-								<c:if test = "${empty experience}">
+								<c:if test = "${empty experienceList}">
 									<p>Experience is not updated..</p>
 								</c:if>
 								<hr>
@@ -166,17 +172,20 @@
 							<div class="col-xs-12 col-sm-6">
 					
 								<h4>Company Details</h4><hr/>
-								<c:if test = "${not empty company}">
-									<p>${company.name}</p>
-									<p>${company.description}</p>
-									<p>${company.other}</p>
+								<c:if test = "${not empty companyList}">
+									<c:forEach var="company" items="companyList">
+										<p>${company.name}</p>
+										<p>${company.description}</p>
+										<p>${company.other}</p>
+									</c:forEach>
+									
 								</c:if>
 								<c:if test = "${empty company}">
 									<p>No Details Available</p>
 								</c:if>
 								<hr>
 								<div class="profileEditbtn">
-									<button type="button" class="btn btn-primary" data-target="#personalModal" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span></button>
+									<button type="button" class="btn btn-primary" data-target="#companyEditModal" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span></button>
 								</div>
 								
 							</div>
@@ -192,6 +201,7 @@
 		
 		</div>
 	</div>
+
 	
 	<!-- Personal Modal -->
 	
@@ -206,6 +216,7 @@
 						modelAttribute="user"
 							class="form-horizontal"
 							id="updatePersonalForm"
+							enctype="multipart/form-data"
 						>
 					<div class="modal-body">
 					
@@ -245,6 +256,13 @@
 									<sf:errors path="contactNumber" cssClass="help-block" element="em"/> 
 								</div>
 							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4">Select Image</label>
+								<div class="col-md-8">
+									<sf:input type="file" path="file" class="form-control" />
+								</div>
+							</div>
+							
 							<sf:hidden path="password" />
 							<sf:hidden path="id" />
 							<sf:hidden path="role" />
@@ -446,123 +464,224 @@
 							method="POST"
 							modelAttribute="education"
 						>
-						
-						
-						<!-- 
-						
-						private int id;
-						private String graduation;
-						private String graduationOther;
-						private int gradutaionYear;
-						private double graduationPercentage;
-						private String intermediate;
-						int intermediateYear;
-						private double intermediatePercentage;
-						private String highSchool;
-						private int highSchoolYear;
-						private double highSchoolPercentage;
-						
-						 -->
-						
-						
 					<div class="modal-body">	
-							<div class="form-group">
-							<label class="control-label col-md-4" for="graduation">Graduation</label>
-								<div class="col-md-8">
-									<sf:input type="text" path="graduation" class="form-control" value="${education.graduation}"
-										placeholder="Enter Graduation" />
-								</div>
+						<div class="form-group">
+						<label class="control-label col-md-4" for="graduation">Graduation</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="graduation" class="form-control" value="${education.graduation}"
+									placeholder="Enter Graduation" />
 							</div>
-
-							<div class="form-group">
-								<label class="control-label col-md-4" for="graduationOther">Graduation From</label>
-								<div class="col-md-8">
-									<sf:input type="text" path="graduationOther" class="form-control" value="${education.graduationOther }"
-										placeholder="Enter Graduation From" />
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label class="control-label col-md-4" for="graduationYear">Graduation Year</label>
-								<div class="col-md-8">
-									<sf:input type="text" path="graduationYear" class="form-control" value="${education.graduationYear}"
-										placeholder="Enter City Name" />
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="control-label col-md-4" for="graduationPercentage">Graduation Percentage</label>
-								<div class="col-md-8">
-									<sf:input type="text" path="graduationPercentage" class="form-control" value="${education.graduationPercentage}"
-										placeholder="Graduation Percentage" />
-								</div>
-							</div>							
-
-							<hr/>						
-							<div class="form-group">
-								<label class="control-label col-md-4" for="intermediate">Intermediate</label>
-								<div class="col-md-8">
-									<sf:input type="text" path="intermediate" class="form-control" value="${education.intermediate }"
-										placeholder="Enter Intermediate Board" />
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label class="control-label col-md-4" for="intermediateYear">Year Of Passing</label>
-								<div class="col-md-8">
-									<sf:input type="text" path="intermediateYear" class="form-control" value="${education.intermediateYear}"
-										placeholder="Enter Passing year of Intermediate" />
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="control-label col-md-4" for="intermediatePercentage"></label>
-								<div class="col-md-8">
-									<sf:input type="text" path="intermediatePercentage" class="form-control" value="${education.intermediatePercentage}"
-										placeholder="Enter Percentage of Intermediate" />
-								</div>
-							</div>
-							
-							<hr>
-							<div class="form-group">
-								<label class="control-label col-md-4" for="highSchool">highSchool</label>
-								<div class="col-md-8">
-									<sf:input type="text" path="highSchool" class="form-control" value="${education.highSchool }"
-										placeholder="Enter highSchool Board" />
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label class="control-label col-md-4" for="highSchoolYear">Year Of Passing</label>
-								<div class="col-md-8">
-									<sf:input type="text" path="highSchoolYear" class="form-control" value="${education.highSchoolYear}"
-										placeholder="Enter Passing year of highSchool" />
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="control-label col-md-4" for="highSchoolPercentage"></label>
-								<div class="col-md-8">
-									<sf:input type="text" path="highSchoolPercentage" class="form-control" value="${education.highSchoolPercentage}"
-										placeholder="Enter Percentage of highSchool" />
-								</div>
-							</div>
-							
-							<sf:hidden path="id"/>
-							
-							<sf:hidden path="userId" value="${userModel.id}"/>
-							
 						</div>
-						<div class="modal-footer">
-							<button type="submit" class="btn btn-primary">Save </button>																	 
-							<button type="button" class="btn btn-warning close" data-dissmiss="modal">Cancel</button>
+
+						<div class="form-group">
+							<label class="control-label col-md-4" for="graduationOther">Graduation From</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="graduationOther" class="form-control" value="${education.graduationOther }"
+									placeholder="Enter Graduation From" />
+							</div>
 						</div>
-					</sf:form>
-				
+
+						<div class="form-group">
+							<label class="control-label col-md-4" for="graduationYear">Graduation Year</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="graduationYear" class="form-control" value="${education.graduationYear}"
+									placeholder="Enter City Name" />
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label col-md-4" for="graduationPercentage">Graduation Percentage</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="graduationPercentage" class="form-control" value="${education.graduationPercentage}"
+									placeholder="Graduation Percentage" />
+							</div>
+						</div>							
+
+						<hr/>						
+						<div class="form-group">
+							<label class="control-label col-md-4" for="intermediate">Intermediate</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="intermediate" class="form-control" value="${education.intermediate }"
+									placeholder="Enter Intermediate Board" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-md-4" for="intermediateYear">Year Of Passing</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="intermediateYear" class="form-control" value="${education.intermediateYear}"
+									placeholder="Enter Passing year of Intermediate" />
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label col-md-4" for="intermediatePercentage"></label>
+							<div class="col-md-8">
+								<sf:input type="text" path="intermediatePercentage" class="form-control" value="${education.intermediatePercentage}"
+									placeholder="Enter Percentage of Intermediate" />
+							</div>
+						</div>
+						
+						<hr>
+						<div class="form-group">
+							<label class="control-label col-md-4" for="highSchool">highSchool</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="highSchool" class="form-control" value="${education.highSchool }"
+									placeholder="Enter highSchool Board" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-md-4" for="highSchoolYear">Year Of Passing</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="highSchoolYear" class="form-control" value="${education.highSchoolYear}"
+									placeholder="Enter Passing year of highSchool" />
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label col-md-4" for="highSchoolPercentage"></label>
+							<div class="col-md-8">
+								<sf:input type="text" path="highSchoolPercentage" class="form-control" value="${education.highSchoolPercentage}"
+									placeholder="Enter Percentage of highSchool" />
+							</div>
+						</div>
+						
+						<sf:hidden path="id"/>
+						
+						<sf:hidden path="userId" value="${userModel.id}"/>
+						
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Save </button>																	 
+						<button type="button" class="btn btn-warning close" data-dissmiss="modal">Cancel</button>
+					</div>
+				</sf:form>
 			</div>
 		</div>
+	</div> 
 	
+	<!-- Experience Modal -->
+			
+	<div class="modal fade" role="dialog" id="experienceEditModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Edit Experience</h4>
+				</div>
+				<sf:form action="${contextRoot}/update/${userModel.id}/experience" 
+							class="form-horizontal"
+							id="experienceUpdateForm"
+							method="POST"
+							modelAttribute="experience"
+						>
+					<div class="modal-body">	
+						<div class="form-group">
+						<label class="control-label col-md-4" for="total">Total Experience </label>
+							<div class="col-md-8">
+								<sf:input type="text" path="total" class="form-control" 
+									placeholder="Enter Total Experience" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-md-4" for="description">Description</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="description" class="form-control" 
+									placeholder="Enter Description" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-md-4" for="fromDate">From Date</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="fromDate" class="form-control"
+									placeholder="Enter From Date " />
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label col-md-4" for="toDate">To Date</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="toDate" class="form-control" 
+									placeholder="Enter To Date" />
+							</div>
+						</div>							
+
+						<hr/>						
+						<div class="form-group">
+							<label class="control-label col-md-4" for="other">Other Details</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="other" class="form-control" 
+									placeholder="Enter Other Details" />
+							</div>
+						</div>
+						<sf:hidden path="id"/>
+						<sf:hidden path="userId" value="${userModel.id}"/>
+						
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Save </button>																	 
+						<button type="button" class="btn btn-warning close" data-dissmiss="modal">Cancel</button>
+					</div>
+				</sf:form>
+			</div>
+		</div>
 	</div> 	
+	
+	<!-- Company Modal -->
+			
+	<div class="modal fade" role="dialog" id="companyEditModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Edit company</h4>
+				</div>
+				<sf:form action="${contextRoot}/update/${userModel.id}/company" 
+							class="form-horizontal"
+							id="companyUpdateForm"
+							method="POST"
+							modelAttribute="company"
+						>
+					<div class="modal-body">	
+						<div class="form-group">
+						<label class="control-label col-md-4" for="name">Name </label>
+							<div class="col-md-8">
+								<sf:input type="text" path="name" class="form-control" 
+									placeholder="Enter Comapny Name" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-md-4" for="description">Description</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="description" class="form-control" 
+									placeholder="Enter Description" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-md-4" for="address">From Date</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="address" class="form-control"
+									placeholder="Enter Address" />
+							</div>
+						</div>
+						<sf:hidden path="id"/>
+						<sf:hidden path="userId" value="${userModel.id}"/>
+						
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Save </button>																	 
+						<button type="button" class="btn btn-warning close" data-dissmiss="modal">Cancel</button>
+					</div>
+				</sf:form>
+			</div>
+		</div>
+	</div> 
+		
 	
 	
 <%@include file="./shared/footer.jsp"%>

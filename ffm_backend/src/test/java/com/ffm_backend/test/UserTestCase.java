@@ -6,8 +6,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.ffm_backend.dao.*;
-import com.ffm_backend.dto.Education;
+import com.ffm_backend.dao.UserDAO;
+import com.ffm_backend.dto.Experience;
 
 public class UserTestCase {
 
@@ -227,6 +227,17 @@ public class UserTestCase {
 	
 		assertEquals("failed to test company", true, userDAO.deleteCompany(3));
 	}*/
-	
+	@Test
+	public void addExperience() {
+		Experience experience = new Experience();
+		experience.setDescription("1 year Experience in BPO ");
+		experience.setFromDate("2016-08-01");
+		experience.setToDate("2017-10-01");
+		experience.setOther("as a data anlyst");
+		experience.setUserId(3);
+		
+		assertEquals("adding Experience ",true, userDAO.addExperience(experience));
+		
+	}
 	
 }

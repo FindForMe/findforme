@@ -130,6 +130,8 @@ public class PageController {
 
 			if(success.equals("personal")) {
 				mv.addObject("message","Profile Updated Successfully");
+			}else if(success.equals("delete")) {
+				mv.addObject("message","Details Deleted Successfully");
 			}
 		}
 		
@@ -170,16 +172,13 @@ public class PageController {
 		
 		//List<Experience> listExperience = userDAO.getExperienceList(id);
 		
-		mv.addObject("experience",userDAO.getExperienceList(id));
+		mv.addObject("experienceList",userDAO.getExperienceList(id));
+		mv.addObject("companyList",userDAO.getCompanyList(id));
 		mv.addObject("title",user.getFirstName()+" "+user.getLastName());
 		mv.addObject("userClickShowUser",true);
 		
-		
-		
 		return mv;
 	}
-	
-	
 	
 	@RequestMapping(value="/login")
 	public ModelAndView login(@RequestParam(name="error", required = false)	String error,

@@ -29,10 +29,10 @@ public class Experience implements Serializable {
 	private String description;
 	
 	@Column(name = "from_date")
-	private Date fromDate;
+	private String fromDate;
 	
 	@Column(name = "to_date")
-	private Date toDate;
+	private String toDate;
 	
 	private String other;
 	
@@ -62,20 +62,20 @@ public class Experience implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public Date getFromDate() {
+	
+	public String getFromDate() {
 		return fromDate;
 	}
 
-	public void setFromDate(Date fromDate) {
+	public void setFromDate(String fromDate) {
 		this.fromDate = fromDate;
 	}
 
-	public Date getToDate() {
+	public String getToDate() {
 		return toDate;
 	}
 
-	public void setToDate(Date toDate) {
+	public void setToDate(String toDate) {
 		this.toDate = toDate;
 	}
 

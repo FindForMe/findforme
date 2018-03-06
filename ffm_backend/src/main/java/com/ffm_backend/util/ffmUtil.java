@@ -1,10 +1,9 @@
 package com.ffm_backend.util;
 
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.UUID;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class ffmUtil {
 	
@@ -50,9 +49,14 @@ public class ffmUtil {
 		
 		/*Date date = new Date();
 		DateFormat formate = new DateFormat();*/
-		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-				.format(Calendar.getInstance().getTime());
+		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
 	}
+	
+	/*public static Date genStrToDate(String date) {
+		//return new SimpleDateFormat("yyyy-mm-dd").format(date);
+	}*/
+	
+	
 	
 	public static void main(String[] args) {
 		System.out.println("row id : "+genRowID());

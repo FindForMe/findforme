@@ -38,4 +38,27 @@ public class FileUtil {
 			return false;
 		}
 	}
+	
+	public static boolean uploadProfilePicture(HttpServletRequest request, MultipartFile file, String code) {
+		//Get the server real Path
+		REAL_PATH = request.getSession().getServletContext().getRealPath("/assets/img");
+		logger.info(REAL_PATH);
+		
+		//Create the directory if not exists
+		if(!new File(REAL_PATH).exists()) {
+			new File(REAL_PATH).mkdirs();
+		}
+		if(!new File(ABS_PATH).exists()) {
+			new File(ABS_PATH).mkdirs();
+		}
+		try {
+			//Transer both file to location
+			file.transferTo(new File(REAL_PATH+code+".jpg"));
+			file.transferTo(new File(ABS_PATH+code+".jpg"));
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
 }
