@@ -63,7 +63,9 @@ body{
 .labelText{
 	padding-right:50px;
 }
-
+.glyphicon-remove{
+	color:red;
+}
 
 
 

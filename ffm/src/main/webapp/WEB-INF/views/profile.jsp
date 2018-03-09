@@ -39,10 +39,7 @@
 									<img src="${contextRoot}/resources/img/${user.id}.jpg" class="img img-responsive imgDataTable" alt="Profile Image"/>
 											
 								</div>
-								<hr/>
-								<div class="profileEditbtn">
-									<button type="button" class="btn btn-primary" data-target="#imageEditModal" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span></button>
-								</div>
+								
 							</div>
 							<div class="col-xs-12 col-sm-8">
 							
@@ -173,14 +170,16 @@
 					
 								<h4>Company Details</h4><hr/>
 								<c:if test = "${not empty companyList}">
-									<c:forEach var="company" items="companyList">
-										<p>${company.name}</p>
+									<c:forEach var="company" items="${companyList}">
+										<p>${company.name}"</p>
 										<p>${company.description}</p>
-										<p>${company.other}</p>
+										<p>${company.address}</p>
+										<hr/>
+										<a href="${contextRoot}/update/${userModel.id}/company/${company.id}/delete"><span class="glyphicon glyphicon-remove"></span></a>
 									</c:forEach>
 									
 								</c:if>
-								<c:if test = "${empty company}">
+								<c:if test = "${empty companyList}">
 									<p>No Details Available</p>
 								</c:if>
 								<hr>
@@ -279,7 +278,7 @@
 	
 	</div>
 	
-		<!-- Parmanent Address Modal -->
+		<!-- Permanent Address Modal -->
 	
 	<div class="modal fade" role="dialog" id="pAddressEditModal">
 		<div class="modal-dialog">
@@ -574,7 +573,7 @@
 							class="form-horizontal"
 							id="experienceUpdateForm"
 							method="POST"
-							modelAttribute="experience"
+							modelAttribute="nExperience"
 						>
 					<div class="modal-body">	
 						<div class="form-group">
@@ -643,7 +642,7 @@
 							class="form-horizontal"
 							id="companyUpdateForm"
 							method="POST"
-							modelAttribute="company"
+							modelAttribute="nCompany"
 						>
 					<div class="modal-body">	
 						<div class="form-group">
@@ -663,7 +662,7 @@
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-md-4" for="address">From Date</label>
+							<label class="control-label col-md-4" for="address">Address</label>
 							<div class="col-md-8">
 								<sf:input type="text" path="address" class="form-control"
 									placeholder="Enter Address" />

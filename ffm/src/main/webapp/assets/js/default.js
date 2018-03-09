@@ -22,10 +22,8 @@ $('document').ready(function(){
 		break;
 	case 'ManagePost' :
 		$('#managePost').addClass('active');
-	break;
+	
 	}
-	
-	
 	
 	// for handling CSRF token
 	var token = $('meta[name="_csrf"]').attr('content');
@@ -180,4 +178,27 @@ $('document').ready(function(){
 		}, 3000);
        }
         
-}); 
+});
+
+
+//todo
+function ajaxSend(url, params, method, caller,timeOut){
+	
+	$.ajax({
+		url : url,
+		data : params,
+		type : method,
+		success : function(result , status, xhr){
+			cosole.log(result+status+xhr);
+			//ajaxSuccess(response, caller);
+		},
+		error : function(xhr, status, error){
+			console.log(xhr,status,error);
+			//ajaxFailed(caller);
+		}
+		
+	});
+}
+
+
+

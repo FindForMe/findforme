@@ -31,7 +31,7 @@ public class Company implements Serializable {
 	
 	@Column(name = "userid")
 	private int userId;
-
+	
 	public int getId() {
 		return id;
 	}

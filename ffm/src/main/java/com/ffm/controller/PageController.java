@@ -24,7 +24,9 @@ import com.ffm_backend.dao.PostDAO;
 import com.ffm_backend.dao.UserDAO;
 import com.ffm_backend.dto.Address;
 import com.ffm_backend.dto.Category;
+import com.ffm_backend.dto.Company;
 import com.ffm_backend.dto.Education;
+import com.ffm_backend.dto.Experience;
 import com.ffm_backend.dto.Post;
 import com.ffm_backend.dto.User;
 
@@ -173,9 +175,16 @@ public class PageController {
 		//List<Experience> listExperience = userDAO.getExperienceList(id);
 		
 		mv.addObject("experienceList",userDAO.getExperienceList(id));
+		// model attribute for modal
+		mv.addObject("nExperience",new Experience());
+		mv.addObject("nCompany",new Company());
 		mv.addObject("companyList",userDAO.getCompanyList(id));
+		
+		logger.info("companyList \n"+userDAO.getCompanyList(id).toString());
 		mv.addObject("title",user.getFirstName()+" "+user.getLastName());
 		mv.addObject("userClickShowUser",true);
+		
+		
 		
 		return mv;
 	}

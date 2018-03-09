@@ -46,7 +46,7 @@ public interface UserDAO {
 	Company loadCompanyById(int companyId);
 	boolean addCompany(Company company);
 	boolean updateCompany(Company company);
-	boolean deleteCompany(int userId);
+	boolean deleteCompany(int companyId);
 	
 	//adding and updating experience 
 	List<Experience> getExperienceList(int userId);

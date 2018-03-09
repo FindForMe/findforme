@@ -299,14 +299,12 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean deleteCompany(int userId) {
+	public boolean deleteCompany(int companyId) {
 
-		String deleteQuery = "DELETE FROM Company WHERE userId =:userId";
+		Company company = new Company();
+		company.setId(companyId);
 		try {
-			sessionFactory.getCurrentSession()
-			.createQuery(deleteQuery)
-			.setParameter("userId", userId)
-			.executeUpdate();
+			sessionFactory.getCurrentSession().delete(company);
 			return true;
 		}catch(Exception ex) {
 			ex.printStackTrace();

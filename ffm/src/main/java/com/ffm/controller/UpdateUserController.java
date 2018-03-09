@@ -91,7 +91,7 @@ public class UpdateUserController {
 		return "redirect:/show/"+id+"/user?success=personal";
 	}
 	@RequestMapping(value = "/{id}/experience", method = RequestMethod.POST)
-	public String updateExperience(@PathVariable int id, @ModelAttribute("experience") Experience experience) {
+	public String updateExperience(@PathVariable int id, @ModelAttribute("nExperience") Experience experience) {
 		
 		if(experience.getId() == 0) {
 			userDAO.addExperience(experience);
@@ -102,7 +102,7 @@ public class UpdateUserController {
 		return "redirect:/show/"+id+"/user?success=personal";
 	}
 	@RequestMapping(value = "/{id}/company", method = RequestMethod.POST)
-	public String updateCompany(@PathVariable int id, @ModelAttribute("company") Company company) {
+	public String updateCompany(@PathVariable int id, @ModelAttribute("nCompany") Company company) {
 		
 		if(company.getId() == 0) {
 			userDAO.addCompany(company);
@@ -117,9 +117,20 @@ public class UpdateUserController {
 	 * delete experience based on id
 	 */
 	@RequestMapping(value = "{id}/experience/{experienceId}/delete")
-	public String deleteExperience(@PathVariable("experienceId") int experienceId, @PathVariable int id) {
+	public String deleteExperience(@PathVariable("experienceId") int experienceId, @PathVariable int id ) {
 		
 		userDAO.deleteExperience(experienceId);
+		
+		return "redirect:/show/"+id+"/user?success=delete"; 
+	}
+	
+	/*
+	 * delete company based on id
+	 */
+	@RequestMapping(value = "{id}/company/{companyId}/delete")
+	public String deleteCompany(@PathVariable("companyId") int companyId, @PathVariable int id ) {
+		
+		userDAO.deleteCompany(companyId);
 		
 		return "redirect:/show/"+id+"/user?success=delete"; 
 	}
