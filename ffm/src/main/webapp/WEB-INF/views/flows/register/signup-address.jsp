@@ -2,7 +2,6 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>			
 	<div class="container">
 		
-		
 		<div class="row">
 			
 			<div class="col-md-6 col-md-offset-3">
@@ -60,23 +59,22 @@
 							</div>							
 						
 							<div class="form-group">
-								<label class="control-label col-md-4" for="state">State</label>
-								<div class="col-md-8">
-									<sf:input type="text" path="state" class="form-control"
-										placeholder="Enter State Name" />
-									<sf:errors path="state" cssClass="help-block" element="em"/> 
-								</div>
-							</div>
-
-							<div class="form-group">
 								<label class="control-label col-md-4" for="country">Country</label>
 								<div class="col-md-8">
-									<sf:input type="text" path="country" class="form-control"
-										placeholder="Enter Country Name" />
+									<sf:input type="text" path="country" id="country" class="form-control"
+										placeholder="Select Country" />
 									<sf:errors path="country" cssClass="help-block" element="em"/> 
 								</div>
 							</div>
 							
+							<div class="form-group">
+								<label class="control-label col-md-4" for="state">State</label>
+								<div class="col-md-8">
+									<sf:input type="text" path="state" id="state" class="form-control"
+										placeholder="Select State" />
+									<sf:errors path="state" cssClass="help-block" element="em"/> 
+								</div>
+							</div>
 							
 							<div class="form-group">
 								<div class="col-md-offset-4 col-md-8">
@@ -88,23 +86,11 @@
 									</button>																	 
 								</div>
 							</div>
-						
-						
 						</sf:form>					
-					
-					
 					</div>
-				
-				
 				</div>
-			
-			
 			</div>
-		
-		
 		</div>
-		
-		
 	</div>
 
 <%@include file="../flows-shared/footer.jsp" %>			

@@ -89,8 +89,11 @@ $('document').ready(function(){
         	}
 
         	console.log('jsonUrl : '+jsonUrl+'/n categoryId : '+window.categoryId);
+        	
+        	ajaxSend(jsonUrl,{},'GET','postDataTable');
+        	
         	$table.dataTable({
-           	 ajax : {
+           	 /*ajax : {
            		 url :jsonUrl,
            		 dataSrc : ''
            	 },
@@ -127,7 +130,7 @@ $('document').ready(function(){
    					str+='<button class="btn btn-default">Apply<button>';
    					return str;
    				}}
-           	 ]
+           	 ]*/
             });
         }
      
@@ -180,25 +183,13 @@ $('document').ready(function(){
         
 });
 
-
-//todo
-function ajaxSend(url, params, method, caller,timeOut){
-	
-	$.ajax({
-		url : url,
-		data : params,
-		type : method,
-		success : function(result , status, xhr){
-			cosole.log(result+status+xhr);
-			//ajaxSuccess(response, caller);
-		},
-		error : function(xhr, status, error){
-			console.log(xhr,status,error);
-			//ajaxFailed(caller);
-		}
-		
-	});
+function ajaxSuccess(response , caller){
+	console.log('ajaxSuccess');
+	console.log('response : \n'+response+'\ncaller : \n'+caller);
 }
-
+function ajaxFailed(status, caller){
+	console.log('ajaxSuccess');
+	console.log('caller : \n'+caller+'\nstatus\n'+status);
+}
 
 
