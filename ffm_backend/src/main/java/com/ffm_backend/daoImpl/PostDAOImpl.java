@@ -3,7 +3,6 @@ package com.ffm_backend.daoImpl;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.sql.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,7 +31,6 @@ public class PostDAOImpl implements PostDAO {
 
 	@Override
 	public Post get(int id) {
-		
 		try {
 			return sessionFactory.getCurrentSession().get(Post.class, Integer.valueOf(id));
 		}catch(Exception ex) {
@@ -55,7 +53,21 @@ public class PostDAOImpl implements PostDAO {
 			return null;
 		}
 	}
-
+	
+	@Override
+	public List<Post> getPostByUserId(int userId) {
+		String queryString = "FROM Post where userId =: userId";
+		try {
+			return sessionFactory.getCurrentSession()
+					.createQuery(queryString,Post.class)
+					.setParameter("userId", userId)
+					.getResultList();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
 	@Override
 	public List<Post> getPostByCategoryId(int categoryId ){
 		String queryString = "FROM Post where categoryId =:categoryId";
@@ -68,7 +80,6 @@ public class PostDAOImpl implements PostDAO {
 			ex.printStackTrace();
 			return null;
 		}
-		
 	}
 	
 	@Override
@@ -98,4 +109,5 @@ public class PostDAOImpl implements PostDAO {
 		post.setActive(false);
 		return update(post);
 	}
+
 }

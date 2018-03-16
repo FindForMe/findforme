@@ -11,7 +11,7 @@ public interface PostDAO {
 	Post get(int id);
 	
 	List<Post> list();
-	
+	List<Post> getPostByUserId(int userId);
 	List<Post> getPostByCategoryId(int categoryId );
 	
 	boolean update(Post post);

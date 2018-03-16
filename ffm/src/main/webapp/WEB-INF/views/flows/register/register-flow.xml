@@ -51,7 +51,6 @@
    <!-- Global Transition -->
    <global-transitions>
    		<transition on="home" to="home" validate="false"></transition>
-   	
    </global-transitions>
                      
  </flow>

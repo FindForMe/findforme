@@ -28,7 +28,7 @@
 							</a></li>
 				
 				</security:authorize>
-					
+				<li id="profileEdit"><a href="${contextRoot}/profile">Edit Profile</a></li>
 				
 			</ul>
 

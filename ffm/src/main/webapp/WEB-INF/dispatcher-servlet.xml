@@ -40,8 +40,8 @@
 	
 	<mvc:resources location="/assets/" mapping="/resources/**" /> 
 	
-	 <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
- 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+ 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
       
     <!-- web flow configurations -->
     
@@ -69,8 +69,7 @@
    	<bean id="viewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
          <property name="viewResolvers" ref="viewResolver" />
  	</bean>	
- 	
+
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/> 	
-     
                 
 </beans>

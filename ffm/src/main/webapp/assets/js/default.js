@@ -87,51 +87,12 @@ $('document').ready(function(){
         	}else{
         		jsonUrl = window.contextRoot+'/json/data/category/'+window.categoryId+'/post';
         	}
-
+        	
         	console.log('jsonUrl : '+jsonUrl+'/n categoryId : '+window.categoryId);
         	
         	ajaxSend(jsonUrl,{},'GET','postDataTable');
         	
-        	$table.dataTable({
-           	 /*ajax : {
-           		 url :jsonUrl,
-           		 dataSrc : ''
-           	 },
-           	 columns:[
-           		 {data:'code',
-           			 bSortable : false,
-           			 mRender : function(data, type , row){
-           				 str = '';
-           				 str += '<img src="'+window.contextRoot+'/resources/img/'+data+'.jpg" class="imgDataTable">';
-           				 //console.log('img path : '+window.contextRoot+'/resources/img/'+data+'.jpg');
-           				 return str;
-           			 }
-           		 },
-           		 {data:'title'},
-           		 {data:'description'},
-           		 {data:'active'},
-           		 {data:'id',
-       			  mRender:function(data,type,row){
-       				 return "date";
-       			 }
-           		 },
-           		{data:'id',
-           			 bSortable : false,
-       				 mRender:function(data,type,row){
-       				var str = '';
-       				str+='<a href="'+window.contextRoot+'/show/'+data+'/post" class="btn btn-default">View</a>';
-       				return str;
-       			}
-           		},
-           		{data:'id',
-           			bSortable : false,
-           			mRender:function(data,type,row){
-   					var str = '';
-   					str+='<button class="btn btn-default">Apply<button>';
-   					return str;
-   				}}
-           	 ]*/
-            });
+        	$table.dataTable();
         }
      
         
