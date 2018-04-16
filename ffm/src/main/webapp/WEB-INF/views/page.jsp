@@ -45,7 +45,7 @@
 	
 	
 			<!-- Page Contents -->
-			<div class="content">
+			<div class="content" ng-app="pageApp">
 				
 				<!-- Loading the home content -->
 				<c:if test="${userClickHome == true}" >
@@ -130,8 +130,16 @@
 			<!-- DataTable Bootstrap Script -->
 			<script src="${js}/bootbox.min.js"></script>
 			
+			<!-- angular js -->
+			<script type="text/javascript" src="${js}/angular.js"></script>
+			
 			<!-- Default JavaScript -->
 			<script type="text/javascript" src="${js}/default.js"></script>
+			
+			<!-- default Angular -->
+			<!-- angular js -->
+			<script type="text/javascript" src="${js}/ffmAngular.js"></script>
+			
 			
 		</div>
 	

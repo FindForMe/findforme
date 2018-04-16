@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="postCtrl">
 	<div class="row">
 		<!-- sidebar -->
 		<div class="col-md-3">
@@ -32,32 +32,28 @@
 					</c:if>
 				</div>
 			</div>
-			<table class="table table-responsive" id="dataTable">
-				<thead>
-					<tr>
-						<th>Image</th>
-						<th>Title</th>
-						<th>Description</th>
-						<th>Posted By</th>
-						<th>Date</th>
-						<th>View</th>
-						<th>Apply</th>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-				<!-- <tfoot>
-					<tr>
-						<th>Image</th>
-						<th>Title</th>
-						<th>Description</th>
-						<th>Posted By</th>
-						<th>Date</th>
-						<th>View</th>
-						<th>Apply</th>
-					</tr>
-				</tfoot> -->
-			</table>
+			this is test :- {{test}}
+				<div class="post-container" >
+					<div class="post-img">
+						<div id="img"><img alt="img" ></div>
+					</div>
+					<div class="post-data">
+						<div class="post-title">title</div>
+						<div class="post-description">description</div>
+						<div class="post-other">
+							<ul >
+								<li>duraion</li>
+								<li>view</li>
+							</ul>
+						</div>
+					</div>
+					<div class="post-footer">
+						<!-- <div class="post-duration">duration</div>
+						<div class="post-view">view count</div> -->
+						<!-- <div class="post-apply"> -->
+							<button type="button" class="btn btn-primary">apply</button>
+					</div>
+				</div>
 		</div>
 	</div>
 </div>

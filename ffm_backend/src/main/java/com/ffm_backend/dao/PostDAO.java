@@ -13,7 +13,7 @@ public interface PostDAO {
 	List<Post> list();
 	List<Post> getPostByUserId(int userId);
 	List<Post> getPostByCategoryId(int categoryId );
-	
+	List<Post> getPostByInterest(int userid);
 	boolean update(Post post);
 	
 	boolean delete(Post post);

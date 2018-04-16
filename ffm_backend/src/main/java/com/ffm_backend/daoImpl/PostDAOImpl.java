@@ -42,7 +42,7 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public List<Post> list() {
 		
-		String queryString = "FROM Post";
+		String queryString = "FROM post";
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(queryString,Post.class)
@@ -56,7 +56,7 @@ public class PostDAOImpl implements PostDAO {
 	
 	@Override
 	public List<Post> getPostByUserId(int userId) {
-		String queryString = "FROM Post where userId =: userId";
+		String queryString = "FROM post where userId =: userId";
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(queryString,Post.class)
@@ -70,7 +70,7 @@ public class PostDAOImpl implements PostDAO {
 	
 	@Override
 	public List<Post> getPostByCategoryId(int categoryId ){
-		String queryString = "FROM Post where categoryId =:categoryId";
+		String queryString = "FROM post where categoryId =:categoryId";
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(queryString,Post.class)
@@ -80,6 +80,19 @@ public class PostDAOImpl implements PostDAO {
 			ex.printStackTrace();
 			return null;
 		}
+	}
+	@Override
+	public List<Post> getPostByInterest(int userId){
+		/*String queryString = "From post where categoryId = IN (select categoryid from user_interest where userid ="+userId+")";
+		try {
+			return sessionFactory.getCurrentSession()
+			.createQuery(queryString,Post.class)
+			.getResultList();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}*/
+		return null;
 	}
 	
 	@Override

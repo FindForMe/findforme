@@ -92,7 +92,7 @@ $('document').ready(function(){
         	
         	ajaxSend(jsonUrl,{},'GET','postDataTable');
         	
-        	$table.dataTable();
+        	//$table.dataTable();
         }
      
         
