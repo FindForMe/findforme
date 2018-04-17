@@ -59,14 +59,18 @@ public class PostTestCase {
 		assertEquals("updating post ",true, postDAO.update(post));
 	}*/
 	
-	/*@Test
-	public void getListTest() {
-		assertEquals("getting list of post",2,postDAO.list().size());
-	}*/
-	
 	@Test
+	public void getListTest() {
+		assertEquals("getting list of post",1,postDAO.list().size());
+	}
+	
+	/*@Test
 	public void getCategoryPostTest() {
 		assertEquals("failed to get categorypost", 1, postDAO.getPostByCategoryId(1).size());
-	}
+	}*/
+	/*@Test
+	public void getPostInterestTest() {
+		assertEquals("failed to get categorypost", 4, postDAO.getPostByInterest(3).size());
+	}*/
 	
 }

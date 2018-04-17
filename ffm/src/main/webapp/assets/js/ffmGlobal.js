@@ -53,6 +53,19 @@ function ajaxSend(url, params, method, caller,showUrl, showBeforeSend, showCompl
 	});
 }
 
+/*set DateTime default value to today*/
+function setDateTimeToInput(id){
+	var idObj = document.getElementById(id);
+	idObj.attr('type','datetime-local');
+	var currentDt = JSON.stringify(new Date());
+	idObj.value = currentDt.slice(1,currentDt.length-9);
+}
+function setDateToInput(id){
+	var idObj = document.getElementById(id);
+	idObj.type = 'date';
+	var currentDt = JSON.stringify(new Date());
+	idObj.value = currentDt.slice(1,currentDt.length-15);
+}
 
 /*
  * populateCountries ------------------------------------

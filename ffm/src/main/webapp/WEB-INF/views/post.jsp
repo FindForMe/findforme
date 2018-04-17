@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" ng-controller="postCtrl">
 	<div class="row">
 		<!-- sidebar -->
-		<div class="col-md-3">
+		<%-- <div class="col-md-3">
 			<%@include file="./shared/sidebar.jsp" %>
-		</div>
+		</div> --%>
 		<!-- content -->
-		<div class="col-md-9">
+		<div class="col-md-10 col-md-offset-1">
 		
 			<!-- Added breadcrumb component -->
 			<div class="row">
@@ -32,32 +32,41 @@
 					</c:if>
 				</div>
 			</div>
-			<table class="table table-responsive" id="dataTable">
-				<thead>
-					<tr>
-						<th>Image</th>
-						<th>Title</th>
-						<th>Description</th>
-						<th>Posted By</th>
-						<th>Date</th>
-						<th>View</th>
-						<th>Apply</th>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-				<!-- <tfoot>
-					<tr>
-						<th>Image</th>
-						<th>Title</th>
-						<th>Description</th>
-						<th>Posted By</th>
-						<th>Date</th>
-						<th>View</th>
-						<th>Apply</th>
-					</tr>
-				</tfoot> -->
-			</table>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<p >
+						<span class="glyphicon glyphicon-search"></span><input type="text" class="form-control" placeholder="search" ng-model="textFilter" >
+					</p>
+				</div>
+				<div class="panel-body">
+					<div class="post-container" ng-repeat="x in obj | filter:textFilter" >
+					<div class="post-img">
+						<div id="img"><img alt="{{x.code}}" ></div>
+					</div>
+					<div class="post-data">
+						<div class="post-title"><h4>{{x.title}}</h4></div>
+						<div class="post-description">{{x.description}}</div>
+						<div class="post-other">
+							<ul >
+								<li>will be expire on {{x.expireDate}} *</li>
+								<li>view {{x.view}} *</li>
+								
+							</ul>
+						</div>
+					</div>
+					<div class="post-footer">
+						<!-- <div class="post-duration">duration</div>
+						<div class="post-view">view count</div> -->
+						<!-- <div class="post-apply"> -->
+							<button type="button" class="btn btn-primary" >select</button>
+					</div>
+				</div>
+				</div>
+				<div class="panel-footer">
+				
+				</div>
+			</div>
+				
 		</div>
 	</div>
 </div>

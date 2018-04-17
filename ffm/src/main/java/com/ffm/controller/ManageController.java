@@ -3,8 +3,11 @@ package com.ffm.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ffm.model.UserModel;
 import com.ffm.util.FileUtil;
+import com.ffm.util.ffmUtilMain;
 import com.ffm_backend.dao.CategoryDAO;
 import com.ffm_backend.dao.PostDAO;
 import com.ffm_backend.dto.Category;
@@ -26,6 +31,7 @@ import com.ffm_backend.util.ffmUtil;
 @RequestMapping("/manage")
 public class ManageController {
 
+	Logger logger = LoggerFactory.getLogger(ManageController.class);
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
@@ -65,7 +71,13 @@ public class ManageController {
 			return "page";
 		}
 		
-		
+		int userId = ffmUtilMain.getUserId(request);
+		if(userId == 0) {
+			model.addAttribute("message","Invalid User");
+			model.addAttribute("userClickManagePost",true);
+			return "page";
+		}
+		mPost.setUserId(userId);
 		if(mPost.getId()==0) {
 			postDAO.add(mPost);
 		}else {
@@ -76,6 +88,7 @@ public class ManageController {
 		if(!mPost.getFile().getOriginalFilename().equals("")) {
 			FileUtil.uploadFile(request, mPost.getFile(), mPost.getCode());
 		}
+		
 		return "redirect:/manage/post?success=post";
 	}
 	@RequestMapping(value = "/category", method=RequestMethod.POST)
@@ -83,8 +96,6 @@ public class ManageController {
 		categoryDAO.add(mCategory);		
 		return "redirect:" + request.getHeader("Referer") + "?success=category";
 	}
-	
-	
 	
 	@ModelAttribute("categories")
 	public List<Category> getCategories(){

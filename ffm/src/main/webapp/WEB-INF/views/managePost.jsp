@@ -33,10 +33,16 @@
 							<sf:errors path="description" cssClass="help-block" element="em"/> 
 						</div>
 						<div class="form-grpup">
+							<label for="postAddress">Address</label> 
+							<sf:input  path="address" id="postAddress" class="form-control"/>
+							<sf:errors path="address" cssClass="help-block" element="em"/> 
+						</div> 
+						<div class="form-grpup">
 							<label for="expireDate">Post Expire Date</label> 
-							<sf:input type="text" path="expireDate" id="expireDate" class="form-control"/>
+							<sf:input  path="expireDate" id="expireDate" class="form-control"/>
 							<sf:errors path="expireDate" cssClass="help-block" element="em"/> 
 						</div> 
+						
 						<div class="form-group">
 							<label for="file">Select File</label>
 							<sf:input type="file" id="file" path="file" class="form-control"/>
@@ -54,6 +60,7 @@
 							<sf:hidden path="rowId"/>
 							<sf:hidden path="view"/>
 							<sf:hidden path="apply"/>
+							
 						</div>
 						<button type="button" class="btn btn-primary" data-target="#categoryModal" data-toggle="modal">Add New Category</button>
 						<sf:button class="btn btn-defualt" type="submit">Submit</sf:button>

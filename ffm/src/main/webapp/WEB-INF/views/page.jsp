@@ -27,7 +27,7 @@
 		<link rel="stylesheet" href="${css}/bootstrap.css">
 		
 		<!-- bootstrap readable theme -->
-		<link rel="stylesheet" href="${css}/bootstrap-readable-theme.css">
+		 <link rel="stylesheet" href="${css}/bootstrap-readable-theme.css"> 
 		
 		<!-- datatable css -->
 		<link rel="stylesheet" href="${css}/dataTables.bootstrap.css">
@@ -41,11 +41,10 @@
 		<div class="wrapper">
 	
 			<!-- Navigation -->
-			<%@ include file="./shared/navbar.jsp"%>
-	
+			<%@ include file="./shared/navbar.jsp"%> 
 	
 			<!-- Page Contents -->
-			<div class="content">
+			<div class="content" ng-app="pageApp">
 				
 				<!-- Loading the home content -->
 				<c:if test="${userClickHome == true}" >
@@ -132,8 +131,17 @@
 			
 			<!-- Globalffm JavaScript -->
 			<script type="text/javascript" src="${js}/ffmGlobal.js"></script>
+			
+			<!-- angular js -->
+			<script type="text/javascript" src="${js}/angular.js"></script>
+			
 			<!-- Default JavaScript -->
 			<script type="text/javascript" src="${js}/default.js"></script>
+			
+			<!-- default Angular -->
+			<!-- angular js -->
+			<script type="text/javascript" src="${js}/ffmAngular.js"></script>
+			
 			
 		</div>
 	

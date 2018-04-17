@@ -62,5 +62,5 @@ public class ffmUtil {
 		System.out.println("row id : "+genRowID());
 		System.out.println("date time : "+genCurrDateTime());
 	}
-	
+
 }

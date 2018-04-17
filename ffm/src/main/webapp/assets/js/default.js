@@ -22,7 +22,7 @@ $('document').ready(function(){
 		break;
 	case 'ManagePost' :
 		$('#managePost').addClass('active');
-	
+		setDateToInput('expireDate');
 	}
 	
 	// for handling CSRF token
@@ -76,7 +76,7 @@ $('document').ready(function(){
          * showing post
          */
         	$table = $('#dataTable');
-        	
+        
         if($table.length){
         	console.log('inside table length');
         	
@@ -92,7 +92,7 @@ $('document').ready(function(){
         	
         	ajaxSend(jsonUrl,null,'GET','postDataTable');
         	
-        	$table.dataTable();
+        	//$table.dataTable();
         }
      
         
@@ -141,8 +141,38 @@ $('document').ready(function(){
 			$alert.fadeOut('slow');
 		}, 3000);
        }
-        
+      
+    /*
+     * set default expire date for managePost
+     */
+     /* setDateVelue();
+    var  $expireDatePost = document.getElementById('expireDate');
+    // if($expireDatePost.length){
+    	 
+    	 var currentDt = JSON.stringify(new Date());
+    	 console.log('expireDatePost',currentDt);
+    	 //var cd = currentDt.slice(1,currentDt.length-9);
+    	 $expireDatePost.value = currentDt.slice(1,currentDt.length-15);
+    // }
+*/     
+       
+       $('[data-toggle="slide-collapse"]').on('click', function() {
+    	    $navMenuCont = $($(this).data('target'));
+    	    $navMenuCont.animate({'width':'toggle'}, 350);
+    	    $('.navbar-toggle').toggleClass('pull-left');
+    	    
+    	});    
+      /* $('[data-toggle="collapse"]').on('click', function() {
+   	    $navMenuCont = $($(this).data('target'));
+   	    $navMenuCont.animate({'width':'toggle'}, 350);
+   	    $('.navbar-toggle').addClass('pull-left');
+   	    
+   	}); */
+       
 });
+function setDateValue(){
+	
+}
 
 function ajaxSuccess(response , caller){
 	console.log('ajaxSuccess');

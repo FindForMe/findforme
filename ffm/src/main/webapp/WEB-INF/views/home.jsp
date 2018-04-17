@@ -113,7 +113,7 @@
 				</div>
 			</div>
 
-			<div class="row">
+			<!-- <div class="row">
 				<div class="c0l-md-4 col-md-offset-3">
 					<div class="search_category">
 						<h3>Search for Lables</h3>
@@ -152,7 +152,7 @@
 						</tr>
 					</table>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>

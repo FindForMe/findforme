@@ -32,11 +32,11 @@ public class Post {
 	//private String code
 	
 	@Column(name = "user_id")
-	@JsonIgnore
+	//@JsonIgnore
 	private int userId;
 	
 	@Column(name = "category_id")
-	@JsonIgnore
+	//@JsonIgnore
 	private int categoryId;
 	
 	@Column(name = "image_url")
@@ -44,12 +44,13 @@ public class Post {
 	private boolean active = true;
 	@JsonIgnore
 	private String created = ffmUtil.genCurrDateTime();
-	@JsonIgnore
+	//@JsonIgnore
 	@Column(name = "expire_date")
 	private String expireDate;
 	@JsonIgnore
 	private String rowId;
-
+	private String address;
+	
 	private int view;
 	private int apply;
 	
@@ -165,5 +166,13 @@ public class Post {
 	public void setApply(int apply) {
 		this.apply = apply;
 	}
-	
+
+	public String getAddress() {
+		return address;
 	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+}

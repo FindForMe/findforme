@@ -81,6 +81,19 @@ public class PostDAOImpl implements PostDAO {
 			return null;
 		}
 	}
+	@Override
+	public List<Post> getPostByInterest(int userId){
+		/*String queryString = "From post where categoryId = IN (select categoryid from user_interest where userid ="+userId+")";
+		try {
+			return sessionFactory.getCurrentSession()
+			.createQuery(queryString,Post.class)
+			.getResultList();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}*/
+		return null;
+	}
 	
 	@Override
 	public boolean update(Post post) {

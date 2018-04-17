@@ -1,14 +1,17 @@
 <%@taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top custom-navbar">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#mynavbar">
-				<span class="glyphicon glyphicon-list"></span>
-			</button>
-			<a class="navbar-brand" href="${contextRoot}/home"><img
-				src="${img}/logo.PNG" class="img-responsive default-img"></a>
+			<button type="button" class="pull-left navbar-toggle" data-toggle="slide-collapse"
+				data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+			<a class="navbar-brand" href="${contextRoot}/home">
+			<img src="${img}/logo.PNG" class="img-responsive default-img"></a>
 		</div>
 		<div class="collapse navbar-collapse" id="mynavbar">
 			<ul class="nav navbar-nav navbar-left">
@@ -19,8 +22,8 @@
 				<li id="contact"><a href="${contextRoot}/contact">Contact
 						Us</a></li>
 				<security:authorize access="hasAuthority('ADMIN')">
-					<li id="manageProduct"><a href="${contextRoot}/manage/post">Manage
-							Product</a></li>
+					<li id="managePost"><a href="${contextRoot}/manage/post">Manage
+							Post</a></li>
 				</security:authorize >
 				
 				<security:authorize access="isAuthenticated()">
