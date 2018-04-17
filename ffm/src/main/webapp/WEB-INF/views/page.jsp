@@ -13,26 +13,46 @@
 <html>
 	<head>
 		<title>${title}</title>
-		<script>
-			window.menu = '${title}';
-			window.contextRoot = "${contextRoot}";
-			//window.imgRoot = "${img}";
-		</script>
+		
+		<meta charset="utf-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<meta content="" name="description" />
 		<meta content="" name="author" />
-		<!-- bootstrap core -->
-		<link rel="stylesheet" href="${css}/bootstrap.css">
+		<%-- <!-- bootstrap core -->
+		<link rel="stylesheet" href="${css}/bootstrap.css"> --%>
 		
-		<!-- bootstrap readable theme -->
-		 <link rel="stylesheet" href="${css}/bootstrap-readable-theme.css"> 
-		
+		<%-- <!-- bootstrap readable theme -->
+		 <link rel="stylesheet" href="${css}/bootstrap-readable-theme.css">  --%>
+		<!-- Bootstrap -->
+		<link  rel="stylesheet" href="${css}/bootstrap.min.css" />
 		<!-- datatable css -->
 		<link rel="stylesheet" href="${css}/dataTables.bootstrap.css">
 		<!-- default -->
 		<link rel="stylesheet" href="${css}/default.css">
+		
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+	
+		<!-- Owl Carousel -->
+		<link  rel="stylesheet" href="${css}/owl.carousel.css" />
+		<link  rel="stylesheet" href="${css}/owl.theme.default.css" />
+	
+		<!-- Magnific Popup -->
+		<link rel="stylesheet" href="${css}/magnific-popup.css" />
+	
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="${css}/font-awesome.min.css">
+	
+		<!-- Custom stlylesheet -->
+		<link  rel="stylesheet" href="${css}/style.css" />
+		
+		<script>
+			window.menu = '${title}';
+			window.contextRoot = "${contextRoot}";
+			//window.imgRoot = "${img}";
+		</script>
 	
 	</head>
 	
@@ -134,13 +154,20 @@
 			
 			<!-- angular js -->
 			<script type="text/javascript" src="${js}/angular.js"></script>
-			
+		<%-- 	
 			<!-- Default JavaScript -->
-			<script type="text/javascript" src="${js}/default.js"></script>
+			<script type="text/javascript" src="${js}/default.js"></script> --%>
 			
 			<!-- default Angular -->
-			<!-- angular js -->
 			<script type="text/javascript" src="${js}/ffmAngular.js"></script>
+			
+			<!-- jQuery Plugins -->
+			
+			<script type="text/javascript" src="${js}/owl.carousel.min.js"></script>
+			
+			<script type="text/javascript" src="${js}/jquery.magnific-popup.js"></script>
+			
+			<script type="text/javascript" src="${js}/main.js"></script>
 			
 			
 		</div>

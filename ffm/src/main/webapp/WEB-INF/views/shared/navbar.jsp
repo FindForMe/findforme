@@ -1,20 +1,38 @@
 <%@taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
-<nav class="navbar navbar-default navbar-fixed-top custom-navbar">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="pull-left navbar-toggle" data-toggle="slide-collapse"
-				data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-			<a class="navbar-brand" href="${contextRoot}/home">
-			<img src="${img}/logo.PNG" class="img-responsive default-img"></a>
+	
+<!-- Header -->
+	<header id="home">
+		<!-- Background Image -->
+		<div class="bg-img" style="background-image: url('${img}/background1.jpg');">
+			<div class="overlay"></div>
 		</div>
-		<div class="collapse navbar-collapse" id="mynavbar">
-			<ul class="nav navbar-nav navbar-left">
+		<!-- /Background Image -->
+
+<!-- Nav -->
+		<nav id="nav" class="navbar nav-transparent">
+			<div class="container">
+				<div class="navbar-header">
+				<!-- <button type="button" class="pull-left navbar-toggle" data-toggle="slide-collapse"
+					data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button> -->
+				<a class="navbar-brand" href="${contextRoot}/home">
+				<img src="${img}/logo.png" class="img-responsive default-img">
+				<img class="logo-alt" src="${img}/logo-alt.png" alt="logo">
+				</a>
+				
+				<!-- Collapse nav button -->
+						<div class="nav-collapse">
+							<span></span>
+						</div>
+				<!-- /Collapse nav button -->
+			</div>
+		<!-- <div class="collapse navbar-collapse" id="mynavbar"> -->
+			<ul class="main-nav nav navbar-nav navbar-right">
 				<li id="home"><a href="${contextRoot}/home">Home</a></li>
 				<li id="viewPost"><a href="${contextRoot}/show/all/post">View
 						Post</a></li>
@@ -32,10 +50,10 @@
 				
 				</security:authorize>
 				<li id="profileEdit"><a href="${contextRoot}/profile">Edit Profile</a></li>
-				
+			<!-- 	
 			</ul>
 
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="main-nav nav navbar-nav navbar-right"> -->
 				<security:authorize access="isAnonymous()">
 					<li id="login"><a href="${contextRoot}/login">Login</a></li>
 					<li id="signup"><a href="${contextRoot}/register">Sign Up</a></li>
@@ -65,7 +83,7 @@
 				</security:authorize>
 			</ul>
 		</div>
-	</div>
+	<!-- </div> -->
 </nav>
 
-
+	
