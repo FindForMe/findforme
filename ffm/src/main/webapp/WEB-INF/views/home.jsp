@@ -16,7 +16,7 @@
 				</div>
 				<div class="carousel-inner">
 					<div class="item active">
-						<img src="${img}/banner/1.jpeg" class="carousel-img" alt="banner1">
+						<%-- <img src="${img}/banner/1.jpeg" class="carousel-img" alt="banner1"> --%>
 						<div class="carousel-caption">
 							<div class="container row">
 								<div class="col-md-4 col-md-offset-2">
@@ -33,7 +33,7 @@
 						</div>
 					</div>
 					<div class="item">
-						<img src="${img}/banner/2.jpg" class="carousel-img" alt="banner1">
+						<%-- <img src="${img}/banner/2.jpg" class="carousel-img" alt="banner1"> --%>
 						<div class="carousel-caption">
 							<div class="container row">
 								<div class="col-md-4 col-md-offset-2">
@@ -50,7 +50,7 @@
 						</div>
 					</div>
 					<div class="item">
-						<img src="${img}/banner/3.jpg" class="carousel-img" alt="banner1">
+						<%-- <img src="${img}/banner/3.jpg" class="carousel-img" alt="banner1"> --%>
 						<div class="carousel-caption">
 							<div class="container row">
 								<div class="col-md-4 col-md-offset-2">

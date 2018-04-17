@@ -130,6 +130,8 @@
 			<!-- DataTable Bootstrap Script -->
 			<script src="${js}/bootbox.min.js"></script>
 			
+			<!-- Globalffm JavaScript -->
+			<script type="text/javascript" src="${js}/ffmGlobal.js"></script>
 			<!-- Default JavaScript -->
 			<script type="text/javascript" src="${js}/default.js"></script>
 			

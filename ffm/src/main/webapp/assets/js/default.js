@@ -90,7 +90,7 @@ $('document').ready(function(){
         	
         	console.log('jsonUrl : '+jsonUrl+'/n categoryId : '+window.categoryId);
         	
-        	ajaxSend(jsonUrl,{},'GET','postDataTable');
+        	ajaxSend(jsonUrl,null,'GET','postDataTable');
         	
         	$table.dataTable();
         }
