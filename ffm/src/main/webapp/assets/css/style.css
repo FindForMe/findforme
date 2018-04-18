@@ -50,6 +50,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     color: #868F9B;
+    overflow-y:auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -270,11 +271,11 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 #nav:not(.nav-transparent):not(.fixed-nav) .navbar-brand .logo-alt {
-	/* display: none; */
+	display: none;
 }
 
 #nav.nav-transparent:not(.fixed-nav) .navbar-brand .logo {
-	/* display: none; */
+	display: none;
 }
 
 #nav.fixed-nav .navbar-brand .logo-alt {
@@ -319,7 +320,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 #nav.nav-transparent {
-   /*  background: transparent; */
+    background: transparent;
 }
 
 
@@ -339,7 +340,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
         padding: 15px 0px;
     }
     #nav.nav-transparent:not(.fixed-nav) .main-nav>li>a {
-       /*  color: #fff; */
+        color: #fff;
     }
     .main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {
         background: transparent;
@@ -1332,7 +1333,10 @@ header {
 }
 
 /* -- category sidebar -- */
-
+.widget-category{
+	overflow:auto;
+	height:250px;
+}
 .widget-category a {
     display: block;
     font-size: 14px;
@@ -1755,4 +1759,12 @@ header {
 
 .none{
 	display:none;
+}
+
+/* .content{
+	padding-top:50px;
+} */
+
+.custom-panel{
+	padding:10px;
 }

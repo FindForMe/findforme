@@ -9,7 +9,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="ffmApp">
 
 <head>
 
@@ -24,9 +24,11 @@
 <!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap Readable Theme -->
-<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
-
+<%-- <!-- Bootstrap Readable Theme -->
+<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet"> 
+ --%>
+<!-- Custom stlylesheet -->
+<link  rel="stylesheet" href="${css}/style.css" />
 
 <!-- Custom CSS -->
 <link href="${css}/default.css" rel="stylesheet">
@@ -50,17 +52,19 @@
 	<div class="wrapper">
 
 		<!-- Navigation -->
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<%-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<a class="navbar-brand" href="${contextRoot}/home"><img src="${img}/logo.PNG" class="img-responsive default-img"></a>
+					<a class="navbar-brand" href="${contextRoot}/home">
+					<img src="${img}/logo.png" class="logo"></a>
 				</div>
-				<ul class="nav nabar-nav navbar-left">
+				<ul class="main-nav nav nabar-nav navbar-left">
 					<li><a href="${contextRoot}/home">Home</a></li>
 				</ul>
 			</div>
-		</nav>
+		</nav> --%>
+		<%@ include file="./shared/navbar.jsp"%> 
 
 		<!-- Page Content -->
 
@@ -83,7 +87,7 @@
 						</div>
 					</div>
 				</c:if>
-
+	
 				<div class="row">
 
 					<div class="col-md-offset-3 col-md-6">
@@ -94,7 +98,7 @@
 								<h4>Login</h4>
 							</div>
 
-							<div class="panel-body">
+							<div class="panel-body custom-panel">
 								<form action="${contextRoot}/login" method="POST"
 									class="form-horizontal" id="loginForm">
 									<div class="form-group">
@@ -143,6 +147,7 @@
 
 		<!-- Footer comes here -->
 		<%@include file="./shared/footer.jsp"%>
+		
 
 		<!-- jQuery -->
 		<script src="${js}/jquery.js"></script>
@@ -151,7 +156,21 @@
 
 		<!-- Bootstrap Core JavaScript -->
 		<script src="${js}/bootstrap.min.js"></script>
+		
+		<script type="text/javascript" src="${js}/jquery.magnific-popup.js"></script>
+		
+		<!-- angular js -->
+		<script type="text/javascript" src="${js}/angular.js"></script>
+	 	
+		<!-- Default JavaScript -->
+		<script type="text/javascript" src="${js}/default.js"></script> 
+		
+		<!-- default Angular -->
+		<script type="text/javascript" src="${js}/ffmAngular.js"></script>
+			
+			<script type="text/javascript" src="${js}/owl.carousel.min.js"></script>
 
+		 <script type="text/javascript" src="${js}/main.js"></script> 
 		<!-- Self coded javascript -->
 		<script src="${js}/default.js"></script>
 

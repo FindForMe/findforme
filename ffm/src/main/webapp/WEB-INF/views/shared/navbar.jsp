@@ -2,15 +2,15 @@
 	uri="http://www.springframework.org/security/tags"%>
 	
 <!-- Header -->
-	<header id="home">
+	<header id="{{headerId}}">
 		<!-- Background Image -->
-		 <div class="bg-img none" style="background-image: url('${img}/background1.jpg');">
+		 <div ng-show="homePage" class="bg-img" style="background-image: url('${img}/background1.jpg');">
 			<div class="overlay"></div>
 		</div> 
 		<!-- /Background Image -->
 
 <!-- Nav -->
-		<nav id="nav" class="navbar nav-transparent">
+		<nav id="nav" class="navbar " ng-class="navClass">
 			<div class="container">
 				<div class="navbar-header">
 				<!-- <button type="button" class="pull-left navbar-toggle" data-toggle="slide-collapse"
@@ -22,7 +22,7 @@
 	          </button> -->
 				<a class="navbar-brand" href="${contextRoot}/home">
 				<img src="${img}/logo.png" class="logo">
-				<%-- <img class="logo-alt" src="${img}/logo-alt.png" alt="logo"> --%>
+				 <img class="logo-alt" ng-show="homePage" src="${img}/logo-alt.png" alt="logo"> 
 				</a>
 				
 				<!-- Collapse nav button -->
@@ -33,22 +33,21 @@
 			</div>
 		<!-- <div class="collapse navbar-collapse" id="mynavbar"> -->
 			<ul class="main-nav nav navbar-nav navbar-right">
-				<li ><a href="${contextRoot}/home">Home</a></li>
-				<li ><a href="${contextRoot}/show/all/post">ViewPost</a></li>
-				<li ><a href="${contextRoot}/about">how it works</a></li>
-				<li ><a href="${contextRoot}/contact">Contact
-						Us</a></li>
+				<li id="homeLink"><a href="${contextRoot}/home">Home</a></li>
+				<li id="postLink"><a href="${contextRoot}/show/all/post">ViewPost</a></li>
+			<%-- 	<li id="aboutLink"><a href="${contextRoot}/about">how it works</a></li>
+				<li id="contactLink"><a href="${contextRoot}/contact">Contact Us</a></li> --%>
 				<security:authorize access="hasAuthority('ADMIN')">
-					<li id="managePost"><a href="${contextRoot}/manage/post">Manage
+					<li id="managePostLink"><a href="${contextRoot}/manage/post">Manage
 							Post</a></li>
 				</security:authorize >
 				
 				<security:authorize access="isAuthenticated()">
-				<li id="userProfile"><a href="${contextRoot}/show/${userModel.id}/user"/>Profile
+				<li id="userProfileLink"><a href="${contextRoot}/show/${userModel.id}/user"/>Profile
 							</a></li>
 				
 				</security:authorize>
-				<li id="profileEdit"><a href="${contextRoot}/profile">Edit Profile</a></li>
+				<li id="profileEditLink"><a href="${contextRoot}/profile">Edit Profile</a></li>
 			<!-- 	
 			</ul>
 
@@ -60,9 +59,9 @@
 				
 				<security:authorize access="isAuthenticated()">
 					<li class="has-dropdown" id="userModel">
-						<a class="btn btn-default dropdown-toggle" href="${contextRoot}/show/${userModel.id}/user"  
+						<a class="dropdown-toggle" href="${contextRoot}/show/${userModel.id}/user"  
 							id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="true"> ${userModel.fullName} <span class="caret"></span>
+							aria-expanded="true"> ${userModel.fullName} 
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 							<li id="userProfile"><a href="${contextRoot}/show/${userModel.id}/user"/>${userModel.fullName}
@@ -85,11 +84,11 @@
 	<!-- </div> -->
 </nav>
 <!-- home wrapper -->
-		<div class="home-wrapper none">
+		<!-- <div class="home-wrapper " ng-show="homePage">
 			<div class="container">
 				<div class="row">
 
-					<!-- home content -->
+					home content
 					<div class="col-md-10 col-md-offset-1">
 						<div class="home-content">
 							<h1 class="white-text">We Are Creative Agency</h1>
@@ -99,14 +98,14 @@
 							<button class="main-btn">Learn more</button>
 						</div>
 					</div>
-					<!-- /home content -->
+					/home content
 
 				</div>
 			</div>
-		</div>
-		<!-- /home wrapper -->
+		</div> -->
+<!-- /home wrapper -->
 
-	</header>
+<!-- 	</header> -->
 	<!-- /Header -->
 
 

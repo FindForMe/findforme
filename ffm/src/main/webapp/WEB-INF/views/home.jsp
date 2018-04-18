@@ -1,8 +1,6 @@
-<script>
-	$('.bg-img,.home-wrapper').show();
-</script>
+
 <!-- home wrapper -->
-		<div class="home-wrapper">
+		<div class="home-wrapper" ng-controller="homeCtrl">
 			<div class="container">
 				<div class="row">
 
@@ -22,8 +20,8 @@
 			</div>
 		</div>
 		<!-- /home wrapper -->
-
-	</header>
+ 
+	</header> 
 	<!-- /Header -->
 
 	<!-- About -->

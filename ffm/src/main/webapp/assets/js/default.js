@@ -1,27 +1,24 @@
 $('document').ready(function(){
+	
+	$('#preloader').hide();
+	
 	//solving active menu problem...
 	console.log('menu is '+menu);
 	switch(menu){
 	case 'About Us':
-		$('#about').addClass('active');
-		break;
-	case 'Hire Freelancer':
-		$('#hire').addClass('active');
-		break;
-	case 'Find Work':
-		$('#find').addClass('active');
+		$('#aboutLink').addClass('active');
 		break;
 	case 'Contact Us':
-		$('#contact').addClass('active');
+		$('#contactLink').addClass('active');
 		break;
 	case 'FindForMe':
-		$('#home').addClass('active');
+		$('#homeLink').addClass('active');
 		break;
 	case 'All Post':
-		$('#viewPost').addClass('active');
+		$('#postLink').addClass('active');
 		break;
 	case 'ManagePost' :
-		$('#managePost').addClass('active');
+		$('#managePostLink').addClass('active');
 		setDateToInput('expireDate');
 	}
 	
@@ -156,12 +153,12 @@ $('document').ready(function(){
     // }
 */     
        
-       $('[data-toggle="slide-collapse"]').on('click', function() {
+      /* $('[data-toggle="slide-collapse"]').on('click', function() {
     	    $navMenuCont = $($(this).data('target'));
     	    $navMenuCont.animate({'width':'toggle'}, 350);
     	    $('.navbar-toggle').toggleClass('pull-left');
     	    
-    	});    
+    	}); */   
       /* $('[data-toggle="collapse"]').on('click', function() {
    	    $navMenuCont = $($(this).data('target'));
    	    $navMenuCont.animate({'width':'toggle'}, 350);

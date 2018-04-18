@@ -3,9 +3,9 @@
 
 	///////////////////////////
 	// Preloader
-	$(window).on('load', function() {
-		$("#preloader").delay(600).fadeOut();
-	});
+	/*$(window).on('load', function() {
+		$("#preloader").fadeOut();
+	});*/
 
 	///////////////////////////
 	// Scrollspy
@@ -19,6 +19,7 @@
 	$("#nav .main-nav a[href^='#']").on('click', function(e) {
 		e.preventDefault();
 		var hash = this.hash;
+		console.log('smooth scrool # hash ',hash);
 		$('html, body').animate({
 			scrollTop: $(this.hash).offset().top
 		}, 600);
@@ -40,16 +41,17 @@
 	// Mobile dropdown
 	$('.has-dropdown a').on('click', function() {
 		$(this).parent().toggleClass('open-drop');
+		
 	});
 
 	///////////////////////////
 	// On Scroll
 	$(window).on('scroll', function() {
 		var wScroll = $(this).scrollTop();
-
+		//console.log('wScroll ',wScroll);
 		// Fixed nav
 		wScroll > 1 ? $('#nav').addClass('fixed-nav') : $('#nav').removeClass('fixed-nav');
-
+		//wScroll > 100 ? $('body').css('overflow-y)
 		// Back To Top Appear
 		wScroll > 700 ? $('#back-to-top').fadeIn() : $('#back-to-top').fadeOut();
 	});
@@ -90,4 +92,16 @@
 		}
 	});
 
+	/*$('.navbar-right').on('show.bs.collapse', function() {
+		console.log('collapse shown');
+		 $('#userModel').addClass('open open-drop');
+		 $('#userModel > .dropdown-toggle').hide();
+	});
+	$('.navbar-right').on('hidden.bs.collapse', function() { 
+		console.log('collapse hiden');
+
+		$('#userModel').removeClass('open open-drop');
+		$('#userModel > .dropdown-toggle').show();
+		
+	});*/
 })(jQuery);

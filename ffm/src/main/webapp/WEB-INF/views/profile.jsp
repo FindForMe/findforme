@@ -2,8 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 
-<%@include file="./shared/navbar.jsp" %>
-
 	<div class="container">
 	
 	<c:if test="${not empty message}">

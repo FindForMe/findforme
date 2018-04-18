@@ -10,8 +10,8 @@
 
 <!DOCTYPE html>
 
-<html>
-	<head>
+<html ng-app="ffmApp">
+	<head >
 		<title>${title}</title>
 		
 		<meta charset="utf-8">
@@ -22,11 +22,11 @@
 		<meta content="" name="author" />
 		<%-- <!-- bootstrap core -->
 		<link rel="stylesheet" href="${css}/bootstrap.css"> --%>
-		
-		<%-- <!-- bootstrap readable theme -->
-		 <link rel="stylesheet" href="${css}/bootstrap-readable-theme.css">  --%>
 		<!-- Bootstrap -->
 		<link  rel="stylesheet" href="${css}/bootstrap.min.css" />
+		<%-- <!-- bootstrap readable theme -->
+		 <link rel="stylesheet" href="${css}/bootstrap-readable-theme.css">  --%>
+		
 		<!-- datatable css -->
 		<link rel="stylesheet" href="${css}/dataTables.bootstrap.css">
 		 <!-- default -->
@@ -77,7 +77,7 @@
 			<%@ include file="./shared/navbar.jsp"%> 
 	
 			<!-- Page Contents -->
-			<div class="content" ng-app="pageApp">
+			<div class="content">
 				
 				<!-- Loading the home content -->
 				<c:if test="${userClickHome == true}" >
@@ -89,11 +89,7 @@
 					<%@include file="./about.jsp"%>
 				</c:if>
 				
-				<!-- Loading the Hire content -->
-				<c:if test="${userClickHire == true}" >
-					<%@include file="./hire.jsp"%>
-				</c:if>
-				
+			
 				<!-- Loading the find content -->
 				<c:if test="${userClickFind == true}" >
 					<%@include file="./find.jsp"%>
@@ -103,10 +99,7 @@
 				<c:if test="${userClickContact == true}" >
 					<%@include file="./contact.jsp"%>
 				</c:if>
-				<!-- Loading All Products -->
-				<c:if test="${userClickAllProducts == true}">
-					<%@include file="./listProducts.jsp" %>
-				</c:if>
+				
 				<!-- Loading Category Product -->
 				<c:if test="${userClickShowProduct == true}">
 					<%@include file="./singleProduct.jsp" %>
