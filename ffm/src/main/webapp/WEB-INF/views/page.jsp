@@ -29,8 +29,8 @@
 		<link  rel="stylesheet" href="${css}/bootstrap.min.css" />
 		<!-- datatable css -->
 		<link rel="stylesheet" href="${css}/dataTables.bootstrap.css">
-		<!-- default -->
-		<link rel="stylesheet" href="${css}/default.css">
+		 <!-- default -->
+		<link rel="stylesheet" href="${css}/default.css"> 
 		
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
@@ -47,6 +47,19 @@
 	
 		<!-- Custom stlylesheet -->
 		<link  rel="stylesheet" href="${css}/style.css" />
+		
+		<!-- jQuery -->
+		<script src="${js}/jquery.js"></script>
+		<script src="${js}/jquery.validate.js"></script>
+		<script type="text/javascript" src="${js}/jquery.magnific-popup.js"></script>
+		<script src="${js}/jquery.dataTables.js"></script> 
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="${js}/bootstrap.min.js"></script>
+		<!-- DataTable Bootstrap Script -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
+		<!-- DataTable Bootstrap Script -->
+		<script src="${js}/bootbox.min.js"></script>
 		
 		<script>
 			window.menu = '${title}';
@@ -132,31 +145,27 @@
 			<!-- Footer -->
 			<%@include file="./shared/footer.jsp"%>
 			
-			<!-- jQuery -->
+			<%-- <!-- jQuery -->
 			<script src="${js}/jquery.js"></script>
-	
 			<script src="${js}/jquery.validate.js"></script>
+			<script type="text/javascript" src="${js}/jquery.magnific-popup.js"></script>
+			<script src="${js}/jquery.dataTables.js"></script> 
 	
 			<!-- Bootstrap Core JavaScript -->
 			<script src="${js}/bootstrap.min.js"></script>
-			
-			<!-- DataTable Plugin -->
-			<script src="${js}/jquery.dataTables.js"></script>
-			
 			<!-- DataTable Bootstrap Script -->
 			<script src="${js}/dataTables.bootstrap.js"></script>
-			
 			<!-- DataTable Bootstrap Script -->
-			<script src="${js}/bootbox.min.js"></script>
+			<script src="${js}/bootbox.min.js"></script> --%>
 			
 			<!-- Globalffm JavaScript -->
 			<script type="text/javascript" src="${js}/ffmGlobal.js"></script>
 			
 			<!-- angular js -->
 			<script type="text/javascript" src="${js}/angular.js"></script>
-		<%-- 	
+		 	
 			<!-- Default JavaScript -->
-			<script type="text/javascript" src="${js}/default.js"></script> --%>
+			<script type="text/javascript" src="${js}/default.js"></script> 
 			
 			<!-- default Angular -->
 			<script type="text/javascript" src="${js}/ffmAngular.js"></script>
@@ -164,8 +173,6 @@
 			<!-- jQuery Plugins -->
 			
 			<script type="text/javascript" src="${js}/owl.carousel.min.js"></script>
-			
-			<script type="text/javascript" src="${js}/jquery.magnific-popup.js"></script>
 			
 			<script type="text/javascript" src="${js}/main.js"></script>
 			

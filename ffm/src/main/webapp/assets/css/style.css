@@ -270,11 +270,11 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 #nav:not(.nav-transparent):not(.fixed-nav) .navbar-brand .logo-alt {
-	display: none;
+	/* display: none; */
 }
 
 #nav.nav-transparent:not(.fixed-nav) .navbar-brand .logo {
-	display: none;
+	/* display: none; */
 }
 
 #nav.fixed-nav .navbar-brand .logo-alt {
@@ -319,7 +319,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 #nav.nav-transparent {
-    background: transparent;
+   /*  background: transparent; */
 }
 
 
@@ -339,7 +339,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
         padding: 15px 0px;
     }
     #nav.nav-transparent:not(.fixed-nav) .main-nav>li>a {
-        color: #fff;
+       /*  color: #fff; */
     }
     .main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {
         background: transparent;
@@ -1750,4 +1750,9 @@ header {
     -webkit-transform:scale(0);
             transform:scale(0);
   }
+}
+/*custom 20180418*/
+
+.none{
+	display:none;
 }

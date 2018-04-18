@@ -4,9 +4,9 @@
 <!-- Header -->
 	<header id="home">
 		<!-- Background Image -->
-		<div class="bg-img" style="background-image: url('${img}/background1.jpg');">
+		 <div class="bg-img none" style="background-image: url('${img}/background1.jpg');">
 			<div class="overlay"></div>
-		</div>
+		</div> 
 		<!-- /Background Image -->
 
 <!-- Nav -->
@@ -21,8 +21,8 @@
 	            <span class="icon-bar"></span>
 	          </button> -->
 				<a class="navbar-brand" href="${contextRoot}/home">
-				<img src="${img}/logo.png" class="img-responsive default-img">
-				<img class="logo-alt" src="${img}/logo-alt.png" alt="logo">
+				<img src="${img}/logo.png" class="logo">
+				<%-- <img class="logo-alt" src="${img}/logo-alt.png" alt="logo"> --%>
 				</a>
 				
 				<!-- Collapse nav button -->
@@ -33,11 +33,10 @@
 			</div>
 		<!-- <div class="collapse navbar-collapse" id="mynavbar"> -->
 			<ul class="main-nav nav navbar-nav navbar-right">
-				<li id="home"><a href="${contextRoot}/home">Home</a></li>
-				<li id="viewPost"><a href="${contextRoot}/show/all/post">View
-						Post</a></li>
-				<li id="about"><a href="${contextRoot}/about">how it works</a></li>
-				<li id="contact"><a href="${contextRoot}/contact">Contact
+				<li ><a href="${contextRoot}/home">Home</a></li>
+				<li ><a href="${contextRoot}/show/all/post">ViewPost</a></li>
+				<li ><a href="${contextRoot}/about">how it works</a></li>
+				<li ><a href="${contextRoot}/contact">Contact
 						Us</a></li>
 				<security:authorize access="hasAuthority('ADMIN')">
 					<li id="managePost"><a href="${contextRoot}/manage/post">Manage
@@ -55,12 +54,12 @@
 
 			<ul class="main-nav nav navbar-nav navbar-right"> -->
 				<security:authorize access="isAnonymous()">
-					<li id="login"><a href="${contextRoot}/login">Login</a></li>
-					<li id="signup"><a href="${contextRoot}/register">Sign Up</a></li>
+					<li ><a href="${contextRoot}/login">Login</a></li>
+					<li ><a href="${contextRoot}/register">Sign Up</a></li>
 				</security:authorize>
 				
 				<security:authorize access="isAuthenticated()">
-					<li class="dropdown" id="userModel">
+					<li class="has-dropdown" id="userModel">
 						<a class="btn btn-default dropdown-toggle" href="${contextRoot}/show/${userModel.id}/user"  
 							id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="true"> ${userModel.fullName} <span class="caret"></span>
@@ -85,5 +84,30 @@
 		</div>
 	<!-- </div> -->
 </nav>
+<!-- home wrapper -->
+		<div class="home-wrapper none">
+			<div class="container">
+				<div class="row">
+
+					<!-- home content -->
+					<div class="col-md-10 col-md-offset-1">
+						<div class="home-content">
+							<h1 class="white-text">We Are Creative Agency</h1>
+							<p class="white-text">Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere.
+							</p>
+							<button class="white-btn">Get Started!</button>
+							<button class="main-btn">Learn more</button>
+						</div>
+					</div>
+					<!-- /home content -->
+
+				</div>
+			</div>
+		</div>
+		<!-- /home wrapper -->
+
+	</header>
+	<!-- /Header -->
+
 
 	

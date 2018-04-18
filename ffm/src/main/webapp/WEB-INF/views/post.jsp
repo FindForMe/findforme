@@ -1,3 +1,6 @@
+
+
+
 <div class="container" ng-controller="postCtrl">
 	<div class="row">
 		<!-- sidebar -->

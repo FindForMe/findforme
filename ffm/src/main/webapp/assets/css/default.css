@@ -1,4 +1,4 @@
-.carousel-inner>.item>img{
+/* .carousel-inner>.item>img{
 	width:100%;
 	height:480px;
 }
@@ -30,8 +30,8 @@ body{
 }
 .page-header{
 	
-}
-.none{
+} */
+/* .none{
     display:none;
 }
 .wrapper{
@@ -57,15 +57,15 @@ body{
 	
 }
 .container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse{
-	/* margin-right: 0px !important;
-    margin-left: 0px !important; */
+	margin-right: 0px !important;
+    margin-left: 0px !important;
 } 
 .labelText{
 	padding-right:50px;
 }
 .glyphicon-remove{
 	color:red;
-}
+} */
 
 /* css for post */
 .post-container{
@@ -104,16 +104,16 @@ body{
 }
 
 /*navbar 20180417*/
-#mynavbar{
+/* #mynavbar{
    
     top: 0;
     left: 0;
     
-    width: 80%; /*example + never use min-width with this solution */
+    width: 80%; example + never use min-width with this solution
     height: 100%;
 }
 
-
+ */
 
 
 

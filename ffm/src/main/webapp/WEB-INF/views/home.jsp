@@ -1,3 +1,6 @@
+<script>
+	$('.bg-img,.home-wrapper').show();
+</script>
 <!-- home wrapper -->
 		<div class="home-wrapper">
 			<div class="container">
