@@ -1,5 +1,7 @@
 package com.ffm.util;
 
+import java.util.Random;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -84,5 +86,12 @@ public class ffmUtilMain {
 		}
 		return null;
 	}
+	public static int generateOTP() {
+		Random rand = new Random();
+		return Math.abs(rand.nextInt(9999));
+	}
 	
+	public static void main(String[] args) {
+		System.out.println(generateOTP());
+	}
 }
