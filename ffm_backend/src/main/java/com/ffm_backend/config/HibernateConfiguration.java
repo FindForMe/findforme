@@ -23,8 +23,8 @@ public class HibernateConfiguration {
 	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/ffm?autoReconnect=true&useSSL=false";
 	private static final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
 	private static final String DATABASE_DIALECT = "org.hibernate.dialect.MySQL5Dialect";
-	private static final String DATABASE_USERNAME = "root";//for server //root for local
-	private static final String DATABASE_PASSWORD = "abcd1234";
+	private static final String DATABASE_USERNAME = "root";//makdb for server //root for local
+	private static final String DATABASE_PASSWORD = "root";
 	
 	//dataSource bean will be available
 	@Bean("dataSource")
